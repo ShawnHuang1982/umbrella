@@ -5,32 +5,33 @@
 //  Created by  shawn on 15/12/2016.
 //  Copyright © 2016 shawn. All rights reserved.
 //
+// AutoLayout設定,ScrollView上:20,下:0,左:0,右:0 ; ContainView:水平spacing0,垂直置中,寬高800
 
 import UIKit
 
-class SearchStationViewController: UIViewController {
-
+class SearchStationViewController: UIViewController{
+  
+    @IBOutlet weak var viewForContainer: UIView!
     @IBOutlet weak var scrollVewMRTMap: UIScrollView!
     @IBOutlet weak var imageViewMRTMap: UIImageView!
-    var fullSize:CGSize!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //scrollVewMRTMap.delegate = self
-        
-        
-        
-        // Do any additional setup after loading the view.
+        //設定Delegate後,才能放大縮小
+        scrollVewMRTMap.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
- //       fullSize = scrollVewMRTMap.frame.size
+        
         print(imageViewMRTMap.frame)
         print(imageViewMRTMap.bounds)
-        scrollVewMRTMap.contentSize = CGSize(width: imageViewMRTMap.frame.width    , height: imageViewMRTMap.frame.height)
-//        scrollVewMRTMap.zoomScale = 2.0
-        scrollVewMRTMap.setZoomScale(3.0, animated: true)
+        //設定ScrollView
+        scrollVewMRTMap.contentSize = CGSize(width: imageViewMRTMap.frame.width  , height: imageViewMRTMap.frame.height)
+        //scrollVewMRTMap.minimumZoomScale = 0.5
+        scrollVewMRTMap.setZoomScale(1, animated: true)
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -44,6 +45,7 @@ class SearchStationViewController: UIViewController {
         print(sender.currentTitle)
     }
 
+
     /*
     // MARK: - Navigation
 
@@ -56,7 +58,7 @@ class SearchStationViewController: UIViewController {
 
 }
 
-extension ViewController:UIScrollViewDelegate{
+extension SearchStationViewController:UIScrollViewDelegate{
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         print(#function)
     }
@@ -64,4 +66,12 @@ extension ViewController:UIScrollViewDelegate{
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         print(#function)
     }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        print(#function)
+        //可以在ScorllView ZoominZoomOut
+        return viewForContainer
+    }
+
+    
 }
