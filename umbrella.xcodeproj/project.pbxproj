@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		049D8BFA1E0280AD00AD4BEA /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */; };
+		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
 		29F1817D1E02754200A3E409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817C1E02754200A3E409 /* ViewController.swift */; };
 		29F181801E02754200A3E409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F1817E1E02754200A3E409 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 
 /* Begin PBXFileReference section */
 		049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F1817A1E02754200A3E409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29F1817C1E02754200A3E409 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 				29F181831E02754200A3E409 /* LaunchScreen.storyboard */,
 				29F181861E02754200A3E409 /* Info.plist */,
 				049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */,
+				29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */,
 			);
 			path = umbrella;
 			sourceTree = "<group>";
@@ -141,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
+				29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */,
 				29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */,
 				049D8BFA1E0280AD00AD4BEA /* QRCodeScannerViewController.swift in Sources */,
 			);
