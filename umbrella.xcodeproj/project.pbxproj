@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		047536831E03E28A000F5E53 /* QRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047536821E03E28A000F5E53 /* QRCodeViewController.swift */; };
+		047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047536A41E055647000F5E53 /* SettingTableViewController.swift */; };
 		049D8BFA1E0280AD00AD4BEA /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */; };
 		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		047536821E03E28A000F5E53 /* QRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeViewController.swift; sourceTree = "<group>"; };
+		047536A41E055647000F5E53 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
 		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 				049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */,
 				29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */,
 				047536821E03E28A000F5E53 /* QRCodeViewController.swift */,
+				047536A41E055647000F5E53 /* SettingTableViewController.swift */,
 			);
 			path = umbrella;
 			sourceTree = "<group>";
@@ -105,7 +108,7 @@
 				TargetAttributes = {
 					29F181761E02754200A3E409 = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = V3JX27KRB4;
+						DevelopmentTeam = BX55R7ZR29;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -146,6 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
 				29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */,
 				29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */,
@@ -273,8 +277,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = V3JX27KRB4;
+				DEVELOPMENT_TEAM = BX55R7ZR29;
 				INFOPLIST_FILE = umbrella/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.appshawn.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -286,8 +291,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = V3JX27KRB4;
+				DEVELOPMENT_TEAM = BX55R7ZR29;
 				INFOPLIST_FILE = umbrella/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.appshawn.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
