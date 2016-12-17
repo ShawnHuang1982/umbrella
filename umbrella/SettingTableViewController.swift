@@ -28,7 +28,13 @@ class SettingTableViewController: UITableViewController {
         return headerView
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
+        
+        if section == 0{
+        return 0
+        }else{
+            return 20
+
+        }
     }
 
     override func didReceiveMemoryWarning() {
