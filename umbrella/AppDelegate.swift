@@ -12,11 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let statusColorLabel = UILabel()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //更改status bar的color
+            //須先在info.plist裡面 新增View controller-based status bar appearance 設定為YES
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        statusColorLabel.frame = CGRect(x: 0, y: 0, width: (self.window?.frame.size.width)!, height: 20)
+        statusColorLabel.backgroundColor = UIColor(red: 0.624, green: 0.839, blue: 0.870, alpha: 1)
+        self.window?.rootViewController?.view.addSubview(statusColorLabel)
+        
         return true
+        
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

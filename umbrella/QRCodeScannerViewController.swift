@@ -13,6 +13,7 @@ import AVFoundation
 class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     var sv:UIView? //給QRCode第二頁用的變數
 
+    @IBOutlet weak var imageForQRCodeScan: UIView!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
@@ -40,6 +41,9 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
             videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
             videoPreviewLayer?.frame = view.layer.bounds
+            //設定掃瞄QRCode的視窗
+            videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+            
             view.layer.addSublayer(videoPreviewLayer!)
             
             captureSession?.startRunning()
@@ -69,7 +73,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
         
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
-//            messageLabel.text = "No barcode/QR code is detected"
+            //messageLabel.text = "No barcode/QR code is detected"
             return
         }
         
@@ -84,7 +88,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             
             if metadataObj.stringValue != nil {
 //                messageLabel.text = metadataObj.stringValue
-                let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "SecondQRCodeViewController") as! SecondQRCodeViewController
+                let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
                 //        svc.view.frame = self.view.bounds
                 //      svc.delegate = metadataObj.stringValue
                 sv = sqrvc.view

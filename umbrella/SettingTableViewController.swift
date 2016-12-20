@@ -20,21 +20,22 @@ class SettingTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
-        headerView.backgroundColor = .lightGray
-        
-        return headerView
-    }
+//    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        
+//        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
+//        //設定header背景顏色
+//        //        headerView.backgroundColor = .lightGray
+//        headerView.backgroundColor = UIColor(red: 0.953, green: 0.957, blue: 0.961, alpha: 1)
+//        return headerView
+//    }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
-        if section == 0{
-        return 0
-        }else{
-            return 20
-
-        }
+//        if section == 0{
+//        return 0
+//        }else{
+//            return 20
+//        }
+        return 30
     }
 
     override func didReceiveMemoryWarning() {
