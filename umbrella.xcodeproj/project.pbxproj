@@ -19,6 +19,8 @@
 		29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */; };
 		29044D6D1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */; };
 		29044D6F1E0817B5002A82B0 /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */; };
+		29044D721E08C179002A82B0 /* CustomStaionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */; };
+		29044D731E08C179002A82B0 /* CustomStaionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */; };
 		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
 		29F1817D1E02754200A3E409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817C1E02754200A3E409 /* ViewController.swift */; };
@@ -40,6 +42,8 @@
 		29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFavoriteFooterTableViewCell.swift; sourceTree = "<group>"; };
 		29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFavoriteFooterTableViewCell.xib; sourceTree = "<group>"; };
 		29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
+		29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStaionListTableViewCell.swift; sourceTree = "<group>"; };
+		29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomStaionListTableViewCell.xib; sourceTree = "<group>"; };
 		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F1817A1E02754200A3E409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 				29044D631E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.xib */,
 				29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */,
 				29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */,
+				29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 		29044D601E07F9D7002A82B0 /* View_func */ = {
 			isa = PBXGroup;
 			children = (
+				29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */,
 				29044D621E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.swift */,
 				29044D661E08000D002A82B0 /* CustomFavoriteContentTableViewCell.swift */,
 				29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */,
@@ -209,6 +215,7 @@
 				29044D6D1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib in Resources */,
 				29044D651E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.xib in Resources */,
 				29F181801E02754200A3E409 /* Main.storyboard in Resources */,
+				29044D731E08C179002A82B0 /* CustomStaionListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +228,7 @@
 			files = (
 				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
+				29044D721E08C179002A82B0 /* CustomStaionListTableViewCell.swift in Sources */,
 				29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */,
 				29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */,
 				29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */,

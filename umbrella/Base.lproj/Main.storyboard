@@ -336,13 +336,86 @@
                     <view key="view" contentMode="scaleToFill" id="hDi-bV-Cdb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVM-0w-g3P">
+                                <rect key="frame" x="0.0" y="20" width="375" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="站 點 搜 尋" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiM-Om-vHv">
+                                        <rect key="frame" x="146" y="15" width="83" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.95272082089999999" green="0.95686525109999998" blue="0.96087664370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.53138709070000001" green="0.8081461191" blue="0.84273570779999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="CiM-Om-vHv" firstAttribute="centerX" secondItem="gVM-0w-g3P" secondAttribute="centerX" id="FuZ-3U-8ec"/>
+                                    <constraint firstItem="CiM-Om-vHv" firstAttribute="centerY" secondItem="gVM-0w-g3P" secondAttribute="centerY" id="h39-Ik-Pcx"/>
+                                    <constraint firstAttribute="height" constant="50" id="yqI-Md-amm"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NFL-nO-g7z">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.62437367440000002" green="0.8394511938" blue="0.86964076759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="4Iv-xS-ZFc"/>
+                                </constraints>
+                            </view>
+                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="b9Y-iY-PlR">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="btU-sY-9y5"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="barTintColor" red="0.53138709070000001" green="0.8081461191" blue="0.84273570779999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="owR-Ga-YsX">
+                                <rect key="frame" x="0.0" y="343" width="375" height="275"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="os6-nd-fw3">
+                                <rect key="frame" x="0.0" y="116" width="375" height="227"/>
+                                <color key="backgroundColor" red="0.99894136190000005" green="0.85476401769999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="227" id="i69-HE-czZ"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NFL-nO-g7z" firstAttribute="top" secondItem="hDi-bV-Cdb" secondAttribute="top" id="6eT-8A-aIF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="os6-nd-fw3" secondAttribute="trailingMargin" constant="-8" id="Dsl-FN-D5g"/>
+                            <constraint firstAttribute="trailing" secondItem="NFL-nO-g7z" secondAttribute="trailing" id="MPL-nW-sPd"/>
+                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="Nt1-nj-hqc"/>
+                            <constraint firstItem="os6-nd-fw3" firstAttribute="leadingMargin" secondItem="hDi-bV-Cdb" secondAttribute="leadingMargin" constant="-8" id="cDw-WR-3Fk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="owR-Ga-YsX" secondAttribute="trailing" constant="-16" id="eWy-XG-5Cf"/>
+                            <constraint firstItem="Oui-OI-LQa" firstAttribute="top" secondItem="owR-Ga-YsX" secondAttribute="bottom" id="fhI-li-HVa"/>
+                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="top" secondItem="gVM-0w-g3P" secondAttribute="bottom" constant="2" id="gVI-nH-8Ro"/>
+                            <constraint firstItem="owR-Ga-YsX" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leadingMargin" constant="-16" id="hOE-uD-s5p"/>
+                            <constraint firstItem="NFL-nO-g7z" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="i9e-og-DAZ"/>
+                            <constraint firstAttribute="trailing" secondItem="b9Y-iY-PlR" secondAttribute="trailing" id="kno-CM-tae"/>
+                            <constraint firstItem="os6-nd-fw3" firstAttribute="top" secondItem="b9Y-iY-PlR" secondAttribute="bottom" id="m8y-l5-Yfe"/>
+                            <constraint firstItem="gVM-0w-g3P" firstAttribute="top" secondItem="BJT-nU-ZMV" secondAttribute="bottom" id="p0A-Jc-FKT"/>
+                            <constraint firstAttribute="trailing" secondItem="gVM-0w-g3P" secondAttribute="trailing" id="pIi-g5-CiT"/>
+                            <constraint firstItem="owR-Ga-YsX" firstAttribute="top" secondItem="os6-nd-fw3" secondAttribute="bottom" id="rKc-KA-jGv"/>
+                            <constraint firstItem="gVM-0w-g3P" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="uiO-BQ-7O2"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="站點查詢" image="icon_station" id="QQV-Jj-W6C"/>
+                    <connections>
+                        <outlet property="mapView" destination="os6-nd-fw3" id="rYR-2W-hAt"/>
+                        <outlet property="tableViewStationList" destination="owR-Ga-YsX" id="uRg-xn-e8f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4b-7l-4I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-601.44927536231887" y="497.28260869565219"/>
+            <point key="canvasLocation" x="-602.39999999999998" y="497.00149925037488"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pyd-fw-oXB">
