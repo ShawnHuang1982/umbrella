@@ -89,6 +89,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             if metadataObj.stringValue != nil {
 //                messageLabel.text = metadataObj.stringValue
                 let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
+                
                 //        svc.view.frame = self.view.bounds
                 //      svc.delegate = metadataObj.stringValue
                 sv = sqrvc.view

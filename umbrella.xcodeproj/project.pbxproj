@@ -22,6 +22,9 @@
 		2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */; };
 		2936B2621E093D5C007DD810 /* QRCodeScanSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */; };
 		2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */; };
+		2936B2671E094AE0007DD810 /* StructStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2661E094AE0007DD810 /* StructStation.swift */; };
+		2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2681E09504B007DD810 /* CreditCardViewController.swift */; };
+		2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */; };
 		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
 		29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
@@ -48,6 +51,9 @@
 		2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnHistoryViewController.swift; sourceTree = "<group>"; };
 		2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanSuccessViewController.swift; sourceTree = "<group>"; };
 		2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanFailureViewController.swift; sourceTree = "<group>"; };
+		2936B2661E094AE0007DD810 /* StructStation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructStation.swift; sourceTree = "<group>"; };
+		2936B2681E09504B007DD810 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
+		2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationExtensionTableView.swift; sourceTree = "<group>"; };
 		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
 		29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginOutViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +116,6 @@
 				29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */,
 				29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */,
 				29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */,
-				29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -126,6 +131,8 @@
 				049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */,
 				2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */,
 				2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */,
+				2936B2681E09504B007DD810 /* CreditCardViewController.swift */,
+				29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -134,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				29044D561E07F684002A82B0 /* ViewExtension.swift */,
+				2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */,
 			);
 			name = ViewController_func;
 			sourceTree = "<group>";
@@ -147,6 +155,14 @@
 				29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */,
 			);
 			name = View_func;
+			sourceTree = "<group>";
+		};
+		2936B2651E094AB5007DD810 /* Struct */ = {
+			isa = PBXGroup;
+			children = (
+				2936B2661E094AE0007DD810 /* StructStation.swift */,
+			);
+			name = Struct;
 			sourceTree = "<group>";
 		};
 		29F1816E1E02754200A3E409 = {
@@ -170,6 +186,7 @@
 		29F181791E02754200A3E409 /* umbrella */ = {
 			isa = PBXGroup;
 			children = (
+				2936B2651E094AB5007DD810 /* Struct */,
 				29044D581E07F88D002A82B0 /* SupportFile */,
 				29044D591E07F8DB002A82B0 /* View */,
 				29044D601E07F9D7002A82B0 /* View_func */,
@@ -310,8 +327,11 @@
 				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
 				29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
+				2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */,
 				2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */,
 				2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */,
+				2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */,
+				2936B2671E094AE0007DD810 /* StructStation.swift in Sources */,
 				29044D721E08C179002A82B0 /* CustomStaionListTableViewCell.swift in Sources */,
 				29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */,
 				29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */,

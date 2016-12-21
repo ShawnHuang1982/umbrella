@@ -8,13 +8,49 @@
 
 import UIKit
 
-class CustomFavortieHeaderTableViewCell: UITableViewCell {
+protocol editMyFavoriteStationDelegate {
+    func editMyFavoriteStation()
+    func cancelActionMyFavortieStation()
+    func didFinishMyFavortieStation()
+}
 
-    @IBAction func buttonEditFavoriteStation(_ sender: UIButton) {
-    }
+
+class CustomFavortieHeaderTableViewCell: UITableViewCell {
+    var delegate:editMyFavoriteStationDelegate?
     
+ 
+    @IBOutlet weak var btnEdit: UIButton!
+    @IBOutlet weak var btnCancel: UIButton!
+    @IBOutlet weak var btnDidFinish: UIButton!
     @IBOutlet weak var viewInCell: UIView!
     @IBOutlet weak var labelFavoriteStation: UILabel!
+    
+    @IBAction func buttonCancel(_ sender: Any) {
+        print("upup")
+        delegate?.cancelActionMyFavortieStation()
+        btnEdit.isHidden = false
+        btnCancel.isHidden = true
+        btnDidFinish.isHidden = true
+
+    }
+    @IBAction func buttonDidFinish(_ sender: Any) {
+         print("gogogo")
+        delegate?.didFinishMyFavortieStation()
+        btnEdit.isHidden = false
+        btnCancel.isHidden = true
+        btnDidFinish.isHidden = true
+    }
+
+    
+    
+    
+    @IBAction func buttonEditFavoriteStation(_ sender: UIButton) {
+        print("yaya")
+        delegate?.editMyFavoriteStation()
+        btnEdit.isHidden = true
+        btnCancel.isHidden = false
+        btnDidFinish.isHidden = false
+    }
     
     
     override func awakeFromNib() {

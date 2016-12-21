@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteStationViewController: UIViewController {
+class FavoriteStationViewController: UIViewController,editMyFavoriteStationDelegate {
     @IBOutlet weak var favoriteStationTableView: UITableView!
     var routeName = ["中和新蘆線","淡水信義線","松山新店線","文湖線","板南線"]
     var routeOrangeStationName = ["OR01","OR02","OR03","OR04"]
@@ -72,6 +72,18 @@ extension FavoriteStationViewController:UITableViewDataSource{
         }
     }
     
+    func editMyFavoriteStation() {
+        print("zzzz")
+    }
+    
+    func didFinishMyFavortieStation() {
+        print("2222")
+    }
+    
+    func cancelActionMyFavortieStation() {
+        print("3333")
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //一般tableView設定Cell有一個
         //let cell1 = tableView.dequeueReusableCell(withIdentifier: "Cell1") as?CustomFavortieHeaderTableViewCell
@@ -80,6 +92,10 @@ extension FavoriteStationViewController:UITableViewDataSource{
         let cell1 = Bundle.main.loadNibNamed("CustomFavortieHeaderTableViewCell", owner: self, options: nil)?.first as! CustomFavortieHeaderTableViewCell
         let cell2 = Bundle.main.loadNibNamed("CustomFavoriteContentTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteContentTableViewCell
          let cell3 = Bundle.main.loadNibNamed("CustomFavoriteFooterTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteFooterTableViewCell
+        
+        //------------------------------------------------
+        cell1.delegate = self
+        
         //----------------------------------------------cell1
         if (indexPath.section == 0) && (indexPath.row == 0){
             cell1.viewInCell.backgroundColor = mrtOrangeColor

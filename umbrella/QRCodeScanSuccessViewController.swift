@@ -10,6 +10,8 @@ import UIKit
 
 class QRCodeScanSuccessViewController: UIViewController {
 
+    var valueQRCode = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

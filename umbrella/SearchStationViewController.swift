@@ -17,6 +17,7 @@ class SearchStationViewController: UIViewController{
     var testArray2 = ["4號出口地面出口處","1號出口方向驗票閘門處"]
     var testArray3 = ["5","15","10","10"]
     var testArray4 = ["100公尺","123公尺"]
+     var data1 = [[String:String]]()
     
 //    @IBOutlet weak var viewForContainer: UIView!
 //    @IBOutlet weak var scrollVewMRTMap: UIScrollView!
@@ -73,6 +74,36 @@ class SearchStationViewController: UIViewController{
     }
     */
 
+    func requestData(){
+        let urlString = "https://sheetsu.com/apis/v1.0/301105b950f0"
+        let url = URL(string: urlString)
+        let urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
+        print(urlRequest)
+        let task = URLSession.shared.dataTask(with: urlRequest) {
+            (data , responese , error )  in
+            if error == nil {
+                let res = responese as! HTTPURLResponse
+                print("status:",res.statusCode)
+                if let data = data {
+                    do{
+                        let str = String(data: data, encoding: .utf8)
+                        print(str)
+                        print(data)
+                        try self.data1 = JSONSerialization.jsonObject(with: data) as! [[String : String]]
+                        print(self.data1)
+                        DispatchQueue.main.async {
+                            self.tableViewStationList.reloadData()
+                        }
+                    }catch{
+                        print(error)
+                    }
+                }
+            }
+        }
+        task.resume()
+        }
+
+// last
 }
 
 //extension SearchStationViewController:UIScrollViewDelegate{
@@ -93,29 +124,4 @@ class SearchStationViewController: UIViewController{
     
 //}
 
-extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray1.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = Bundle.main.loadNibNamed("CustomStaionListTableViewCell", owner: self, options: nil)?.first as! CustomStaionListTableViewCell
-        print("cell----->",cell)
-        cell.labelRouteName.text = testArray1[indexPath.row]
-        cell.labelRouteExitName.text = testArray2[indexPath.row]
-        cell.labelNUBleftNumber.text = testArray3[indexPath.row]
-        cell.labelNUBCanMove.text  = testArray3[indexPath.row + 1]
-        cell.labelLocationNearDistance.text = testArray4[indexPath.row]
-        
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 115
-    }
-    
-}
+
