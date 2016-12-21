@@ -12,6 +12,10 @@ class QRCodeScanSuccessViewController: UIViewController {
 
     var valueQRCode = ""
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

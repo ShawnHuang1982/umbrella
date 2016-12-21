@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="499"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-KO-3cJ">
-                                <rect key="frame" x="44.5" y="181.5" width="231" height="205"/>
+                                <rect key="frame" x="45" y="178.5" width="231" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -36,7 +36,7 @@
                             <constraint firstItem="blC-gb-BnV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Crj-9e-cDi"/>
                             <constraint firstItem="klZ-KO-3cJ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EfS-bN-uCb"/>
                             <constraint firstAttribute="trailingMargin" secondItem="blC-gb-BnV" secondAttribute="trailing" constant="-16" id="Keb-Gx-os8"/>
-                            <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="blC-gb-BnV" secondAttribute="height" multiplier="205/499" id="UkM-LP-dWG"/>
+                            <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="blC-gb-BnV" secondAttribute="height" multiplier="211/499" id="UkM-LP-dWG"/>
                             <constraint firstItem="klZ-KO-3cJ" firstAttribute="width" secondItem="blC-gb-BnV" secondAttribute="width" multiplier="231/320" id="crn-sG-sMD"/>
                             <constraint firstItem="klZ-KO-3cJ" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="muY-kO-uxy"/>
                             <constraint firstItem="blC-gb-BnV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="vhP-cd-Wwo"/>
@@ -73,7 +73,7 @@
         <!--Code Scan Success View Controller-->
         <scene sceneID="QAy-fE-tfn">
             <objects>
-                <viewController storyboardIdentifier="SecondQRCodeSuccessViewController" id="zaP-dT-e4q" customClass="QRCodeScanSuccessViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRCodeScanSuccessViewController" id="zaP-dT-e4q" customClass="QRCodeScanSuccessViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lQr-tm-72w"/>
                         <viewControllerLayoutGuide type="bottom" id="kDp-3N-23i"/>
@@ -751,7 +751,7 @@
         <!--Code Scan Failure View Controller-->
         <scene sceneID="sQm-el-RDv">
             <objects>
-                <viewController storyboardIdentifier="SecondQRCodeFailureViewController" id="BdD-oA-U1H" customClass="QRCodeScanFailureViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="QRCodeScanFailureViewController" id="BdD-oA-U1H" customClass="QRCodeScanFailureViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dsk-Ki-GFC"/>
                         <viewControllerLayoutGuide type="bottom" id="hIP-CK-phl"/>
