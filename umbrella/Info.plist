@@ -43,5 +43,7 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>掃描QRCode,需要使用相機,請同意使用相機</string>
 </dict>
 </plist>

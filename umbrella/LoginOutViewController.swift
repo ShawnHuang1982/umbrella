@@ -10,6 +10,7 @@ import UIKit
 
 class LoginOutViewController: UIViewController {
 
+    @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var labelPassword: UILabel!
     @IBOutlet weak var labelUserName: UILabel!
@@ -18,9 +19,14 @@ class LoginOutViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var labelForUserNameDidLogin: UILabel!
-    
+
     var isLoginStatus = "logout"
 
+    var loginJson = [String:Any]()
+    var loginStatus = ""
+    var loginAuthToken = ""
+    var loginUserID = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("isLoginStatus",isLoginStatus)
@@ -40,9 +46,10 @@ class LoginOutViewController: UIViewController {
         let tempClean1 = (textfieldUserName.text)?.replacingOccurrences(of: " ", with: "")
         let tempClean2 = textfieldUserPassword.text?.replacingOccurrences(of: " ", with: "")
         if (tempClean1 != nil) && (tempClean2 != nil)&&(tempClean1 != "") && (tempClean2 != ""){
-            showLogoutUI()
+            login()
+            //let result = login()
+            //print("回傳結果:",result)
         }
-        
     }
     
     @IBAction func buttonLogout(_ sender: Any) {
@@ -50,6 +57,7 @@ class LoginOutViewController: UIViewController {
     }
     
     func showLoginUI(){
+         labelErrorMessage.isHidden = true
         labelPassword.isHidden = false
         labelUserName.isHidden = false
         textfieldUserPassword.isHidden = false
@@ -62,6 +70,7 @@ class LoginOutViewController: UIViewController {
     }
     
     func showLogoutUI(){
+         labelErrorMessage.isHidden = true
         labelPassword.isHidden = true
         labelUserName.isHidden = true
         textfieldUserPassword.isHidden = true
@@ -73,27 +82,54 @@ class LoginOutViewController: UIViewController {
         label1.isHidden = false
     }
     
-    func login(){
-        let url = URL(string: "https://sheetsu.com/apis/v1.0/301105b950f0")
+    func login() {//-> [String:Any] {
+        let url = URL(string: "http://139.162.76.87/api/v1/login")
         var request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        let loginDataDictionary = ["user": textfieldUserName.text!, "password":textfieldUserPassword.text!]
+        print()
+        let loginDataDictionary = ["email": textfieldUserName.text!, "password":textfieldUserPassword.text!]
         do {
             print("loginDataDictionary \(loginDataDictionary)")
             let data = try  JSONSerialization.data(withJSONObject: loginDataDictionary, options: [])
             let task = URLSession.shared.uploadTask(with: request, from: data) { (data, res, err) in
                     let str = String(data: data!, encoding: .utf8)
                     print("result \(str)")
-                DispatchQueue.main.async {
-                    _ = self.navigationController?.popViewController(animated: true )
+                do{
+                    try? self.loginJson = JSONSerialization.jsonObject(with: data!) as! [String : Any]
+                    print("json資料包",self.loginJson)
+                   let a =  (self.loginJson["message"])!   ?? ""
+                  let c = self.loginJson["user_id"]  ?? ""
+                    print("a=",a)
+                    print("c=",c)
+                    if "\(a)" == "Ok" {
+                        print("登入成功")
+                        DispatchQueue.main.async {
+                            self.labelForUserNameDidLogin.text = "歡迎\((loginDataDictionary["email"])!)"
+                            self.showLogoutUI()
+                            self.textfieldUserName.text = ""
+                            self.textfieldUserPassword.text = ""
+                            //     _ = self.navigationController?.popViewController(animated: true )
+                            //                    return self.loginJson
+                        }
+                    }else{
+                        DispatchQueue.main.async {
+                            self.labelErrorMessage.isHidden = false
+                        }
+                    }
+                    
+
+                }catch{
+                    print(err)
                 }
+             
             }
             task.resume()
         }
         catch {
             print(error)
         }
+//        return ["":""]
     }
     
     /*

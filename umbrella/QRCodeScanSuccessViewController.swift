@@ -8,16 +8,37 @@
 
 import UIKit
 
-class QRCodeScanSuccessViewController: UIViewController {
+protocol SuccessBackDelegate {
+    func closeSuccessPage()
+}
 
+class QRCodeScanSuccessViewController: UIViewController {
+    var delegate:SuccessBackDelegate?
     var valueQRCode = ""
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        navigationController?.popViewController(animated: true)
+    @IBAction func buttonForClean(_ sender: Any) {
+        self.willMove(toParentViewController: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParentViewController()
+        delegate?.closeSuccessPage()
     }
+//    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        print("touches")
+//        print(self)
+//        print(self.parent)
+//        //delegate?.closeSuccessPage()
+////        self.willMove(toParentViewController: nil)
+//        
+////        DispatchQueue.main.async {
+////            self.view.removeFromSuperview()
+////            self.removeFromParentViewController()
+//    //    }
+//    
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

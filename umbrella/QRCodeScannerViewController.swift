@@ -12,7 +12,9 @@ import AVFoundation
 
 class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjectsDelegate {
     var sv:UIView? //給QRCode第二頁用的變數
-
+    var sqrvc:QRCodeScanSuccessViewController?
+    
+    
     @IBOutlet weak var imageForQRCodeScan: UIView!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
@@ -70,7 +72,6 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
         super.didReceiveMemoryWarning()
     }
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
-        
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
             //messageLabel.text = "No barcode/QR code is detected"
@@ -86,22 +87,29 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
             qrCodeFrameView?.frame = barCodeObject!.bounds
             
-            if metadataObj.stringValue != nil {
+            if (metadataObj.stringValue != nil) && (sqrvc == nil){
+                print("uuuuuuuuuuu------")
 //                messageLabel.text = metadataObj.stringValue
-                let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
-                
+               // let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
+                sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
+                sqrvc?.delegate = self
                 //        svc.view.frame = self.view.bounds
                 //      svc.delegate = metadataObj.stringValue
-                sv = sqrvc.view
+                sv = sqrvc?.view
                 self.view.addSubview(sv!)
-                self.addChildViewController(sqrvc)
-                sqrvc.didMove(toParentViewController: self)
-                
+                self.addChildViewController(sqrvc!)
+                sqrvc?.didMove(toParentViewController: self)
             }
         }
     }
 }
 
+extension QRCodeScannerViewController:SuccessBackDelegate{
+    func closeSuccessPage() {
+        sqrvc = nil
+        print("yyyyyy")
+    }
+}
     
 
     /*
