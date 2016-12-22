@@ -20,7 +20,9 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
     let supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
-
+    var isRent = true
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,13 +42,6 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             
             captureMetadataOutput.metadataObjectTypes = supportedBarCodes
             
-            videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-            videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-            videoPreviewLayer?.frame = view.layer.bounds
-            //設定掃瞄QRCode的視窗
-            videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
-            
-            view.layer.addSublayer(videoPreviewLayer!)
             
             captureSession?.startRunning()
             
@@ -68,9 +63,30 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
         }
         
     }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        if isRent {
+        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+        print(videoPreviewLayer?.frame)
+        print(view.layer.bounds)
+        //            videoPreviewLayer?.frame = view.layer.bounds
+        //設定掃瞄QRCode的視窗
+        //imageForQRCodeScan.translatesAutoresizingMaskIntoConstraints = true
+        videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+        print("1.------>",imageForQRCodeScan)
+        view.layer.addSublayer(videoPreviewLayer!)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    
+    
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         if metadataObjects == nil || metadataObjects.count == 0 {
             qrCodeFrameView?.frame = CGRect.zero
@@ -93,10 +109,13 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                // let sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
                 sqrvc = self.storyboard?.instantiateViewController(withIdentifier: "QRCodeScanSuccessViewController") as! QRCodeScanSuccessViewController
                 sqrvc?.delegate = self
+                print("2.------>",imageForQRCodeScan)
                 //        svc.view.frame = self.view.bounds
                 //      svc.delegate = metadataObj.stringValue
                 sv = sqrvc?.view
                 self.view.addSubview(sv!)
+//                self.view.insertSubview(sv!, at: 0)
+                isRent = false
                 self.addChildViewController(sqrvc!)
                 sqrvc?.didMove(toParentViewController: self)
             }
@@ -106,6 +125,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
 
 extension QRCodeScannerViewController:SuccessBackDelegate{
     func closeSuccessPage() {
+//        self.videoPreviewLayer?.removeFromSuperlayer()
         sqrvc = nil
         print("yyyyyy")
     }

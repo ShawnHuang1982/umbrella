@@ -13,17 +13,35 @@ protocol SuccessBackDelegate {
 }
 
 class QRCodeScanSuccessViewController: UIViewController {
+    @IBOutlet weak var rentView: UIImageView!
     var delegate:SuccessBackDelegate?
     var valueQRCode = ""
-    @IBAction func buttonForClean(_ sender: Any) {
+    var changingView = "SuccessView"
+    var myTimer:Timer?
+    
+    func cleanView() {
         self.willMove(toParentViewController: nil)
         self.view.removeFromSuperview()
         self.removeFromParentViewController()
         delegate?.closeSuccessPage()
     }
+    
+    func makeRentView(){
+        print("增加view")
+        changingView = "RentView"
+        rentView.isHidden = false
+    }
+    
+    
 //    
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        print("touches")
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        if changingView == "RentView" {
+            //之後要加判斷,去後台確認是否可以在租借新的傘
+            cleanView()
+        }
+        
+        print("touches")
 //        print(self)
 //        print(self.parent)
 //        //delegate?.closeSuccessPage()
@@ -34,11 +52,15 @@ class QRCodeScanSuccessViewController: UIViewController {
 ////            self.removeFromParentViewController()
 //    //    }
 //    
-//    }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        rentView.isHidden = true
+        if changingView == "SuccessView"{
+            myTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(QRCodeScanSuccessViewController.makeRentView), userInfo: nil, repeats: false)
+            print("myTimer",myTimer)
+        }
 
         // Do any additional setup after loading the view.
     }
