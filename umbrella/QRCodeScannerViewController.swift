@@ -45,6 +45,8 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 print("已經存在")
           //  print(currentViewController)
            // currentViewController?.performSegue(withIdentifier: "gotoLoginPage", sender: nil)
+            self.tabBarController?.selectedIndex = 4
+            print(currentViewController)
             currentViewController?.navigationController?.pushViewController(loginViewController!, animated: true)
             //self.navigationController?.pushViewController(loginViewController, animated: true)//不行
             }

@@ -45,5 +45,10 @@
 	<true/>
 	<key>NSCameraUsageDescription</key>
 	<string>掃描QRCode,需要使用相機,請同意使用相機</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
