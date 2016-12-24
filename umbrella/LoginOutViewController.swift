@@ -21,15 +21,33 @@ class LoginOutViewController: UIViewController {
     @IBOutlet weak var labelForUserNameDidLogin: UILabel!
 
     var isLoginStatus = "logout"
+    var whoSend = ""
 
     var loginJson = [String:Any]()
     var loginStatus = ""
     var loginAuthToken = ""
     var loginUserID = ""
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("自己是",self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("isLoginStatus",isLoginStatus)
+        print("token-->>",appDelegate.jsonBackToken)
+        print("UserID-->>",appDelegate.jsonBackUserID)
+        print(appDelegate)
+        
+        if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
+            labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
+            isLoginStatus = "Login"
+        }
         if  isLoginStatus == "Login"{
             showLogoutUI()
         }else{
@@ -57,7 +75,10 @@ class LoginOutViewController: UIViewController {
     }
     
     func showLoginUI(){
-         labelErrorMessage.isHidden = true
+        appDelegate.jsonBackUserID = ""
+        appDelegate.jsonBackToken = ""
+        appDelegate.userNameDidLogin = ""
+        labelErrorMessage.isHidden = true
         labelPassword.isHidden = false
         labelUserName.isHidden = false
         textfieldUserPassword.isHidden = false
@@ -67,6 +88,7 @@ class LoginOutViewController: UIViewController {
         labelForUserNameDidLogin.isHidden = true
         isLoginStatus = "logout"
         label1.isHidden = true
+        
     }
     
     func showLogoutUI(){
@@ -87,21 +109,26 @@ class LoginOutViewController: UIViewController {
         var request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "POST"
-        print()
         let loginDataDictionary = ["email": textfieldUserName.text!, "password":textfieldUserPassword.text!]
         do {
             print("loginDataDictionary \(loginDataDictionary)")
             let data = try  JSONSerialization.data(withJSONObject: loginDataDictionary, options: [])
             let task = URLSession.shared.uploadTask(with: request, from: data) { (data, res, err) in
-                    let str = String(data: data!, encoding: .utf8)
+                //防止沒網路會crsh
+                if err == nil{
+                let str = String(data: data!, encoding: .utf8)
                     print("result \(str)")
                 do{
                     try? self.loginJson = JSONSerialization.jsonObject(with: data!) as! [String : Any]
                     print("json資料包",self.loginJson)
-                   let a =  (self.loginJson["message"])!   ?? ""
-                  let c = self.loginJson["user_id"]  ?? ""
+                    let a =  "\((self.loginJson["message"])!)" ?? ""
+                    if a == "Ok" {
+                    self.appDelegate.jsonBackToken = "\(self.loginJson["auth_token"]!)"  ?? ""
+                   self.appDelegate.jsonBackUserID = "\(self.loginJson["user_id"]!)"  ?? ""
+                 self.appDelegate.userNameDidLogin = self.textfieldUserName.text! ?? ""
                     print("a=",a)
-                    print("c=",c)
+                    print("b=",self.appDelegate.jsonBackToken)
+                    print("c=",self.appDelegate.jsonBackUserID)
                     if "\(a)" == "Ok" {
                         print("登入成功")
                         DispatchQueue.main.async {
@@ -109,20 +136,29 @@ class LoginOutViewController: UIViewController {
                             self.showLogoutUI()
                             self.textfieldUserName.text = ""
                             self.textfieldUserPassword.text = ""
-                            //     _ = self.navigationController?.popViewController(animated: true )
-                            //                    return self.loginJson
+                            if self.whoSend == "QRCodePage"{
+                                print("切換回去")
+                                self.whoSend = "" //清空
+                            self.navigationController?.popViewController(animated: true)
+                            self.tabBarController?.selectedIndex = 2
+                            //self.dismiss(animated: true, completion: nil) //ok
+                                //                    return self.loginJson
+                                }
+                            }
                         }
                     }else{
                         DispatchQueue.main.async {
+                            //登入失敗,顯示輸入錯誤的label
                             self.labelErrorMessage.isHidden = false
                         }
                     }
-                    
-
                 }catch{
                     print(err)
                 }
-             
+                }else{
+                  print(err)
+                }
+                
             }
             task.resume()
         }

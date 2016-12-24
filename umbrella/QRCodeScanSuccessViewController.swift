@@ -27,7 +27,7 @@ class QRCodeScanSuccessViewController: UIViewController {
     }
     
     func makeRentView(){
-        print("增加view")
+        print("增加RentView")
         changingView = "RentView"
         rentView.isHidden = false
     }
@@ -58,6 +58,7 @@ class QRCodeScanSuccessViewController: UIViewController {
         super.viewDidLoad()
         rentView.isHidden = true
         if changingView == "SuccessView"{
+            print("增加SuccessView")
             myTimer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(QRCodeScanSuccessViewController.makeRentView), userInfo: nil, repeats: false)
             print("myTimer",myTimer)
         }
