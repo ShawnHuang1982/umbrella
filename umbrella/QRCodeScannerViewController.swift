@@ -30,7 +30,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     //tabbar切換一定要在viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         print("ViewDidAppear")
-        
+        //第一次載入
         if (appDelegate.jsonBackToken == "") || (appDelegate.jsonBackUserID == ""){
             print("跳入其他頁面")
            if loginViewController == nil {
@@ -51,9 +51,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
             //self.navigationController?.pushViewController(loginViewController, animated: true)//不行
             }
         }else{
-            
             let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-            
             do {
                 if isRent{
                 // Get an instance of the AVCaptureDeviceInput class using the previous device object.
@@ -89,6 +87,27 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 return
             }
         }
+        
+        if (appDelegate.jsonBackToken != "") || (appDelegate.jsonBackUserID != ""){
+            if isRent {
+                //可以租借
+                qrCodeFrameView = UIView()
+                qrCodeFrameView?.frame = CGRect(x:imageForQRCodeScan.frame.origin.x , y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+                //qrCodeFrameView?.frame.origin.x = imageForQRCodeScan.frame.origin.x
+                //qrCodeFrameView?.frame.origin.y = imageForQRCodeScan.frame.origin.y
+                print("viewWillLayoutSubviews")
+                
+                videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+                videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+                print(videoPreviewLayer?.frame)
+                print(view.layer.bounds)
+                //            videoPreviewLayer?.frame = view.layer.bounds
+                //設定掃瞄QRCode的視窗
+                videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+                print("1.------>",imageForQRCodeScan)
+                view.layer.addSublayer(videoPreviewLayer!)
+            }
+        }
 
     }
     
@@ -99,25 +118,28 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     //Steven協助
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        if (appDelegate.jsonBackToken != "") || (appDelegate.jsonBackUserID ~= ""){
-         if isRent {
-        qrCodeFrameView = UIView()
-        //qrCodeFrameView?.frame = CGRect(x:imageForQRCodeScan.frame.origin.x , y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
-        qrCodeFrameView?.frame.origin.x = imageForQRCodeScan.frame.origin.x
-        qrCodeFrameView?.frame.origin.y = imageForQRCodeScan.frame.origin.y
-        print("viewWillLayoutSubviews")
-       
-        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-        print(videoPreviewLayer?.frame)
-        print(view.layer.bounds)
-        //            videoPreviewLayer?.frame = view.layer.bounds
-        //設定掃瞄QRCode的視窗
-        videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
-        print("1.------>",imageForQRCodeScan)
-        view.layer.addSublayer(videoPreviewLayer!)
-            }
-        }
+        print(appDelegate.jsonBackToken)
+        print(appDelegate.jsonBackUserID)
+//        if (appDelegate.jsonBackToken != "") || (appDelegate.jsonBackUserID != ""){
+//         if isRent {
+//            //可以租借
+//        qrCodeFrameView = UIView()
+//        qrCodeFrameView?.frame = CGRect(x:imageForQRCodeScan.frame.origin.x , y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+//        //qrCodeFrameView?.frame.origin.x = imageForQRCodeScan.frame.origin.x
+//        //qrCodeFrameView?.frame.origin.y = imageForQRCodeScan.frame.origin.y
+//        print("viewWillLayoutSubviews")
+//       
+//        videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
+//        videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
+//        print(videoPreviewLayer?.frame)
+//        print(view.layer.bounds)
+//        //            videoPreviewLayer?.frame = view.layer.bounds
+//        //設定掃瞄QRCode的視窗
+//        videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
+//        print("1.------>",imageForQRCodeScan)
+//        view.layer.addSublayer(videoPreviewLayer!)
+//            }
+//        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -186,7 +208,6 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                             self.sqrvc?.didMove(toParentViewController: self)
                             self.isRent = false
                         }
-
                     }
                     task.resume()
                 }

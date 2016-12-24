@@ -19,13 +19,13 @@ class CreditCardViewController: UIViewController {
     @IBOutlet weak var textfieldCardNumber1: UITextField!
     @IBOutlet weak var viewContainer1: UIView!
     var checkCreditCard = "inValid"
-    var firstMoveViewContainerStatus = "MoveDown"
+    var MoveViewContainerStatus = "MoveDown"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(CreditCardViewController.keyboardWasShown), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CreditCardViewController.keyboardWasBeHidden), name: .UIKeyboardWillHide, object: nil)
-        print("firstMoveViewContainerStatus---->",firstMoveViewContainerStatus)
+        print("firstMoveViewContainerStatus---->",MoveViewContainerStatus)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +46,12 @@ class CreditCardViewController: UIViewController {
     func keyboardWasShown(aNotification:Notification){
         if let keyboardSize = (aNotification.userInfo? [UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
             print("keyboardWasShown")
-            print(keyboardSize.height)
-            if firstMoveViewContainerStatus == "MoveDown"{
-                print(viewContainer1)
+            print("鍵盤大小",keyboardSize.height)
+            if MoveViewContainerStatus == "MoveDown"{
+                print("a.",viewContainer1.frame.origin.y)
                 viewContainer1.frame.origin.y -= (keyboardSize.height-50)
-                print(viewContainer1)
-                firstMoveViewContainerStatus = "MoveUP"
+                print("b.",viewContainer1.frame.origin.y)
+                MoveViewContainerStatus = "MoveUP"
             }
         }
     }
@@ -60,9 +60,11 @@ class CreditCardViewController: UIViewController {
     func keyboardWasBeHidden(aNotification:Notification){
         if let keyboardSize = (aNotification.userInfo? [UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue{
             print("keyboardWasHidden")
-            if firstMoveViewContainerStatus == "MoveUp"{
-            viewContainer1.frame.origin.y += keyboardSize.height
-            firstMoveViewContainerStatus == "MoveDown"
+            if MoveViewContainerStatus == "MoveUP"{
+                print("c",viewContainer1.frame.origin.y)
+            viewContainer1.frame.origin.y += (keyboardSize.height-50)
+                print("d",viewContainer1.frame.origin.y)
+            MoveViewContainerStatus = "MoveDown"
             }
         }
     }

@@ -568,7 +568,6 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIu-Mk-FXF">
                                         <rect key="frame" x="0.0" y="292" width="320" height="11"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F5K-Ln-6fl">
                                         <rect key="frame" x="97" y="333" width="127" height="61"/>
