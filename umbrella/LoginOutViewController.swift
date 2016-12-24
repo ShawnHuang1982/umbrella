@@ -30,11 +30,24 @@ class LoginOutViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
     
     override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.popViewController(animated: true)
+        //self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         print("自己是",self)
+        if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
+            labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
+            isLoginStatus = "Login"
+            print("登入狀態")
+        }else{
+            isLoginStatus = "Logout"
+            print("登出狀態")
+        }
+        if  isLoginStatus == "Login"{
+            showLogoutUI()
+        }else{
+            showLoginUI()
+        }
     }
     
     override func viewDidLoad() {
@@ -43,10 +56,13 @@ class LoginOutViewController: UIViewController {
         print("token-->>",appDelegate.jsonBackToken)
         print("UserID-->>",appDelegate.jsonBackUserID)
         print(appDelegate)
-        
         if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
             labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
             isLoginStatus = "Login"
+            print("登入狀態")
+        }else{
+            isLoginStatus = "Logout"
+            print("登出狀態")
         }
         if  isLoginStatus == "Login"{
             showLogoutUI()

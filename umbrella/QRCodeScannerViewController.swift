@@ -95,7 +95,6 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 qrCodeFrameView?.frame = CGRect(x:imageForQRCodeScan.frame.origin.x , y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
                 //qrCodeFrameView?.frame.origin.x = imageForQRCodeScan.frame.origin.x
                 //qrCodeFrameView?.frame.origin.y = imageForQRCodeScan.frame.origin.y
-                print("viewWillLayoutSubviews")
                 
                 videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
@@ -118,6 +117,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     //Steven協助
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+        print("viewWillLayoutSubviews")
         print(appDelegate.jsonBackToken)
         print(appDelegate.jsonBackUserID)
 //        if (appDelegate.jsonBackToken != "") || (appDelegate.jsonBackUserID != ""){
