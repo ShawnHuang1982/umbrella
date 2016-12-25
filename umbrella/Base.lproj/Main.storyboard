@@ -30,7 +30,7 @@
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-KO-3cJ">
                                         <rect key="frame" x="41" y="162" width="239" height="198"/>
-                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -46,7 +46,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Qx0-VO-YQC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="VeZ-fL-MKs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Qx0-VO-YQC" secondAttribute="trailing" constant="-16" id="ZUa-el-9yI"/>
@@ -56,7 +56,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="掃描租傘" image="icon_scan" id="wp6-jO-Rma"/>
                     <connections>
+                        <outlet property="container1Image" destination="blC-gb-BnV" id="NJN-5q-Nc4"/>
                         <outlet property="imageForQRCodeScan" destination="klZ-KO-3cJ" id="glL-71-y30"/>
+                        <outlet property="viewContainer1" destination="Qx0-VO-YQC" id="7qT-OJ-lke"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,7 +132,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.95272082089999999" green="0.95686525109999998" blue="0.96087664370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.95272082089999999" green="0.95686525109999998" blue="0.96087664370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="sectionIndexBackgroundColor" red="0.95272082089999999" green="0.95686525109999998" blue="0.96087664370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <sections>
                             <tableViewSection headerTitle="設定" id="Ypt-2M-pIl">
                                 <cells>
@@ -327,6 +328,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="管理設定" id="AdO-A8-YAa"/>
+                    <connections>
+                        <outlet property="tableviewSettingPage" destination="ZpB-Fx-yo0" id="VHg-Tc-A0V"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRA-3v-kBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -365,7 +369,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入使用者名稱" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gdM-Mi-0uA">
-                                <rect key="frame" x="94.5" y="103" width="131" height="30"/>
+                                <rect key="frame" x="95" y="103" width="131" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="131" id="obg-CW-IFF"/>
                                     <constraint firstAttribute="height" constant="30" id="rkB-56-yh2"/>
@@ -375,7 +379,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="請輸入使用者密碼" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FaO-8y-F25">
-                                <rect key="frame" x="94.5" y="168" width="135.5" height="30"/>
+                                <rect key="frame" x="95" y="168" width="136" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>

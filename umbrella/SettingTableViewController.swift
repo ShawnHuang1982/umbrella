@@ -9,10 +9,35 @@
 import UIKit
 
 class SettingTableViewController: UITableViewController {
-
+    var whoSend = ""
+    var whiteView = UIView()
+    @IBOutlet var tableviewSettingPage: UITableView!
+    override func viewWillAppear(_ animated: Bool) {
+        print("在Setting的viewWillAppear")
+        print("whosend",whoSend)
+        if whoSend == "QRCodeScanner"{
+            tableviewSettingPage.isHidden = true
+            //當用UITableViewController,其實是NavigationContrller + TableView
+            self.navigationController?.view.backgroundColor = UIColor.white
+        }else{
+            tableviewSettingPage.isHidden = false
+        }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("在Setting的ViewDidDisappear")
+        whoSend = ""
+        tableviewSettingPage.isHidden = false
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+          print("在Setting的viewDidAppear")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+          print("在Setting的viewDidLoad")
+        self.tabBarController?.delegate = self
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,6 +45,7 @@ class SettingTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
     
+
 //    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        
 //        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 20))
@@ -112,3 +138,13 @@ class SettingTableViewController: UITableViewController {
     */
 
 }
+
+extension SettingTableViewController:UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        print("In SettingTable didselect tabbar")
+        whoSend = ""
+        tableviewSettingPage.isHidden = false
+    }
+}
+
+

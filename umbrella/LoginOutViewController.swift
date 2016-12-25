@@ -9,7 +9,6 @@
 import UIKit
 
 class LoginOutViewController: UIViewController {
-
     @IBOutlet weak var labelErrorMessage: UILabel!
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var labelPassword: UILabel!
@@ -30,7 +29,14 @@ class LoginOutViewController: UIViewController {
     let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
     
     override func viewDidDisappear(_ animated: Bool) {
-        //self.navigationController?.popViewController(animated: true)
+        print("LoginViewDidDisappear")
+        self.navigationController?.popViewController(animated: false)
+    }
+    
+    //解bug,防呆,當使用者點選掃描租傘,在點選管理設定會出現被隱藏的SettingTableViewController
+    override func viewWillDisappear(_ animated: Bool) {
+         print("LoginViewWillDisappear")
+         _ = (self.navigationController?.topViewController as? SettingTableViewController)?.whoSend = ""
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,10 +44,10 @@ class LoginOutViewController: UIViewController {
         if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
             labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
             isLoginStatus = "Login"
-            print("登入狀態")
+            print("登入狀態1")
         }else{
             isLoginStatus = "Logout"
-            print("登出狀態")
+            print("登出狀態2")
         }
         if  isLoginStatus == "Login"{
             showLogoutUI()
@@ -52,23 +58,10 @@ class LoginOutViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("isLoginStatus",isLoginStatus)
+        print("isLoginStatus--->",isLoginStatus)
         print("token-->>",appDelegate.jsonBackToken)
         print("UserID-->>",appDelegate.jsonBackUserID)
-        print(appDelegate)
-        if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
-            labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
-            isLoginStatus = "Login"
-            print("登入狀態")
-        }else{
-            isLoginStatus = "Logout"
-            print("登出狀態")
-        }
-        if  isLoginStatus == "Login"{
-            showLogoutUI()
-        }else{
-            showLoginUI()
-        }
+        print("appDelegate---->>",appDelegate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,17 +162,17 @@ class LoginOutViewController: UIViewController {
                         }
                     }
                 }catch{
-                    print(err)
+                    print("err-->",err)
                 }
                 }else{
-                  print(err)
+                  print("err-->",err)
                 }
                 
             }
             task.resume()
         }
         catch {
-            print(error)
+            print("error-->",error)
         }
 //        return ["":""]
     }
@@ -195,3 +188,5 @@ class LoginOutViewController: UIViewController {
     */
 
 }
+
+

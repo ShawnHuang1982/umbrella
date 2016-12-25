@@ -16,6 +16,8 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     //之後要做鎖住相機的功能
     
     @IBOutlet weak var imageForQRCodeScan: UIView!
+    @IBOutlet weak var container1Image: UIImageView!
+    @IBOutlet weak var viewContainer1: UIView!
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var qrCodeFrameView:UIView?
@@ -23,37 +25,62 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     var isRent = true //是否可借用的狀態檢查,若可租借,顯示true,否則false不要顯示鏡頭
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var currentNavigationController:UINavigationController?
-    var currentViewController:UIViewController?
+    var currentViewController:SettingTableViewController?
     var loginViewController:LoginOutViewController?
     var isFirstStart = "First"
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        loginViewController = nil
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        viewContainer1.isHidden = true
+        container1Image.isHidden = true
+    }
     
     //tabbar切換一定要在viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
         print("ViewDidAppear")
         //第一次載入
         if (appDelegate.jsonBackToken == "") || (appDelegate.jsonBackUserID == ""){
-            print("跳入其他頁面")
+            print("準備進入登入頁面")
            if loginViewController == nil {
             loginViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginOutViewController") as! LoginOutViewController
             loginViewController?.whoSend = "QRCodePage"
             //present(loginViewController, animated: true, completion: nil)
             self.tabBarController?.selectedIndex = 4
-                currentNavigationController = self.tabBarController?.selectedViewController as! UINavigationController
-                currentViewController = currentNavigationController?.topViewController
-                currentViewController?.navigationController?.pushViewController(loginViewController!, animated: true)
-            }else{
+            self.currentNavigationController = self.tabBarController?.selectedViewController as! UINavigationController
+            self.currentViewController = self.currentNavigationController?.topViewController as! SettingTableViewController//settingTableViewController
+            currentViewController?.whoSend = "QRCodeScanner"
+            print(self.currentViewController)//settingTableViewController
+            //增加動畫
+            UIView.animate(withDuration: 1, animations: {
+               UIView.setAnimationCurve(.linear)
+                self.currentViewController?.navigationController?.pushViewController(self.loginViewController!, animated: false)
+            }
+            )
+                }else{
                 print("已經存在")
           //  print(currentViewController)
            // currentViewController?.performSegue(withIdentifier: "gotoLoginPage", sender: nil)
             self.tabBarController?.selectedIndex = 4
-            print(currentViewController)
-            currentViewController?.navigationController?.pushViewController(loginViewController!, animated: true)
-            //self.navigationController?.pushViewController(loginViewController, animated: true)//不行
+            print("先跳到SettingTableViewController的位置",currentViewController)
+            //增加動畫
+         
+            UIView.animate(withDuration: 1, animations: {
+                UIView.setAnimationCurve(.easeInOut)
+            self.currentViewController?.navigationController?.pushViewController(self.loginViewController!, animated: false)
+                }
+            )
+//            self.navigationController?.pushViewController(loginViewController, animated: true)//不行
             }
         }else{
             let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+            viewContainer1.isHidden = false
+            container1Image.isHidden = false
             do {
                 if isRent{
+
                 // Get an instance of the AVCaptureDeviceInput class using the previous device object.
                 let input = try AVCaptureDeviceInput(device: captureDevice)
                 
@@ -98,8 +125,8 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 
                 videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 videoPreviewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
-                print(videoPreviewLayer?.frame)
-                print(view.layer.bounds)
+                //print(videoPreviewLayer?.frame)
+                //print(view.layer.bounds)
                 //            videoPreviewLayer?.frame = view.layer.bounds
                 //設定掃瞄QRCode的視窗
                 videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: imageForQRCodeScan.frame.width, height: imageForQRCodeScan.frame.height)
@@ -113,13 +140,12 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    //Steven協助
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         print("viewWillLayoutSubviews")
-        print(appDelegate.jsonBackToken)
-        print(appDelegate.jsonBackUserID)
+//        print(appDelegate.jsonBackToken)
+//        print(appDelegate.jsonBackUserID)
 //        if (appDelegate.jsonBackToken != "") || (appDelegate.jsonBackUserID != ""){
 //         if isRent {
 //            //可以租借
