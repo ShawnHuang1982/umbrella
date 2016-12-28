@@ -26,6 +26,7 @@
 		2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2681E09504B007DD810 /* CreditCardViewController.swift */; };
 		2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */; };
 		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
+		29CB66471E1288BF00D9DD85 /* QRCodeRentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB66461E1288BF00D9DD85 /* QRCodeRentedViewController.swift */; };
 		29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
 		29F1817D1E02754200A3E409 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817C1E02754200A3E409 /* ViewController.swift */; };
@@ -55,6 +56,7 @@
 		2936B2681E09504B007DD810 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationExtensionTableView.swift; sourceTree = "<group>"; };
 		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
+		29CB66461E1288BF00D9DD85 /* QRCodeRentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeRentedViewController.swift; sourceTree = "<group>"; };
 		29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginOutViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29F1817A1E02754200A3E409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 				049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */,
 				2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */,
 				2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */,
+				29CB66461E1288BF00D9DD85 /* QRCodeRentedViewController.swift */,
 				2936B2681E09504B007DD810 /* CreditCardViewController.swift */,
 				29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */,
 			);
@@ -328,6 +331,7 @@
 				29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
 				2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */,
+				29CB66471E1288BF00D9DD85 /* QRCodeRentedViewController.swift in Sources */,
 				2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */,
 				2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */,
 				2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */,
@@ -467,7 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V3JX27KRB4;
 				INFOPLIST_FILE = umbrella/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.appshawn.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -482,7 +486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = V3JX27KRB4;
 				INFOPLIST_FILE = umbrella/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = www.appshawn.umbrella;
 				PRODUCT_NAME = "$(TARGET_NAME)";

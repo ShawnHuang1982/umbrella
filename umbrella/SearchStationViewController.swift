@@ -6,17 +6,27 @@
 //  Copyright © 2016 shawn. All rights reserved.
 //
 // AutoLayout設定,ScrollView上:20,下:0,左:0,右:0 ; ContainView:水平spacing0,垂直置中,寬高800
-
+// 設定手勢, 請看storyboard的gesture設定的Outlet有哪些
+// 設定地圖, import GoogleMaps, 設定ios key, 及UIView宣告成GMSMap Class
+// 移動畫面到座標 , 使用內建的CLLocationCoordinate2DMake func
 import UIKit
+import GoogleMaps
 
 class SearchStationViewController: UIViewController{
-  
+    
+   let locationManager = CLLocationManager() //取目前位置的Manager
+    var userLocation:CLLocation? //取得使用者目前位置
+    
+    @IBOutlet weak var callGoogleMap: GMSMapView!
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewStationList: UITableView!
     @IBOutlet weak var mapView: UIView!
     var testArray1 = ["松江南京","行天宮"]
     var testArray2 = ["4號出口地面出口處","1號出口方向驗票閘門處"]
     var testArray3 = ["5","15","10","10"]
-    var testArray4 = ["100公尺","123公尺"]
+    //var testArray4 = ["100","123"]    //假資料
+    var testArray5lat = [25.0512257,25.059717]
+    var testArray5lng = [121.5327387,121.533184]
      var data1 = [[String:String]]()
     
 //    @IBOutlet weak var viewForContainer: UIView!
@@ -31,17 +41,26 @@ class SearchStationViewController: UIViewController{
         print("view的大小",view.frame)
         mapView.frame.size.height = 0
         mapView.frame.size.width = view.frame.width //不加這句會跑掉?
-        
+       
         //tableview設定
         tableViewStationList.dataSource = self
         tableViewStationList.delegate = self
         
         //設定Delegate後,才能放大縮小
       //  scrollVewMRTMap.delegate = self
-    }
+        
+        //searchBar使用 偵測被點選的事件
+        searchBar.delegate = self
+        
+        //要取得使用者位置,以下設定
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        callGoogleMap.isMyLocationEnabled = true
+        locationManager.delegate = self
+         }
 
     override func viewWillAppear(_ animated: Bool) {
-        
+        self.tableViewStationList.needsUpdateConstraints()
 //        print(imageViewMRTMap.frame)
 //        print(imageViewMRTMap.bounds)
 //        //設定ScrollView
@@ -57,23 +76,11 @@ class SearchStationViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
-    //MARK: -
-    //MARK: Button
-//    @IBAction func buttonStation(_ sender: UIButton) {
-//       // print(sender.currentTitle)
-//    }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func gestureTouchUp(_ sender: UISwipeGestureRecognizer) {
+        mapView.frame.size.height = 0
+        print("往上滑touchesup")
     }
-    */
-
+    
     func requestData(){
         let urlString = "https://sheetsu.com/apis/v1.0/301105b950f0"
         let url = URL(string: urlString)
@@ -106,6 +113,8 @@ class SearchStationViewController: UIViewController{
 // last
 }
 
+
+
 //extension SearchStationViewController:UIScrollViewDelegate{
 //    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
 //        print(#function)
@@ -120,8 +129,23 @@ class SearchStationViewController: UIViewController{
 //        //可以在ScorllView ZoominZoomOut
 //        return viewForContainer
 //    }
-
-    
 //}
+
+extension SearchStationViewController:UISearchBarDelegate{
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("點選SearchBar")
+        mapView.frame.size.height = 0
+    }
+}
+
+extension SearchStationViewController:CLLocationManagerDelegate{
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations.first
+        print("userLocation--->",userLocation)
+        tableViewStationList.reloadData()   //為了更新使用者離站點的距離
+    }
+}
+
+
 
 

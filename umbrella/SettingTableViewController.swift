@@ -14,11 +14,13 @@ class SettingTableViewController: UITableViewController {
     @IBOutlet var tableviewSettingPage: UITableView!
     override func viewWillAppear(_ animated: Bool) {
         print("在Setting的viewWillAppear")
-        print("whosend",whoSend)
+        print("1.whosend-->",whoSend)
         if whoSend == "QRCodeScanner"{
             tableviewSettingPage.isHidden = true
             //當用UITableViewController,其實是NavigationContrller + TableView
             self.navigationController?.view.backgroundColor = UIColor.white
+            whoSend = ""
+             print("2.whosend-->",whoSend)
         }else{
             tableviewSettingPage.isHidden = false
         }
@@ -26,8 +28,16 @@ class SettingTableViewController: UITableViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         print("在Setting的ViewDidDisappear")
-        whoSend = ""
-        tableviewSettingPage.isHidden = false
+       
+        //tableviewSettingPage.isHidden = false //會有bug
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("在Setting的viewWillDisappear")
+        if whoSend == "QRCodeScanner"{
+            whoSend = ""
+            print("4.whosend-->",whoSend)
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,6 +48,7 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
           print("在Setting的viewDidLoad")
         self.tabBarController?.delegate = self
+         print("settingViewController位置",self)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

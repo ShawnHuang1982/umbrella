@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleMaps
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,10 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let statusColorLabel = UILabel()
     var jsonBackUserID = ""
     var jsonBackToken = ""
+    var jsonCanRent = false
+    var jsonCanRentReady = "NotReady"
     var userNameDidLogin = ""
+     var googleAPIKeyForIOS = "AIzaSyCFfFy-nbW_as_0rf0P1Y8LGg6v89_TguI"
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //提供APIKey才能使用google map service
+        GMSServices.provideAPIKey(googleAPIKeyForIOS)
         
         //更改status bar的color
             //須先在info.plist裡面 新增View controller-based status bar appearance 設定為YES

@@ -10,20 +10,13 @@ import UIKit
 
 class CustomStaionListTableViewCell: UITableViewCell {
     @IBOutlet weak var labelRouteName: UILabel!
-
-    @IBOutlet weak var labelRouteExitName: UILabel!
     @IBOutlet weak var imageViewRouteColor: UIImageView!
-    
     @IBOutlet weak var labelLocationNearDistance: UILabel!
-    @IBOutlet weak var btnMyFavoriteStation: UIButton!
-    @IBAction func buttonMyFavoriteStation(_ sender: UIButton) {
-    }
-    @IBOutlet weak var imageViewIsFavorite: UIImageView!
     @IBOutlet weak var labelNUBleftNumber: UILabel!
-    @IBOutlet weak var labelNUBCanMove: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        print("生出StationCell")
         // Initialization code
     }
 

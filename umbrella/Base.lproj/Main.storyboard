@@ -4,13 +4,14 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--掃描租傘-->
+        <!--Code Scanner View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="QRCodeScannerViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-KO-3cJ">
-                                        <rect key="frame" x="41" y="162" width="239" height="198"/>
+                                        <rect key="frame" x="36" y="147" width="249" height="229"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
@@ -38,8 +39,8 @@
                                     <constraint firstItem="klZ-KO-3cJ" firstAttribute="centerY" secondItem="Qx0-VO-YQC" secondAttribute="centerY" constant="11.5" id="9z8-ni-Y25"/>
                                     <constraint firstAttribute="bottom" secondItem="blC-gb-BnV" secondAttribute="bottom" id="B29-Ix-KCv"/>
                                     <constraint firstItem="blC-gb-BnV" firstAttribute="top" secondItem="Qx0-VO-YQC" secondAttribute="top" id="XRX-rX-xJe"/>
-                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="Qx0-VO-YQC" secondAttribute="height" multiplier="204/499" constant="-6.4208416833667457" id="dgb-fl-yod"/>
-                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="width" secondItem="Qx0-VO-YQC" secondAttribute="width" multiplier="239/320" id="ik7-X0-VjX"/>
+                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="Qx0-VO-YQC" secondAttribute="height" multiplier="204/499" constant="25" id="dgb-fl-yod"/>
+                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="width" secondItem="Qx0-VO-YQC" secondAttribute="width" multiplier="239/320" constant="10" id="ik7-X0-VjX"/>
                                     <constraint firstItem="blC-gb-BnV" firstAttribute="leading" secondItem="Qx0-VO-YQC" secondAttribute="leading" id="sD5-Ve-jry"/>
                                     <constraint firstAttribute="trailing" secondItem="blC-gb-BnV" secondAttribute="trailing" id="taE-gH-ygk"/>
                                     <constraint firstItem="klZ-KO-3cJ" firstAttribute="centerX" secondItem="Qx0-VO-YQC" secondAttribute="centerX" id="uxf-bf-kcD"/>
@@ -48,22 +49,24 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Qx0-VO-YQC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="VeZ-fL-MKs"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qx0-VO-YQC" secondAttribute="trailing" constant="-16" id="ZUa-el-9yI"/>
+                            <constraint firstItem="Qx0-VO-YQC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="VeZ-fL-MKs"/>
+                            <constraint firstAttribute="trailing" secondItem="Qx0-VO-YQC" secondAttribute="trailing" id="ZUa-el-9yI"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Qx0-VO-YQC" secondAttribute="bottom" id="bBU-X3-BMb"/>
                             <constraint firstItem="Qx0-VO-YQC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="rRS-7v-2eC"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="掃描租傘" image="icon_scan" id="wp6-jO-Rma"/>
+                    <navigationItem key="navigationItem" id="PcJ-oX-qtO"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="container1Image" destination="blC-gb-BnV" id="NJN-5q-Nc4"/>
                         <outlet property="imageForQRCodeScan" destination="klZ-KO-3cJ" id="glL-71-y30"/>
                         <outlet property="viewContainer1" destination="Qx0-VO-YQC" id="7qT-OJ-lke"/>
+                        <segue destination="Ng8-na-J39" kind="show" identifier="gotoRented" id="tZC-Yh-8o9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1319.53125" y="517.3828125"/>
+            <point key="canvasLocation" x="2315.625" y="516.54929577464793"/>
         </scene>
         <!--租用紀錄-->
         <scene sceneID="iwP-Lg-Qp9">
@@ -82,7 +85,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAe-2r-Eln" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2079" y="517"/>
+            <point key="canvasLocation" x="3075" y="516.54929577464793"/>
+        </scene>
+        <!--Code Rented View Controller-->
+        <scene sceneID="ik6-8K-mWw">
+            <objects>
+                <viewController id="Ng8-na-J39" customClass="QRCodeRentedViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cKQ-ET-0O3"/>
+                        <viewControllerLayoutGuide type="bottom" id="5tx-wE-vqx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gFC-ic-9c4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Using" translatesAutoresizingMaskIntoConstraints="NO" id="qRE-09-hha">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5tx-wE-vqx" firstAttribute="top" secondItem="qRE-09-hha" secondAttribute="bottom" id="6Pb-1M-UGe"/>
+                            <constraint firstItem="qRE-09-hha" firstAttribute="top" secondItem="cKQ-ET-0O3" secondAttribute="bottom" id="iaK-Q1-eay"/>
+                            <constraint firstItem="qRE-09-hha" firstAttribute="leading" secondItem="gFC-ic-9c4" secondAttribute="leading" id="qbg-zQ-4Pi"/>
+                            <constraint firstAttribute="trailing" secondItem="qRE-09-hha" secondAttribute="trailing" id="sa0-0Z-KtL"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMP-PF-ZXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1043" y="1409"/>
         </scene>
         <!--Code Scan Success View Controller-->
         <scene sceneID="QAy-fE-tfn">
@@ -99,29 +132,19 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Success_to_use_nobar" translatesAutoresizingMaskIntoConstraints="NO" id="qWX-ml-A3C">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                             </imageView>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Using" translatesAutoresizingMaskIntoConstraints="NO" id="z7s-l8-4Hc">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="kDp-3N-23i" firstAttribute="top" secondItem="qWX-ml-A3C" secondAttribute="bottom" id="RHW-Mg-Mwz"/>
-                            <constraint firstItem="z7s-l8-4Hc" firstAttribute="top" secondItem="lQr-tm-72w" secondAttribute="bottom" id="WlX-3t-oni"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="qWX-ml-A3C" secondAttribute="trailing" constant="-16" id="aer-OF-OVC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="z7s-l8-4Hc" secondAttribute="trailing" constant="-16" id="bxZ-6r-s4Y"/>
-                            <constraint firstItem="z7s-l8-4Hc" firstAttribute="leading" secondItem="VbV-Yt-ZvH" secondAttribute="leadingMargin" constant="-16" id="drI-di-SvP"/>
+                            <constraint firstAttribute="trailing" secondItem="qWX-ml-A3C" secondAttribute="trailing" id="aer-OF-OVC"/>
                             <constraint firstItem="qWX-ml-A3C" firstAttribute="top" secondItem="lQr-tm-72w" secondAttribute="bottom" id="eG3-st-GD4"/>
-                            <constraint firstItem="kDp-3N-23i" firstAttribute="top" secondItem="z7s-l8-4Hc" secondAttribute="bottom" id="u8z-CE-2NE"/>
-                            <constraint firstItem="qWX-ml-A3C" firstAttribute="leading" secondItem="VbV-Yt-ZvH" secondAttribute="leadingMargin" constant="-16" id="umN-tR-Swa"/>
+                            <constraint firstItem="qWX-ml-A3C" firstAttribute="leading" secondItem="VbV-Yt-ZvH" secondAttribute="leading" id="umN-tR-Swa"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="rentView" destination="z7s-l8-4Hc" id="8FP-YG-jhC"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUc-Fu-baZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="1211.6197183098591"/>
+            <point key="canvasLocation" x="1676" y="1410"/>
         </scene>
         <!--管理設定-->
         <scene sceneID="2JY-Au-bOq">
@@ -334,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRA-3v-kBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3622" y="517"/>
+            <point key="canvasLocation" x="4618.125" y="516.54929577464793"/>
         </scene>
         <!--使用者登入登出-->
         <scene sceneID="9m9-US-Dsm">
@@ -484,7 +507,7 @@
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="4391.25" y="154.22535211267606"/>
+            <point key="canvasLocation" x="5388.75" y="154.22535211267606"/>
         </scene>
         <!--信用卡管理-->
         <scene sceneID="lGJ-Uz-b9a">
@@ -658,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efj-VB-fPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4391.25" y="846.12676056338034"/>
+            <point key="canvasLocation" x="5388.75" y="846.12676056338034"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mWk-Bh-spR">
@@ -686,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBj-HC-xmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5172" y="586"/>
+            <point key="canvasLocation" x="6168.75" y="585.21126760563379"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X4a-VF-OUL">
@@ -714,7 +737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-Gc-uqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5856.8000000000002" y="588.75562218890559"/>
+            <point key="canvasLocation" x="6853.125" y="588.38028169014081"/>
         </scene>
         <!--愛用站點-->
         <scene sceneID="ksz-uM-Apu">
@@ -801,13 +824,13 @@
                                 </constraints>
                             </view>
                             <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="b9Y-iY-PlR">
-                                <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="70" width="320" height="44"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="btU-sY-9y5"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.53138709070000001" green="0.8081461191" blue="0.84273570779999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -815,14 +838,25 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="owR-Ga-YsX">
-                                <rect key="frame" x="0.0" y="343" width="320" height="176"/>
+                                <rect key="frame" x="0.0" y="341" width="320" height="178"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="os6-nd-fw3">
-                                <rect key="frame" x="0.0" y="116" width="320" height="227"/>
+                                <rect key="frame" x="0.0" y="114" width="320" height="227"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G5E-lw-mFk" customClass="GMSMapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="227"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
                                 <color key="backgroundColor" red="0.99894136190000005" green="0.85476401769999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="G5E-lw-mFk" secondAttribute="trailing" id="KlO-cN-sh3"/>
+                                    <constraint firstItem="G5E-lw-mFk" firstAttribute="top" secondItem="os6-nd-fw3" secondAttribute="top" id="STg-gI-lZI"/>
+                                    <constraint firstAttribute="bottom" secondItem="G5E-lw-mFk" secondAttribute="bottom" id="fkm-9y-CQh"/>
                                     <constraint firstAttribute="height" constant="227" id="i69-HE-czZ"/>
+                                    <constraint firstItem="G5E-lw-mFk" firstAttribute="leading" secondItem="os6-nd-fw3" secondAttribute="leading" id="luq-O4-vGg"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -833,7 +867,7 @@
                             <constraint firstItem="os6-nd-fw3" firstAttribute="leadingMargin" secondItem="hDi-bV-Cdb" secondAttribute="leadingMargin" constant="-8" id="cDw-WR-3Fk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="owR-Ga-YsX" secondAttribute="trailing" constant="-16" id="eWy-XG-5Cf"/>
                             <constraint firstItem="Oui-OI-LQa" firstAttribute="top" secondItem="owR-Ga-YsX" secondAttribute="bottom" id="fhI-li-HVa"/>
-                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="top" secondItem="gVM-0w-g3P" secondAttribute="bottom" constant="2" id="gVI-nH-8Ro"/>
+                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="top" secondItem="gVM-0w-g3P" secondAttribute="bottom" id="gVI-nH-8Ro"/>
                             <constraint firstItem="owR-Ga-YsX" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leadingMargin" constant="-16" id="hOE-uD-s5p"/>
                             <constraint firstAttribute="trailing" secondItem="b9Y-iY-PlR" secondAttribute="trailing" id="kno-CM-tae"/>
                             <constraint firstItem="os6-nd-fw3" firstAttribute="top" secondItem="b9Y-iY-PlR" secondAttribute="bottom" id="m8y-l5-Yfe"/>
@@ -842,14 +876,24 @@
                             <constraint firstItem="owR-Ga-YsX" firstAttribute="top" secondItem="os6-nd-fw3" secondAttribute="bottom" id="rKc-KA-jGv"/>
                             <constraint firstItem="gVM-0w-g3P" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="uiO-BQ-7O2"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Zyu-TW-Nll" appends="YES" id="fZB-Mu-opB"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="站點查詢" image="icon_station" id="QQV-Jj-W6C"/>
                     <connections>
+                        <outlet property="callGoogleMap" destination="G5E-lw-mFk" id="GhB-3X-GiD"/>
                         <outlet property="mapView" destination="os6-nd-fw3" id="rYR-2W-hAt"/>
+                        <outlet property="searchBar" destination="b9Y-iY-PlR" id="dVY-yy-4Bn"/>
                         <outlet property="tableViewStationList" destination="owR-Ga-YsX" id="uRg-xn-e8f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4b-7l-4I5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="Zyu-TW-Nll">
+                    <connections>
+                        <action selector="gestureTouchUp:" destination="8x4-mp-Bzw" id="fjM-yS-DRl"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-457" y="518"/>
         </scene>
@@ -860,12 +904,12 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3PK-Pw-DP2">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.5313870906829834" green="0.80814611911773682" blue="0.84273570775985718" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.62437367440000002" green="0.8394511938" blue="0.86964076759999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="8x4-mp-Bzw" kind="relationship" relationship="viewControllers" id="RUj-dZ-dN5"/>
                         <segue destination="g7M-ag-yTA" kind="relationship" relationship="viewControllers" id="lhu-hy-MG3"/>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="NV9-dF-gGB"/>
+                        <segue destination="pN3-OC-nLJ" kind="relationship" relationship="viewControllers" id="NV9-dF-gGB"/>
                         <segue destination="ps7-Gf-zIR" kind="relationship" relationship="viewControllers" id="7oO-0K-WZt"/>
                         <segue destination="6dH-es-Fxd" kind="relationship" relationship="viewControllers" id="XqL-M6-Bf9"/>
                     </connections>
@@ -893,7 +937,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XiN-6M-oDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2857" y="517"/>
+            <point key="canvasLocation" x="3853.125" y="516.54929577464793"/>
         </scene>
         <!--Code Scan Failure View Controller-->
         <scene sceneID="sQm-el-RDv">
@@ -914,15 +958,34 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pAe-sq-kZg" firstAttribute="top" secondItem="Dsk-Ki-GFC" secondAttribute="bottom" id="Euz-RX-Xz4"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="pAe-sq-kZg" secondAttribute="trailing" constant="-16" id="Qr6-K1-tow"/>
+                            <constraint firstAttribute="trailing" secondItem="pAe-sq-kZg" secondAttribute="trailing" id="Qr6-K1-tow"/>
                             <constraint firstItem="hIP-CK-phl" firstAttribute="top" secondItem="pAe-sq-kZg" secondAttribute="bottom" id="ZnU-GU-jhd"/>
-                            <constraint firstItem="pAe-sq-kZg" firstAttribute="leading" secondItem="z6z-jw-9TK" secondAttribute="leadingMargin" constant="-16" id="dKg-tn-Dsj"/>
+                            <constraint firstItem="pAe-sq-kZg" firstAttribute="leading" secondItem="z6z-jw-9TK" secondAttribute="leading" id="dKg-tn-Dsj"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWD-UJ-2Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="1212"/>
+            <point key="canvasLocation" x="2316" y="1411"/>
+        </scene>
+        <!--掃描租傘-->
+        <scene sceneID="paP-gm-4xj">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="pN3-OC-nLJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="掃描租傘" image="icon_scan" id="wp6-jO-Rma"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="48s-6O-Y13">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Hpn-Et-j4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxz-rd-3mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1318.125" y="516.54929577464793"/>
         </scene>
     </scenes>
     <resources>

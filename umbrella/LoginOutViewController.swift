@@ -4,7 +4,7 @@
 //
 //  Created by  shawn on 20/12/2016.
 //  Copyright © 2016 shawn. All rights reserved.
-//
+// login頁面要提供檢查是否可借傘, canRentCheck方法
 
 import UIKit
 
@@ -18,7 +18,8 @@ class LoginOutViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var labelForUserNameDidLogin: UILabel!
-
+    
+    //var jsonCheckCanRent = [String:Any]()
     var isLoginStatus = "logout"
     var whoSend = ""
 
@@ -39,7 +40,7 @@ class LoginOutViewController: UIViewController {
          _ = (self.navigationController?.topViewController as? SettingTableViewController)?.whoSend = ""
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         print("自己是",self)
         if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
             labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
@@ -54,6 +55,9 @@ class LoginOutViewController: UIViewController {
         }else{
             showLoginUI()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
     }
     
     override func viewDidLoad() {
@@ -74,8 +78,6 @@ class LoginOutViewController: UIViewController {
         let tempClean2 = textfieldUserPassword.text?.replacingOccurrences(of: " ", with: "")
         if (tempClean1 != nil) && (tempClean2 != nil)&&(tempClean1 != "") && (tempClean2 != ""){
             login()
-            //let result = login()
-            //print("回傳結果:",result)
         }
     }
     
@@ -87,6 +89,7 @@ class LoginOutViewController: UIViewController {
         appDelegate.jsonBackUserID = ""
         appDelegate.jsonBackToken = ""
         appDelegate.userNameDidLogin = ""
+        appDelegate.jsonCanRent = false
         labelErrorMessage.isHidden = true
         labelPassword.isHidden = false
         labelUserName.isHidden = false
@@ -112,7 +115,7 @@ class LoginOutViewController: UIViewController {
         isLoginStatus = "login"
         label1.isHidden = false
     }
-    
+        
     func login() {//-> [String:Any] {
         let url = URL(string: "http://139.162.76.87/api/v1/login")
         var request = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
@@ -120,8 +123,9 @@ class LoginOutViewController: UIViewController {
         request.httpMethod = "POST"
         let loginDataDictionary = ["email": textfieldUserName.text!, "password":textfieldUserPassword.text!]
         do {
-            print("loginDataDictionary \(loginDataDictionary)")
+            print("loginDataDictionary---> \(loginDataDictionary)")
             let data = try  JSONSerialization.data(withJSONObject: loginDataDictionary, options: [])
+            print("data--->",data)
             let task = URLSession.shared.uploadTask(with: request, from: data) { (data, res, err) in
                 //防止沒網路會crsh
                 if err == nil{
@@ -145,11 +149,22 @@ class LoginOutViewController: UIViewController {
                             self.showLogoutUI()
                             self.textfieldUserName.text = ""
                             self.textfieldUserPassword.text = ""
+                            
+//                            //登入成功就去確認是否可借傘
+//                            self.canRentCheck()
+                            
                             if self.whoSend == "QRCodePage"{
                                 print("切換回去")
                                 self.whoSend = "" //清空
-                            self.navigationController?.popViewController(animated: true)
-                            self.tabBarController?.selectedIndex = 2
+                                print("pop前",self)
+                                DispatchQueue.main.async {
+                                //  self.navigationController?.popViewController(animated: true)//動畫要true,否則無法跳到選擇的第二頁
+                                //為了不讓pop回去的畫面被看到
+                                 _ =  (self.navigationController?.viewControllers[0] as? SettingTableViewController)?.whoSend = ""
+                                    self.tabBarController?.selectedIndex = 2
+                                }
+                              
+                                print("pop後",self)
                             //self.dismiss(animated: true, completion: nil) //ok
                                 //                    return self.loginJson
                                 }
