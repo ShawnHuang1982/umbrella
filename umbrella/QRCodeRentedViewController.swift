@@ -14,12 +14,20 @@ class QRCodeRentedViewController: UIViewController {
     var jsonCheckCanRent = [String:Any]()
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var myTimer1 = Timer()
+    var tabBarItemThree:UITabBarItem = UITabBarItem()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print("在qrcodeRent")
         myTimer1 = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(checkAndBack), userInfo: nil, repeats: true)
-        // Do any additional setup after loading the view.
+        print("tabbaritem=",tabBarItem)
+        tabBarController?.delegate = self
+//        let tabBarControllerItems = self.tabBarController?.tabBar.items
+//        let arrayOfTabBarItems = tabBarControllerItems as! AnyObject as? NSArray
+//        tabBarItemThree = arrayOfTabBarItems?[2] as! UITabBarItem
+//        tabBarItemThree.isEnabled = false
+        
+      //  tabBarItem.isEnabled = false
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,6 +41,7 @@ class QRCodeRentedViewController: UIViewController {
     if self.appDelegate.jsonCanRent{
         print("租用中頁面,回到上一頁")
         myTimer1.invalidate()
+        tabBarItemThree.isEnabled = true
         self.navigationController?.popViewController(animated: true)
 //        self.popoverPresentationController
         }
@@ -79,4 +88,18 @@ class QRCodeRentedViewController: UIViewController {
         }
     }
 
+}
+
+extension QRCodeRentedViewController:UITabBarControllerDelegate{
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if (tabBarController.selectedIndex == 2) {
+            print("點擊到QRCode,不讓他點選")
+            return false
+        }
+        return true
+    }
+    
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+    }
 }

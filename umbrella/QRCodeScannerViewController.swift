@@ -42,8 +42,9 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     override func viewWillAppear(_ animated: Bool) {
          print("viewWillAppear")
         //為了轉場時不會看到背景畫面
-        if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == "") && !(appDelegate.jsonCanRent){
-            print("隱藏背景")
+//        if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == "") && !(appDelegate.jsonCanRent){
+        if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == "") {
+        print("隱藏背景")
             viewContainer1.isHidden = true
             container1Image.isHidden = true
         } else if appDelegate.jsonCanRent{
@@ -160,7 +161,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 print("2.data--> \(str)")
                 print("上網向後台確認是否可借傘------")
                 try? self.jsonPackage = JSONSerialization.jsonObject(with: data!) as! [String : Any]
-                print("json資料包",self.jsonPackage)
+                //print("json資料包",self.jsonPackage)
                 let getCheck:Int = self.jsonPackage["borrow_status"] as! Int
                 if getCheck == 1 {  //borrow_status狀態0代表不可借傘,狀態1代表可以借傘
                     print("可以借傘")
