@@ -10,11 +10,10 @@ import UIKit
 
 class CustomFavoriteContentTableViewCell: UITableViewCell {
 
+    
     @IBOutlet weak var bottomViewline: UIView!
     @IBOutlet weak var rightViewline: UIView!
-    @IBOutlet weak var leftViewline: UIView!
-    
-    @IBOutlet weak var labelUNBCanMoveNumber: UILabel!
+    @IBOutlet weak var leftViewline: UIView!    
     @IBOutlet weak var labelUNBNumberLeft: UILabel!
     @IBOutlet weak var labelFavoriteContentStationName: UILabel!
     override func awakeFromNib() {

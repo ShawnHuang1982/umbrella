@@ -20,7 +20,11 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //計算使用者位置與所有站點的距離
         let cellLocation = CLLocation(latitude: testArray5lat[indexPath.row], longitude: testArray5lng[indexPath.row]) //站點位置
-        let distanceInMeters = userLocation?.distance(from: cellLocation)
+        distanceInMeters = userLocation?.distance(from: cellLocation)
+        if distanceInMeters != nil{
+         let IntDistanceInMeters =  "\(Int(distanceInMeters!))"
+        testArray6.append(IntDistanceInMeters)
+        }
         print("使用者離站點的距離",distanceInMeters)
         print(cellLocation)
         print(userLocation)
@@ -30,7 +34,6 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
         cell.labelRouteName.text = testArray1[indexPath.row]
         cell.labelNUBleftNumber.text = testArray3[indexPath.row]
         if distanceInMeters != nil{
-        
         cell.labelLocationNearDistance.text = "\(Int(distanceInMeters!))"
         }
         //cell.labelLocationNearDistance.sizeToFit()
@@ -46,22 +49,35 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("點選的row:\(indexPath.row)")
-        mapView.isHidden = false
-        mapView.frame.size.height = 305
+        //終於懂了為何要用performsegue
+//        let vc2 = SearchStationDetailViewController()
+//        self.navigationController?.pushViewController(vc2, animated: true)
+        selectedName = testArray1[indexPath.row]
+            //建立地圖移動的座標
+        selectedLocation = CLLocationCoordinate2DMake(testArray5lat[indexPath.row], testArray5lng[indexPath.row])
+        selectedExit = testArray2[indexPath.row]
+        selectedUMBCanRent =  testArray3[indexPath.row]
+        if distanceInMeters != nil {
+        selectedDistanceStationToLocation = "\(testArray6[indexPath.row])"}
+        selectedRouteName1 = testArray7[indexPath.row]
+        
+        performSegue(withIdentifier: "gotoDetailStation", sender: nil)
+        
+ //       mapView.isHidden = false
+ //       mapView.frame.size.height = 305
        // updateViewConstraints() //沒用
         
-      //建立地圖移動的座標
-        let selectedLocation = CLLocationCoordinate2DMake(testArray5lat[indexPath.row], testArray5lng[indexPath.row])
+
         //地圖有慢動作的移動
-        self.callGoogleMap.animate(to: GMSCameraPosition.camera(withTarget: selectedLocation, zoom: 15))
-        CATransaction.commit()
+ //       self.callGoogleMap.animate(to: GMSCameraPosition.camera(withTarget: selectedLocation, zoom: 15))
+//        CATransaction.commit()
 
         //設定Marker
-        let marker = GMSMarker(position: selectedLocation)
-        marker.map = callGoogleMap
-        marker.title = testArray1[indexPath.row]
+ //       let marker = GMSMarker(position: selectedLocation)
+ //       marker.map = callGoogleMap
+ //       marker.title = testArray1[indexPath.row]
         //Marker title會一開始就顯示,不用點選Marker
-        callGoogleMap.selectedMarker = marker
+ //       callGoogleMap.selectedMarker = marker
         
     }
     

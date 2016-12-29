@@ -33,6 +33,10 @@
 		29F181801E02754200A3E409 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F1817E1E02754200A3E409 /* Main.storyboard */; };
 		29F181851E02754200A3E409 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29F181831E02754200A3E409 /* LaunchScreen.storyboard */; };
 		29F1818D1E027C5D00A3E409 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 29F1818C1E027C5D00A3E409 /* Assets.xcassets */; };
+		29F259AB1E156BC600526C54 /* FavoriteCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F259AA1E156BC600526C54 /* FavoriteCellHeader.swift */; };
+		29F259AD1E156BD900526C54 /* FavoriteCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */; };
+		29F259AF1E15770B00526C54 /* FavoriteCellShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */; };
+		29F504641E14DAC6003AB4F8 /* SearchStationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */; };
 		C3C35E3FD0F8F379396A4E69 /* Pods_umbrella.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCFCC15ACCFB762FCC862A2 /* Pods_umbrella.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +69,10 @@
 		29F181841E02754200A3E409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		29F181861E02754200A3E409 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		29F1818C1E027C5D00A3E409 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		29F259AA1E156BC600526C54 /* FavoriteCellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellHeader.swift; sourceTree = "<group>"; };
+		29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellFooter.swift; sourceTree = "<group>"; };
+		29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellShadow.swift; sourceTree = "<group>"; };
+		29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationDetailViewController.swift; sourceTree = "<group>"; };
 		61F3CDED81AB6D0875456795 /* Pods-umbrella.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umbrella.debug.xcconfig"; path = "Pods/Target Support Files/Pods-umbrella/Pods-umbrella.debug.xcconfig"; sourceTree = "<group>"; };
 		77D6F9D14611C3277A32C1A5 /* Pods-umbrella.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umbrella.release.xcconfig"; path = "Pods/Target Support Files/Pods-umbrella/Pods-umbrella.release.xcconfig"; sourceTree = "<group>"; };
 		8FCFCC15ACCFB762FCC862A2 /* Pods_umbrella.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_umbrella.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,10 +122,10 @@
 			children = (
 				29F181831E02754200A3E409 /* LaunchScreen.storyboard */,
 				29F1817E1E02754200A3E409 /* Main.storyboard */,
+				29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */,
 				29044D631E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.xib */,
 				29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */,
 				29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */,
-				29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -127,6 +135,7 @@
 			children = (
 				29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */,
 				29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */,
+				29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */,
 				29F1817C1E02754200A3E409 /* ViewController.swift */,
 				047536A41E055647000F5E53 /* SettingTableViewController.swift */,
 				2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */,
@@ -156,6 +165,9 @@
 				29044D621E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.swift */,
 				29044D661E08000D002A82B0 /* CustomFavoriteContentTableViewCell.swift */,
 				29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */,
+				29F259AA1E156BC600526C54 /* FavoriteCellHeader.swift */,
+				29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */,
+				29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */,
 			);
 			name = View_func;
 			sourceTree = "<group>";
@@ -329,13 +341,17 @@
 			files = (
 				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
 				29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */,
+				29F259AD1E156BD900526C54 /* FavoriteCellFooter.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
 				2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */,
+				29F504641E14DAC6003AB4F8 /* SearchStationDetailViewController.swift in Sources */,
 				29CB66471E1288BF00D9DD85 /* QRCodeRentedViewController.swift in Sources */,
 				2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */,
+				29F259AB1E156BC600526C54 /* FavoriteCellHeader.swift in Sources */,
 				2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */,
 				2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */,
 				2936B2671E094AE0007DD810 /* StructStation.swift in Sources */,
+				29F259AF1E15770B00526C54 /* FavoriteCellShadow.swift in Sources */,
 				29044D721E08C179002A82B0 /* CustomStaionListTableViewCell.swift in Sources */,
 				29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */,
 				29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */,

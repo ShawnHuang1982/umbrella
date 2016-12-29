@@ -14,13 +14,21 @@ import GoogleMaps
 
 class SearchStationViewController: UIViewController{
     
-   let locationManager = CLLocationManager() //取目前位置的Manager
+        var locationManager = CLLocationManager() //取得使用者同意提供位置,及更新位置
     var userLocation:CLLocation? //取得使用者目前位置
+    var selectedLocation = CLLocationCoordinate2D() //選取到的站點Location
+    var selectedName = "" //選取到的站點名字
+    var selectedExit = "" //選到的出口
+    var selectedUMBCanRent = ""
+    var selectedDistanceStationToLocation = ""
+    var selectedRouteName1 = ""
+    var selectedRouteName2 = ""
+    var distanceInMeters:CLLocationDistance?
     
-    @IBOutlet weak var callGoogleMap: GMSMapView!
+//    @IBOutlet weak var callGoogleMap: GMSMapView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewStationList: UITableView!
-    @IBOutlet weak var mapView: UIView!
+//    @IBOutlet weak var mapView: UIView!
     var testArray1 = ["松江南京","行天宮"]
     var testArray2 = ["4號出口地面出口處","1號出口方向驗票閘門處"]
     var testArray3 = ["5","15","10","10"]
@@ -28,6 +36,8 @@ class SearchStationViewController: UIViewController{
     var testArray5lat = [25.0512257,25.059717]
     var testArray5lng = [121.5327387,121.533184]
      var data1 = [[String:String]]()
+    var testArray6 = [String]()
+    var testArray7 = ["松江南京線","板南線"]
     
 //    @IBOutlet weak var viewForContainer: UIView!
 //    @IBOutlet weak var scrollVewMRTMap: UIScrollView!
@@ -36,12 +46,11 @@ class SearchStationViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         //花很久時間才發現有autolayout的話 , 改變view的frame height,要加下面那句
-        mapView.translatesAutoresizingMaskIntoConstraints = true
-        print("mapview的frame",mapView.frame)
-        print("view的大小",view.frame)
-        mapView.frame.size.height = 0
-        mapView.frame.size.width = view.frame.width //不加這句會跑掉?
-       
+ //       mapView.translatesAutoresizingMaskIntoConstraints = true
+//        print("mapview的frame",mapView.frame)
+//        print("view的大小",view.frame)
+//        mapView.frame.size.height = 0
+//        mapView.frame.size.width = view.frame.width //不加這句會跑掉?
         //tableview設定
         tableViewStationList.dataSource = self
         tableViewStationList.delegate = self
@@ -55,10 +64,14 @@ class SearchStationViewController: UIViewController{
         //要取得使用者位置,以下設定
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        callGoogleMap.isMyLocationEnabled = true
+ //       callGoogleMap.isMyLocationEnabled = true
         locationManager.delegate = self
          }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        locationManager.stopUpdatingLocation()
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tableViewStationList.needsUpdateConstraints()
 //        print(imageViewMRTMap.frame)
@@ -67,8 +80,6 @@ class SearchStationViewController: UIViewController{
 //        scrollVewMRTMap.contentSize = CGSize(width: imageViewMRTMap.frame.width  , height: imageViewMRTMap.frame.height)
 //        //scrollVewMRTMap.minimumZoomScale = 0.5
 //        scrollVewMRTMap.setZoomScale(1, animated: true)
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -76,8 +87,21 @@ class SearchStationViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoDetailStation"{
+            if let destinationVC = segue.destination as? SearchStationDetailViewController{
+                    destinationVC.getView1StationLocation = selectedLocation
+                    destinationVC.getView1StationName = selectedName
+                    destinationVC.getView1StationExit = selectedExit
+                    destinationVC.getView1UMBCanRent = selectedUMBCanRent
+                    destinationVC.getView1DistanceStationToLocation = selectedDistanceStationToLocation
+                    destinationVC.getView1RouteName1 = selectedRouteName1
+            }
+        }
+    }
+    
     @IBAction func gestureTouchUp(_ sender: UISwipeGestureRecognizer) {
-        mapView.frame.size.height = 0
+ //       mapView.frame.size.height = 0
         print("往上滑touchesup")
     }
     
@@ -99,6 +123,7 @@ class SearchStationViewController: UIViewController{
                         try self.data1 = JSONSerialization.jsonObject(with: data) as! [[String : String]]
                         print(self.data1)
                         DispatchQueue.main.async {
+                            self.testArray6 = []
                             self.tableViewStationList.reloadData()
                         }
                     }catch{
@@ -134,7 +159,7 @@ class SearchStationViewController: UIViewController{
 extension SearchStationViewController:UISearchBarDelegate{
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("點選SearchBar")
-        mapView.frame.size.height = 0
+       // mapView.frame.size.height = 0
     }
 }
 

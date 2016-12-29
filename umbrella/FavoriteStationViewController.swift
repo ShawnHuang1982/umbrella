@@ -28,8 +28,13 @@ class FavoriteStationViewController: UIViewController,editMyFavoriteStationDeleg
         favoriteStationTableView.dataSource = self
         favoriteStationTableView.delegate = self
         
-        // Do any additional setup after loading the view.
-    }
+   //     let nib1 = UINib(nibName: "CustomFavortieHeaderTableViewCell", bundle: nil)
+    //    let nib2 = UINib(nibName: "CustomFavoriteContentTableViewCell", bundle: nil)
+    //    let nib3 = UINib(nibName: "CustomFavoriteFooterTableViewCell", bundle: nil)
+//        favoriteStationTableView.register(nib1, forCellReuseIdentifier: "Cell1")
+//        favoriteStationTableView.register(nib2, forCellReuseIdentifier: "Cell2")
+//        favoriteStationTableView.register(nib3, forCellReuseIdentifier: "Cell3")
+        }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -88,14 +93,36 @@ extension FavoriteStationViewController:UITableViewDataSource{
         //一般tableView設定Cell有一個
         //let cell1 = tableView.dequeueReusableCell(withIdentifier: "Cell1") as?CustomFavortieHeaderTableViewCell
         //print(cell1)
-        //客制Cell要用這種方法生出來
+        //客制Cell要用這種方法生出來,方法1
         let cell1 = Bundle.main.loadNibNamed("CustomFavortieHeaderTableViewCell", owner: self, options: nil)?.first as! CustomFavortieHeaderTableViewCell
         let cell2 = Bundle.main.loadNibNamed("CustomFavoriteContentTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteContentTableViewCell
          let cell3 = Bundle.main.loadNibNamed("CustomFavoriteFooterTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteFooterTableViewCell
         
+        //客制Cell要用這種方法生出來,方法2
+//            let cell1 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! CustomFavortieHeaderTableViewCell
+//        let cell2 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! CustomFavoriteContentTableViewCell
+//        let cell3 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! CustomFavoriteFooterTableViewCell
+
         //------------------------------------------------
         cell1.delegate = self
+        cell1.selectionStyle = .none
         
+//        cell1.layer.masksToBounds = false
+//   //     cell1.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        cell1.layer.shadowColor = UIColor.black.cgColor
+//        cell1.layer.shadowRadius = 40
+//        cell1.layer.shadowOpacity = 3.23
+//   
+//        
+//        cell3.layer.masksToBounds = false
+//    //    cell3.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        cell3.layer.shadowColor = UIColor.black.cgColor
+//        cell3.layer.shadowRadius = 40
+//        cell3.layer.shadowOpacity = 3.23
+        
+        
+        cell2.selectionStyle = .none
+        cell3.selectionStyle = .none
         //----------------------------------------------cell1
         if (indexPath.section == 0) && (indexPath.row == 0){
             cell1.viewInCell.backgroundColor = mrtOrangeColor
@@ -219,7 +246,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
 
 extension FavoriteStationViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("did")
+      print("did")
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -231,6 +258,9 @@ extension FavoriteStationViewController:UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0{
+          return 44
+        }
         return 60
     }
     
