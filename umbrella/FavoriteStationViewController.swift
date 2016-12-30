@@ -249,7 +249,15 @@ extension FavoriteStationViewController:UITableViewDelegate{
       print("did")
     }
     
+    //改Section顏色
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+            view.tintColor = UIColor.clear
+        
+        //tableView.tableFooterView?.backgroundColor = UIColor.clear
+    }
+    //改Section大小
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        
         if section == 0{
             return 0
         }else{
@@ -257,12 +265,13 @@ extension FavoriteStationViewController:UITableViewDelegate{
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0{
-          return 44
-        }
-        return 60
-    }
+    //改cell的高度
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        if indexPath.row == 0{
+//          return 45
+//        }
+//        return 45
+//   }
     
 }
 

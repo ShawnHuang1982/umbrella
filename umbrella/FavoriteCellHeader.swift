@@ -17,13 +17,13 @@ class FavoriteCellHeader: UIView {
                 maskLayer.path = path.cgPath
                 self.layer.mask = maskLayer
         
-        self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize.zero
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowRadius = 4
-        self.layer.shadowOpacity = 0.23
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shouldRasterize = true
+//        self.layer.masksToBounds = false
+//        self.layer.shadowOffset = CGSize.zero
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowRadius = 4
+//        self.layer.shadowOpacity = 0.23
+//        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+//        self.layer.shouldRasterize = true
     }
     
     /*

@@ -17,13 +17,13 @@ class FavoriteCellFooter: UIView {
         maskLayer.path = path.cgPath
         self.layer.mask = maskLayer
         
-        self.layer.masksToBounds = false
-        self.layer.shadowOffset = CGSize(width: 0, height: 0)
-        self.layer.shadowColor = UIColor.black.cgColor
-        self.layer.shadowRadius = 40
-        self.layer.shadowOpacity = 1
-        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        self.layer.shouldRasterize = true
+//        self.layer.masksToBounds = false
+//        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowRadius = 40
+//        self.layer.shadowOpacity = 1
+//        self.layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+//        self.layer.shouldRasterize = true
         
         
     }
