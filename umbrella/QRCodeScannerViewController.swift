@@ -35,12 +35,12 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     var isFirstStart = "First"
     
     override func viewDidDisappear(_ animated: Bool) {
-         print("viewDidDisappear")
+         print("QRCodeScanner的viewDidDisappear")
         loginViewController = nil
     }
     
     override func viewWillAppear(_ animated: Bool) {
-         print("viewWillAppear")
+         print("QRCodeScanner的viewWillAppear")
         //為了轉場時不會看到背景畫面
 //        if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == "") && !(appDelegate.jsonCanRent){
         if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == "") {
@@ -56,7 +56,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
     
     //tabbar切換一定要在viewDidAppear
     override func viewDidAppear(_ animated: Bool) {
-        print("ViewDidAppear")
+        print("QRCodeScanner的ViewDidAppear")
         //第一次載入
         if (appDelegate.jsonBackToken == "") && (appDelegate.jsonBackUserID == ""){
             print("準備進入登入頁面")
@@ -165,6 +165,13 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 let getCheck:Int = self.jsonPackage["borrow_status"] as! Int
                 if getCheck == 1 {  //borrow_status狀態0代表不可借傘,狀態1代表可以借傘
                     print("可以借傘")
+                    
+                    DispatchQueue.main.async {
+                    //可以借傘就要先生出畫面
+                    self.viewContainer1.isHidden = false
+                    self.container1Image.isHidden = false
+                    }
+                    
                     self.appDelegate.jsonCanRent = true
                     //self.canRent = true
                     self.appDelegate.jsonCanRentReady = "Ready"
@@ -340,7 +347,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                 do {
                     let task = URLSession.shared.dataTask(with: request) { (data, res, err) in
                         let str = String(data: data!, encoding: .utf8)
-                        print("result---> \(res)")
+                        //print("result---> \(res)")
                         print("data--> \(str)")
                         print("掃描到有值,而且是第一次產生下一頁------")
                         // messageLabel.text = metadataObj.stringValue

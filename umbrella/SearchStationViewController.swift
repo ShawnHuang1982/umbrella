@@ -11,9 +11,16 @@
 // 移動畫面到座標 , 使用內建的CLLocationCoordinate2DMake func
 import UIKit
 import GoogleMaps
+import Alamofire
+import SwiftyJSON
 
 class SearchStationViewController: UIViewController{
     
+   // @IBOutlet var searchController: UISearchDisplayController!  //等下要存要我們收尋資料的 SearchController
+    var search1Controller:UISearchController! //等下要存要我們收尋資料的 SearchController
+    var result1Controller = UITableViewController() //等下準備顯示搜尋結果的tableViewController
+    
+//    @IBOutlet weak var customSearchBar: UISearchBar!
         var locationManager = CLLocationManager() //取得使用者同意提供位置,及更新位置
     var userLocation:CLLocation? //取得使用者目前位置
     var selectedLocation = CLLocationCoordinate2D() //選取到的站點Location
@@ -25,12 +32,18 @@ class SearchStationViewController: UIViewController{
     var selectedRouteName2 = ""
     var distanceInMeters:CLLocationDistance?
     
+    var distanceCalculate3 = 0
+    var deCodeJsonStationResult = [StructStation]()
+        var deCodeJsonStationResultSorted = [StructStation]()
+   let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
+    
+    var resultArray = [String]()
 //    @IBOutlet weak var callGoogleMap: GMSMapView!
-    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewStationList: UITableView!
 //    @IBOutlet weak var mapView: UIView!
-    var testArray1 = ["松江南京","行天宮"]
-    var testArray2 = ["4號出口地面出口處","1號出口方向驗票閘門處"]
+    var testArray1 = ["222松江南京","223行天宮"]
+    var testArray2 = ["驗票閘門處","4號出口地面出口處","1號出口方向驗票閘門處"]
     var testArray3 = ["5","15","10","10"]
     //var testArray4 = ["100","123"]    //假資料
     var testArray5lat = [25.0512257,25.059717]
@@ -59,13 +72,31 @@ class SearchStationViewController: UIViewController{
       //  scrollVewMRTMap.delegate = self
         
         //searchBar使用 偵測被點選的事件
-        searchBar.delegate = self
+        //searchBar.delegate = self
+        //customSearchBar.delegate = self
+        
         
         //要取得使用者位置,以下設定
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
  //       callGoogleMap.isMyLocationEnabled = true
         locationManager.delegate = self
+        
+        search1Controller = UISearchController(searchResultsController: result1Controller)
+        
+        search1Controller.searchBar.barTintColor = UIColor(red: 0.953, green: 0.957, blue: 0.961, alpha: 1)
+        search1Controller.searchBar.backgroundColor = UIColor.clear
+      
+        result1Controller.automaticallyAdjustsScrollViewInsets = false
+        result1Controller.tableView.contentInset = UIEdgeInsetsMake(search1Controller.searchBar.frame.height + 20 , 0, 0, 0)
+        search1Controller.searchResultsUpdater = self
+        tableViewStationList.tableHeaderView = search1Controller.searchBar
+        
+        
+        
+        print("上網抓站點資料")
+        requestData()
+        
          }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -87,6 +118,9 @@ class SearchStationViewController: UIViewController{
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    //進入到站點詳細的頁面要送入的資料
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoDetailStation"{
             if let destinationVC = segue.destination as? SearchStationDetailViewController{
@@ -106,35 +140,69 @@ class SearchStationViewController: UIViewController{
     }
     
     func requestData(){
-        let urlString = "https://sheetsu.com/apis/v1.0/301105b950f0"
-        let url = URL(string: urlString)
-        let urlRequest = URLRequest(url: url!, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 30)
-        print(urlRequest)
-        let task = URLSession.shared.dataTask(with: urlRequest) {
-            (data , responese , error )  in
-            if error == nil {
-                let res = responese as! HTTPURLResponse
-                print("status:",res.statusCode)
-                if let data = data {
-                    do{
-                        let str = String(data: data, encoding: .utf8)
-                        print(str)
-                        print(data)
-                        try self.data1 = JSONSerialization.jsonObject(with: data) as! [[String : String]]
-                        print(self.data1)
-                        DispatchQueue.main.async {
-                            self.testArray6 = []
-                            self.tableViewStationList.reloadData()
-                        }
-                    }catch{
-                        print(error)
+        let urlString = "http://139.162.76.87/api/v1/stations"
+        let parameter:Parameters = [
+            "auth_token" : appDelegate.jsonBackToken,
+            "user_id":appDelegate.jsonBackUserID
+        ]
+        Alamofire.request(urlString, parameters: parameter).responseJSON {
+            (response) in
+            switch response.result{
+            case .success:
+                let jsonPackage = JSON(response.result.value)
+                //print("站點傘數量json資料包",json)
+                let jsonArrayAllLocation = jsonPackage["all_locations"].arrayValue
+                //print("所有站點json資料包",jsonArrayAllLocation)
+                //  let jsonArrayLocationName = jsonArrayAllLocation.first?["location_name"].stringValue
+                for i in 0...jsonArrayAllLocation.count-1{
+                    let jsonArrayLocationName = jsonArrayAllLocation[i]["location_name"].stringValue ?? ""
+                    let jsonArrayLocationLat = (jsonArrayAllLocation[i]["location_coordinate"]["latitude"]).doubleValue
+                    let jsonArrayLocationLon = (jsonArrayAllLocation[i]["location_coordinate"]["longitude"]).doubleValue
+                    let jsonArrayLocationPlaceID = jsonArrayAllLocation[i]["location_id"].stringValue ?? ""
+                    let jsonArrayLocationRoute1a = jsonArrayAllLocation[i]["mrt_line"].arrayValue
+                   let jsonArrayLocationRoute1b = jsonArrayLocationRoute1a.first?["line_name"].stringValue ?? ""
+                    let jsonArrayLocationUMBNumber = jsonArrayAllLocation[i]["rentable_umbrella_number"].stringValue ?? ""
+                   let distanceCalculate1 = CLLocation(latitude: jsonArrayLocationLat, longitude: jsonArrayLocationLon)
+                    let distanceCalculate2 = self.userLocation?.distance(from: distanceCalculate1)
+                    if distanceCalculate2 != nil{
+                        self.distanceCalculate3 =  Int(distanceCalculate2!)
                     }
+                    
+                    //let jsonArrayLocationRoute1c = jsonArrayLocationRoute1a.
+//                    if let jsonArrayLocationRoute1b = jsonArrayLocationRoute1a[1]["line_name"]
+//                    print("站點ID",jsonArrayLocationPlaceID)
+//                    print("站點名稱",jsonArrayLocationName)
+//                    print("站點經度",jsonArrayLocationLat)
+//                    print("站點緯度",jsonArrayLocationLon)
+//                    print("站點路線1",jsonArrayLocationRoute1b)
+                    //print("站點路線1",jsonArrayLocationRoute1b)
+                    self.deCodeJsonStationResult.append(StructStation(stationPlaceID: jsonArrayLocationPlaceID , stationName: jsonArrayLocationName, stationLat: jsonArrayLocationLat, stationLon: jsonArrayLocationLon, stationUmbrellaLeftNumber: jsonArrayLocationUMBNumber, stationRoute1ID: jsonArrayLocationRoute1b, stationRoute2ID: "" , distanceFromUserToStation: self.distanceCalculate3))
                 }
+             //   print(self.deCodeJsonStationResult.count)
+              //  print(self.deCodeJsonStationResult)
+                
+                DispatchQueue.main.async {
+             
+                   self.deCodeJsonStationResultSorted = self.deCodeJsonStationResult.sorted(by: { (lhs:StructStation, rhs:StructStation) -> Bool in
+                    return lhs.distanceFromUserToStation < rhs.distanceFromUserToStation
+                    // return lhs.distanceFromUserToStation > rhs.distanceFromUserToStation
+                        //return lhs.distanceFromUserToStation.compare(rhs.distanceFromUserToStation) == .orderedDescending
+                    })
+                    print(self.deCodeJsonStationResultSorted)
+                    self.tableViewStationList.reloadData()
+                }
+                
+                
+            case .failure(let error):
+                print(error)
+                
             }
         }
-        task.resume()
-        }
-
+        
+        
+        
+        
+    }
 // last
 }
 
@@ -166,11 +234,25 @@ extension SearchStationViewController:UISearchBarDelegate{
 extension SearchStationViewController:CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         userLocation = locations.first
-        print("userLocation--->",userLocation)
+        //print("userLocation--->",userLocation)
         tableViewStationList.reloadData()   //為了更新使用者離站點的距離
     }
 }
 
+extension SearchStationViewController:UISearchResultsUpdating{
+
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchWord = searchController.searchBar.text{
+            resultArray = testArray1.filter({
+                (product:String) -> Bool in
+                product.contains(searchWord)
+                return product.lowercased().contains(searchWord.lowercased())
+            })
+                print("過濾結果",resultArray)
+        }
+    }
+
+}
 
 
 

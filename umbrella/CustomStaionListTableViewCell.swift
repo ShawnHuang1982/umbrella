@@ -16,7 +16,7 @@ class CustomStaionListTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        print("生出StationCell")
+        //print("生出StationCell")
         // Initialization code
     }
 

@@ -9,9 +9,12 @@
 import Foundation
 
 struct StructStation {
-    var stationName = ""
     var stationPlaceID = ""
+    var stationName = ""
     var stationLat:Double = 0.0
     var stationLon:Double = 0.0
     var stationUmbrellaLeftNumber = ""
+    var stationRoute1ID = ""
+    var stationRoute2ID = ""
+    var distanceFromUserToStation = 0
 }

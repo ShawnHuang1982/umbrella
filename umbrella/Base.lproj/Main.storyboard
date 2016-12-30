@@ -30,7 +30,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="499"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="klZ-KO-3cJ">
-                                        <rect key="frame" x="36" y="135" width="249" height="229"/>
+                                        <rect key="frame" x="36" y="128" width="249" height="244"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
                                 </subviews>
@@ -39,7 +39,7 @@
                                     <constraint firstItem="klZ-KO-3cJ" firstAttribute="centerY" secondItem="Qx0-VO-YQC" secondAttribute="centerY" id="9z8-ni-Y25"/>
                                     <constraint firstAttribute="bottom" secondItem="blC-gb-BnV" secondAttribute="bottom" id="B29-Ix-KCv"/>
                                     <constraint firstItem="blC-gb-BnV" firstAttribute="top" secondItem="Qx0-VO-YQC" secondAttribute="top" id="XRX-rX-xJe"/>
-                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="Qx0-VO-YQC" secondAttribute="height" multiplier="204/499" constant="25" id="dgb-fl-yod"/>
+                                    <constraint firstItem="klZ-KO-3cJ" firstAttribute="height" secondItem="Qx0-VO-YQC" secondAttribute="height" multiplier="204/499" constant="40" id="dgb-fl-yod"/>
                                     <constraint firstItem="klZ-KO-3cJ" firstAttribute="width" secondItem="Qx0-VO-YQC" secondAttribute="width" multiplier="239/320" constant="10" id="ik7-X0-VjX"/>
                                     <constraint firstItem="blC-gb-BnV" firstAttribute="leading" secondItem="Qx0-VO-YQC" secondAttribute="leading" id="sD5-Ve-jry"/>
                                     <constraint firstAttribute="trailing" secondItem="blC-gb-BnV" secondAttribute="trailing" id="taE-gH-ygk"/>
@@ -115,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sMP-PF-ZXi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043" y="1409"/>
+            <point key="canvasLocation" x="3313" y="1407"/>
         </scene>
         <!--Code Scan Success View Controller-->
         <scene sceneID="QAy-fE-tfn">
@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BUc-Fu-baZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1676" y="1410"/>
+            <point key="canvasLocation" x="3994" y="1406"/>
         </scene>
         <!--管理設定-->
         <scene sceneID="2JY-Au-bOq">
@@ -357,7 +357,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRA-3v-kBs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5615.625" y="516.54929577464793"/>
+            <point key="canvasLocation" x="6263" y="517"/>
         </scene>
         <!--使用者登入登出-->
         <scene sceneID="9m9-US-Dsm">
@@ -507,7 +507,7 @@
                     </items>
                 </navigationBar>
             </objects>
-            <point key="canvasLocation" x="6386.25" y="154.22535211267606"/>
+            <point key="canvasLocation" x="6264" y="1406"/>
         </scene>
         <!--信用卡管理-->
         <scene sceneID="lGJ-Uz-b9a">
@@ -681,7 +681,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="efj-VB-fPv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6386.25" y="846.12676056338034"/>
+            <point key="canvasLocation" x="5616" y="1406"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="mWk-Bh-spR">
@@ -709,7 +709,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBj-HC-xmP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7166.25" y="585.21126760563379"/>
+            <point key="canvasLocation" x="6896" y="1406"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="X4a-VF-OUL">
@@ -737,7 +737,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-Gc-uqL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7850.625" y="588.38028169014081"/>
+            <point key="canvasLocation" x="6894" y="2094"/>
         </scene>
         <!--愛用站點-->
         <scene sceneID="ksz-uM-Apu">
@@ -753,7 +753,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZgM-PE-5F6">
                                 <rect key="frame" x="20" y="90" width="280" height="409"/>
-                                <color key="backgroundColor" red="0.95272082089999999" green="0.95686525109999998" blue="0.96087664370000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.95272082090377808" green="0.95686525106430054" blue="0.96087664365768433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <sections/>
                             </tableView>
@@ -798,7 +798,7 @@
         <!--站點搜尋-->
         <scene sceneID="OMG-95-bsV">
             <objects>
-                <viewController id="8x4-mp-Bzw" customClass="SearchStationViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8x4-mp-Bzw" customClass="SearchStationViewController" customModule="umbrella" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BJT-nU-ZMV"/>
                         <viewControllerLayoutGuide type="bottom" id="Oui-OI-LQa"/>
@@ -807,34 +807,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="b9Y-iY-PlR">
-                                <rect key="frame" x="0.0" y="64" width="320" height="44"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Tof-XU-1y4"/>
-                                </constraints>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="barTintColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
-                                <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                </scopeButtonTitles>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="owR-Ga-YsX">
-                                <rect key="frame" x="0.0" y="108" width="320" height="411"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="owR-Ga-YsX">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="top" secondItem="BJT-nU-ZMV" secondAttribute="bottom" id="7Gu-Eb-ayE"/>
-                            <constraint firstItem="Oui-OI-LQa" firstAttribute="top" secondItem="owR-Ga-YsX" secondAttribute="bottom" id="D1U-TN-1t9"/>
-                            <constraint firstItem="owR-Ga-YsX" firstAttribute="top" secondItem="b9Y-iY-PlR" secondAttribute="bottom" id="Ph8-GB-ECD"/>
-                            <constraint firstAttribute="trailing" secondItem="b9Y-iY-PlR" secondAttribute="trailing" id="Ss8-fQ-8lE"/>
-                            <constraint firstItem="owR-Ga-YsX" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="Ws1-Ve-1Ax"/>
-                            <constraint firstAttribute="trailing" secondItem="owR-Ga-YsX" secondAttribute="trailing" id="n4x-47-Y9z"/>
-                            <constraint firstItem="b9Y-iY-PlR" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="qkY-Ks-3Xe"/>
+                            <constraint firstAttribute="trailing" secondItem="owR-Ga-YsX" secondAttribute="trailing" id="42J-Ne-rXc"/>
+                            <constraint firstItem="Oui-OI-LQa" firstAttribute="top" secondItem="owR-Ga-YsX" secondAttribute="bottom" id="AiC-EC-y34"/>
+                            <constraint firstItem="owR-Ga-YsX" firstAttribute="top" secondItem="BJT-nU-ZMV" secondAttribute="bottom" id="DJf-Ob-OMH"/>
+                            <constraint firstItem="owR-Ga-YsX" firstAttribute="leading" secondItem="hDi-bV-Cdb" secondAttribute="leading" id="G6u-UM-njS"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="Zyu-TW-Nll" appends="YES" id="fZB-Mu-opB"/>
@@ -842,7 +825,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="站點搜尋" id="YlP-Nu-jal"/>
                     <connections>
-                        <outlet property="searchBar" destination="b9Y-iY-PlR" id="dVY-yy-4Bn"/>
                         <outlet property="tableViewStationList" destination="owR-Ga-YsX" id="uRg-xn-e8f"/>
                         <segue destination="e5Q-fg-wtw" kind="show" identifier="gotoDetailStation" id="biZ-Bn-yIS"/>
                     </connections>
@@ -1054,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6T2-tp-6oi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="382.5" y="1409.1549295774648"/>
+            <point key="canvasLocation" x="566" y="1279"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="pyd-fw-oXB">
@@ -1075,7 +1057,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSg-Zx-CJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="-245"/>
+            <point key="canvasLocation" x="1470" y="-275"/>
         </scene>
         <!--管理設定-->
         <scene sceneID="RAA-nh-poY">
@@ -1125,7 +1107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWD-UJ-2Jk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="1411"/>
+            <point key="canvasLocation" x="4678" y="1406"/>
         </scene>
         <!--掃描租傘-->
         <scene sceneID="paP-gm-4xj">

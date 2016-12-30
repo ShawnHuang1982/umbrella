@@ -41,7 +41,7 @@ class LoginOutViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("自己是",self)
+       // print("自己是",self)
         if (appDelegate.jsonBackToken != "") &&  (appDelegate.jsonBackUserID != ""){
             labelForUserNameDidLogin.text = appDelegate.userNameDidLogin
             isLoginStatus = "Login"
@@ -65,7 +65,7 @@ class LoginOutViewController: UIViewController {
         print("isLoginStatus--->",isLoginStatus)
         print("token-->>",appDelegate.jsonBackToken)
         print("UserID-->>",appDelegate.jsonBackUserID)
-        print("appDelegate---->>",appDelegate)
+      //  print("appDelegate---->>",appDelegate)
     }
 
     override func didReceiveMemoryWarning() {
@@ -123,9 +123,9 @@ class LoginOutViewController: UIViewController {
         request.httpMethod = "POST"
         let loginDataDictionary = ["email": textfieldUserName.text!, "password":textfieldUserPassword.text!]
         do {
-            print("loginDataDictionary---> \(loginDataDictionary)")
+          //  print("loginDataDictionary---> \(loginDataDictionary)")
             let data = try  JSONSerialization.data(withJSONObject: loginDataDictionary, options: [])
-            print("data--->",data)
+           // print("data--->",data)
             let task = URLSession.shared.uploadTask(with: request, from: data) { (data, res, err) in
                 //防止沒網路會crsh
                 if err == nil{
@@ -156,7 +156,7 @@ class LoginOutViewController: UIViewController {
                             if self.whoSend == "QRCodePage"{
                                 print("切換回去")
                                 self.whoSend = "" //清空
-                                print("pop前",self)
+                            //    print("pop前",self)
                                 DispatchQueue.main.async {
                                 //  self.navigationController?.popViewController(animated: true)//動畫要true,否則無法跳到選擇的第二頁
                                 //為了不讓pop回去的畫面被看到
@@ -164,7 +164,7 @@ class LoginOutViewController: UIViewController {
                                     self.tabBarController?.selectedIndex = 2
                                 }
                               
-                                print("pop後",self)
+                              //  print("pop後",self)
                             //self.dismiss(animated: true, completion: nil) //ok
                                 //                    return self.loginJson
                                 }
