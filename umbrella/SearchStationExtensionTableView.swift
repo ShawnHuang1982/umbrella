@@ -15,9 +15,14 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView == tableViewStationList{
         return deCodeJsonStationResultSorted.count
+        }else{
+            return resultArray.count
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if tableView == tableViewStationList{
         //計算使用者位置與所有站點的距離
 //        let cellLocation = CLLocation(latitude: deCodeJsonStationResult[indexPath.row].stationLat, longitude: deCodeJsonStationResult[indexPath.row].stationLon) //站點位置
 //        print("站點的Location",cellLocation)
@@ -65,6 +70,43 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
         //點選表格不會變成灰色
         cell.selectionStyle = UITableViewCellSelectionStyle.none
         return cell
+        //顯示過濾搜尋站點的ResultViewController的內容
+        }else{
+
+            print("ResultTableViewController中顯示")
+            //測試1
+            //let cell = UITableViewCell()
+            //cell.textLabel?.text = resultArray[indexPath.row]
+            //return cell
+            
+            //實際
+//            let cell =
+//            let cell =  tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomStaionListTableViewCell
+            let cell = Bundle.main.loadNibNamed("CustomStaionListTableViewCell", owner: self, options: nil)?.first as! CustomStaionListTableViewCell
+            cell.labelRouteName.text = resultArray[indexPath.row].stationName
+            cell.labelNUBleftNumber.text = resultArray[indexPath.row].stationUmbrellaLeftNumber
+            cell.labelLocationNearDistance.text = "\(resultArray[indexPath.row].distanceFromUserToStation)"
+            switch resultArray[indexPath.row].stationRoute1ID {
+            case "淡水信義線":
+                print("淡水信義線")
+                cell.imageViewRouteColor.image = UIImage(named: "rRed")
+            case "板南線":
+                print("板南線")
+                cell.imageViewRouteColor.image = UIImage(named: "rBlue")
+            case "中和新蘆線":
+                print("中和新蘆線")
+                cell.imageViewRouteColor.image = UIImage(named: "rYellow")
+            case "文湖線":
+                print("文湖線")
+                cell.imageViewRouteColor.image = UIImage(named: "rBrown")
+            case "松山新店線":
+                print("松山新店線")
+                cell.imageViewRouteColor.image = UIImage(named: "rGreen")
+            default:
+                print("??線")
+            }
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -73,6 +115,7 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("點選的row:\(indexPath.row)")
+        if tableView == tableViewStationList{
         //終於懂了為何要用performsegue
 //        let vc2 = SearchStationDetailViewController()
 //        self.navigationController?.pushViewController(vc2, animated: true)
@@ -103,9 +146,21 @@ extension SearchStationViewController:UITableViewDataSource,UITableViewDelegate{
  //       marker.title = testArray1[indexPath.row]
         //Marker title會一開始就顯示,不用點選Marker
  //       callGoogleMap.selectedMarker = marker
-        
+        }else{
+            //如果是tableView = search1Controller.tableview
+            selectedName = resultArray[indexPath.row].stationName
+            //建立地圖移動的座標
+            selectedLocation = CLLocationCoordinate2DMake(resultArray[indexPath.row].stationLat, resultArray[indexPath.row].stationLon)
+            selectedDistanceStationToLocation = "\(resultArray[indexPath.row].distanceFromUserToStation)"
+            selectedRouteName1 = resultArray[indexPath.row].stationRoute1ID
+            selectedExit = testArray2[0]
+            selectedUMBCanRent =  resultArray[indexPath.row].stationUmbrellaLeftNumber
+            //取消搜尋Bar,而且不能放在資料前面,免得推過去後沒資料
+            search1Controller.isActive = false
+            performSegue(withIdentifier: "gotoDetailStation", sender: nil)
+
+        }
     }
     
-    
-    
+//last
 }

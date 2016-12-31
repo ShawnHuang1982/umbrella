@@ -1,0 +1,138 @@
+
+/* Class = "UILabel"; text = "登入/登出"; ObjectID = "2Z5-3h-FQw"; */
+"2Z5-3h-FQw.text" = "登入/登出";
+
+/* Class = "UILabel"; text = "愛 用 站 點"; ObjectID = "4ft-ay-RWZ"; */
+"4ft-ay-RWZ.text" = "愛 用 站 點";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "5Dv-NB-0lF"; */
+"5Dv-NB-0lF.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "已登入"; ObjectID = "5JE-Lu-DXA"; */
+"5JE-Lu-DXA.text" = "已登入";
+
+/* Class = "UILabel"; text = "距"; ObjectID = "5lh-Fv-4Yy"; */
+"5lh-Fv-4Yy.text" = "距";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "9Rh-Wc-DFd"; */
+"9Rh-Wc-DFd.text" = "Label";
+
+/* Class = "UILabel"; text = "UserName"; ObjectID = "9q3-ui-0cx"; */
+"9q3-ui-0cx.text" = "UserName";
+
+/* Class = "UINavigationItem"; title = "管理設定"; ObjectID = "AdO-A8-YAa"; */
+"AdO-A8-YAa.title" = "管理設定";
+
+/* Class = "UIButton"; normalTitle = "登入"; ObjectID = "Dda-lj-3TK"; */
+"Dda-lj-3TK.normalTitle" = "登入";
+
+/* Class = "UITextField"; placeholder = "請輸入使用者密碼"; ObjectID = "FaO-8y-F25"; */
+"FaO-8y-F25.placeholder" = "請輸入使用者密碼";
+
+/* Class = "UITabBarItem"; title = "愛用站點"; ObjectID = "Irf-dZ-zdF"; */
+"Irf-dZ-zdF.title" = "愛用站點";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Iwy-N7-b9U"; */
+"Iwy-N7-b9U.text" = "Label";
+
+/* Class = "UILabel"; text = "我們將儘速派人處理"; ObjectID = "JHx-u4-pVB"; */
+"JHx-u4-pVB.text" = "我們將儘速派人處理";
+
+/* Class = "UITabBarItem"; title = "租用紀錄"; ObjectID = "LgJ-gD-vcR"; */
+"LgJ-gD-vcR.title" = "租用紀錄";
+
+/* Class = "UIButton"; normalTitle = "登出"; ObjectID = "LhS-hb-cRB"; */
+"LhS-hb-cRB.normalTitle" = "登出";
+
+/* Class = "UITabBarItem"; title = "站點查詢"; ObjectID = "QQV-Jj-W6C"; */
+"QQV-Jj-W6C.title" = "站點查詢";
+
+/* Class = "UILabel"; text = "帳號或密碼輸入錯誤,請重新輸入"; ObjectID = "RQu-ua-fJP"; */
+"RQu-ua-fJP.text" = "帳號或密碼輸入錯誤,請重新輸入";
+
+/* Class = "UILabel"; text = "密碼管理"; ObjectID = "TMt-Iq-opN"; */
+"TMt-Iq-opN.text" = "密碼管理";
+
+/* Class = "UINavigationItem"; title = "站點搜尋"; ObjectID = "YlP-Nu-jal"; */
+"YlP-Nu-jal.title" = "站點搜尋";
+
+/* Class = "UITableViewSection"; headerTitle = "設定"; ObjectID = "Ypt-2M-pIl"; */
+"Ypt-2M-pIl.headerTitle" = "設定";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "bKd-eL-TZD"; */
+"bKd-eL-TZD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "開始導航"; ObjectID = "d3w-nP-KoC"; */
+"d3w-nP-KoC.normalTitle" = "開始導航";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "f0b-9A-BvQ"; */
+"f0b-9A-BvQ.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "<"; ObjectID = "gDc-U5-Svt"; */
+"gDc-U5-Svt.title" = "<";
+
+/* Class = "UITextField"; placeholder = "請輸入使用者名稱"; ObjectID = "gdM-Mi-0uA"; */
+"gdM-Mi-0uA.placeholder" = "請輸入使用者名稱";
+
+/* Class = "UIButton"; normalTitle = "登錄"; ObjectID = "gw0-uB-Viw"; */
+"gw0-uB-Viw.normalTitle" = "登錄";
+
+/* Class = "UILabel"; text = "自動記錄常用站點"; ObjectID = "i7c-m2-H1I"; */
+"i7c-m2-H1I.text" = "自動記錄常用站點";
+
+/* Class = "UILabel"; text = "悠遊卡管理"; ObjectID = "iaQ-kL-Mnc"; */
+"iaQ-kL-Mnc.text" = "悠遊卡管理";
+
+/* Class = "UITabBarItem"; title = "管理設定"; ObjectID = "jgo-YR-BOv"; */
+"jgo-YR-BOv.title" = "管理設定";
+
+/* Class = "UILabel"; text = "通報傘況或故障"; ObjectID = "lbX-Ra-bId"; */
+"lbX-Ra-bId.text" = "通報傘況或故障";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "lnO-0X-kWc"; */
+"lnO-0X-kWc.title" = "Title";
+
+/* Class = "UILabel"; text = "m"; ObjectID = "m1N-RA-3NN"; */
+"m1N-RA-3NN.text" = "m";
+
+/* Class = "UILabel"; text = "可用傘數："; ObjectID = "mqm-VQ-8E5"; */
+"mqm-VQ-8E5.text" = "可用傘數：";
+
+/* Class = "UILabel"; text = "開啟GPS定位"; ObjectID = "npN-D0-kab"; */
+"npN-D0-kab.text" = "開啟GPS定位";
+
+/* Class = "UITableViewSection"; headerTitle = "管理"; ObjectID = "qW9-qN-MXy"; */
+"qW9-qN-MXy.headerTitle" = "管理";
+
+/* Class = "UINavigationItem"; title = "信用卡管理"; ObjectID = "qw0-dW-Nuo"; */
+"qw0-dW-Nuo.title" = "信用卡管理";
+
+/* Class = "UINavigationItem"; title = "站 點 詳 細 情 報"; ObjectID = "rUC-2b-Qpd"; */
+"rUC-2b-Qpd.title" = "站 點 詳 細 情 報";
+
+/* Class = "UILabel"; text = "信用卡管理"; ObjectID = "sMs-l1-Aa1"; */
+"sMs-l1-Aa1.text" = "信用卡管理";
+
+/* Class = "UINavigationItem"; title = "使用者登入登出"; ObjectID = "tWH-nT-QP0"; */
+"tWH-nT-QP0.title" = "使用者登入登出";
+
+/* Class = "UITableViewSection"; headerTitle = "問題回報"; ObjectID = "uUS-84-0rM"; */
+"uUS-84-0rM.headerTitle" = "問題回報";
+
+/* Class = "UILabel"; text = "使用者名稱"; ObjectID = "uiS-HA-w1S"; */
+"uiS-HA-w1S.text" = "使用者名稱";
+
+/* Class = "UITabBarItem"; title = "掃描租傘"; ObjectID = "wp6-jO-Rma"; */
+"wp6-jO-Rma.title" = "掃描租傘";
+
+/* Class = "UILabel"; text = "密碼"; ObjectID = "xaM-dP-04A"; */
+"xaM-dP-04A.text" = "密碼";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "xae-9A-uJG"; */
+"xae-9A-uJG.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "設定還傘提醒"; ObjectID = "y4b-jS-CPl"; */
+"y4b-jS-CPl.text" = "設定還傘提醒";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "yqt-7t-RbG"; */
+"yqt-7t-RbG.text" = "Label";

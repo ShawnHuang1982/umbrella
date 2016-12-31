@@ -36,12 +36,13 @@ class SearchStationViewController: UIViewController{
     var deCodeJsonStationResult = [StructStation]()
         var deCodeJsonStationResultSorted = [StructStation]()
    let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
-    
-    var resultArray = [String]()
+    var resultArray = [StructStation]()
+//    var resultArray = [String]() //測試用
 //    @IBOutlet weak var callGoogleMap: GMSMapView!
 //    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewStationList: UITableView!
 //    @IBOutlet weak var mapView: UIView!
+    var tmpArray = [""]
     var testArray1 = ["222松江南京","223行天宮"]
     var testArray2 = ["驗票閘門處","4號出口地面出口處","1號出口方向驗票閘門處"]
     var testArray3 = ["5","15","10","10"]
@@ -82,16 +83,18 @@ class SearchStationViewController: UIViewController{
  //       callGoogleMap.isMyLocationEnabled = true
         locationManager.delegate = self
         
+        //設定SearchBarController
         search1Controller = UISearchController(searchResultsController: result1Controller)
         
         search1Controller.searchBar.barTintColor = UIColor(red: 0.953, green: 0.957, blue: 0.961, alpha: 1)
         search1Controller.searchBar.backgroundColor = UIColor.clear
-      
         result1Controller.automaticallyAdjustsScrollViewInsets = false
         result1Controller.tableView.contentInset = UIEdgeInsetsMake(search1Controller.searchBar.frame.height + 20 , 0, 0, 0)
         search1Controller.searchResultsUpdater = self
         tableViewStationList.tableHeaderView = search1Controller.searchBar
-        
+        result1Controller.tableView.delegate = self
+        result1Controller.tableView.dataSource = self
+        search1Controller.dimsBackgroundDuringPresentation = false
         
         
         print("上網抓站點資料")
@@ -140,6 +143,10 @@ class SearchStationViewController: UIViewController{
     }
     
     func requestData(){
+        
+        tmpArray = []
+        deCodeJsonStationResultSorted = []
+        
         let urlString = "http://139.162.76.87/api/v1/stations"
         let parameter:Parameters = [
             "auth_token" : appDelegate.jsonBackToken,
@@ -182,12 +189,16 @@ class SearchStationViewController: UIViewController{
               //  print(self.deCodeJsonStationResult)
                 
                 DispatchQueue.main.async {
-             
+                    //儲存按照遠近的排序後的資料
                    self.deCodeJsonStationResultSorted = self.deCodeJsonStationResult.sorted(by: { (lhs:StructStation, rhs:StructStation) -> Bool in
                     return lhs.distanceFromUserToStation < rhs.distanceFromUserToStation
                     // return lhs.distanceFromUserToStation > rhs.distanceFromUserToStation
                         //return lhs.distanceFromUserToStation.compare(rhs.distanceFromUserToStation) == .orderedDescending
                     })
+                    //一開始不會解struct的filter function
+//     for index in 0...self.deCodeJsonStationResultSorted.count-1{
+//                       self.tmpArray.append( self.deCodeJsonStationResultSorted[index].stationName)
+//                    }
                     print(self.deCodeJsonStationResultSorted)
                     self.tableViewStationList.reloadData()
                 }
@@ -241,17 +252,37 @@ extension SearchStationViewController:CLLocationManagerDelegate{
 
 extension SearchStationViewController:UISearchResultsUpdating{
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.search1Controller.searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    //實行這個updateSearchResults,就可以在SearchBar
     func updateSearchResults(for searchController: UISearchController) {
         if let searchWord = searchController.searchBar.text{
-            resultArray = testArray1.filter({
-                (product:String) -> Bool in
-                product.contains(searchWord)
-                return product.lowercased().contains(searchWord.lowercased())
-            })
+            //測試用
+//            resultArray = tmpArray.filter({
+//                (product:String) -> Bool in
+//                product.contains(searchWord)
+//                return product.lowercased().contains(searchWord.lowercased())
+//            })
+            
+            //struct格式 by steven
+//            resultArray = deCodeJsonStationResultSorted.filter(){
+//                ($0 as StructStation).stationName.contains(searchWord)
+//                                (station:StructStation) -> Bool in
+//                                station.stationName.contains(searchWord)
+//                                return station.stationName.contains
+//            )}
+            
+            //struct格式
+            resultArray = deCodeJsonStationResultSorted.filter{
+                $0.stationName.contains(searchWord)
+            }
                 print("過濾結果",resultArray)
+                result1Controller.tableView.reloadData()
         }
     }
-
 }
 
 
