@@ -57,7 +57,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="站名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqy-qa-8if">
-                                <rect key="frame" x="53" y="15" width="88" height="21"/>
+                                <rect key="frame" x="53" y="13" width="88" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="88" id="4hz-JN-uYM"/>
                                     <constraint firstAttribute="height" constant="21" id="Rc6-Yi-ylB"/>
@@ -105,7 +105,7 @@
                             <constraint firstItem="vgK-LO-JAV" firstAttribute="top" secondItem="lis-G5-yqm" secondAttribute="bottom" constant="-1" id="ckc-PH-lLd"/>
                             <constraint firstItem="vgK-LO-JAV" firstAttribute="top" secondItem="iwA-iU-BLY" secondAttribute="bottom" constant="-7" id="e7R-O9-VZ5"/>
                             <constraint firstItem="6CC-ke-43T" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="15" id="jtt-mK-32o"/>
-                            <constraint firstItem="xqy-qa-8if" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="15" id="r1I-e8-afk"/>
+                            <constraint firstItem="xqy-qa-8if" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="13" id="r1I-e8-afk"/>
                             <constraint firstItem="lis-G5-yqm" firstAttribute="leading" secondItem="6CC-ke-43T" secondAttribute="trailing" constant="50" id="stI-GU-9X0"/>
                             <constraint firstItem="lis-G5-yqm" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" id="suR-pc-OP7"/>
                             <constraint firstItem="vgK-LO-JAV" firstAttribute="leading" secondItem="DkN-yb-bj4" secondAttribute="leading" id="z2X-y3-IXh"/>
@@ -124,6 +124,7 @@
             <connections>
                 <outlet property="bottomViewline" destination="vgK-LO-JAV" id="vSR-8Q-neF"/>
                 <outlet property="btnFavoriteStatus" destination="RFg-uE-bqf" id="jzV-VZ-3Ho"/>
+                <outlet property="imageIconUMB" destination="fRW-BZ-JZg" id="fQc-yf-y5V"/>
                 <outlet property="labelFavoriteContentStationName" destination="xqy-qa-8if" id="EG4-5e-vny"/>
                 <outlet property="labelUNBNumberLeft" destination="6CC-ke-43T" id="jHI-Qu-uq7"/>
                 <outlet property="leftViewline" destination="3MH-bs-NDb" id="Mli-jP-0Rj"/>

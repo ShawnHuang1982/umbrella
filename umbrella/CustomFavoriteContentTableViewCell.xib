@@ -102,6 +102,7 @@
             <connections>
                 <outlet property="bottomViewline" destination="ka6-0V-Dos" id="a7F-sU-cm0"/>
                 <outlet property="btnFavoriteStatus" destination="sNT-OM-GR4" id="wi9-uV-8i3"/>
+                <outlet property="imageIconUMB" destination="emC-8V-IGI" id="hRk-4W-0lT"/>
                 <outlet property="labelFavoriteContentStationName" destination="FXm-ic-GEQ" id="h0i-yI-tLR"/>
                 <outlet property="labelUNBNumberLeft" destination="MyO-Fk-r8J" id="bol-9t-0uX"/>
                 <outlet property="leftViewline" destination="WQ5-PR-xux" id="I3e-kX-osv"/>

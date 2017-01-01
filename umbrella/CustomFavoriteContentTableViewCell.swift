@@ -8,23 +8,30 @@
 
 import UIKit
 
+protocol cancelFavoriteCell2Delegate{
+    func removeThisStationAtFavoriteCell2(cell:CustomFavoriteContentTableViewCell)
+}
+
 class CustomFavoriteContentTableViewCell: UITableViewCell {
+    var delegate:cancelFavoriteCell2Delegate?
 
-
-    @IBAction func buttonFavoritePress(_ sender: Any) {
-    
-    }
-    
+    @IBOutlet weak var imageIconUMB: UIImageView!
     @IBOutlet weak var btnFavoriteStatus: UIButton!
     @IBOutlet weak var bottomViewline: UIView!
     @IBOutlet weak var rightViewline: UIView!
     @IBOutlet weak var leftViewline: UIView!    
     @IBOutlet weak var labelUNBNumberLeft: UILabel!
     @IBOutlet weak var labelFavoriteContentStationName: UILabel!
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    @IBAction func buttonFavoritePress(_ sender: Any) {
+        delegate?.removeThisStationAtFavoriteCell2(cell: self)
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -20,11 +20,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "umbrella/FavoriteStationViewController.swift"
-            timestampString = "504936206.509032"
+            timestampString = "504986992.634437"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "532"
-            endingLineNumber = "532">
+            startingLineNumber = "673"
+            endingLineNumber = "673">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

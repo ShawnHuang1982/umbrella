@@ -8,11 +8,18 @@
 
 import UIKit
 
+protocol cancelFavoriteCell3Delegate{
+    func removeThisStationAtFavoriteCell3(cell:CustomFavoriteFooterTableViewCell)
+}
+
 class CustomFavoriteFooterTableViewCell: UITableViewCell {
 
+    var delegate:cancelFavoriteCell3Delegate?
+
+    
+    @IBOutlet weak var imageIconUMB: UIImageView!
     @IBOutlet weak var btnFavoriteStatus: UIButton!
-    @IBAction func buttonFavoritePress(_ sender: Any) {
-    }
+   
     var isFirstDisplay = false
 //    @IBOutlet weak var labelUNBCanMoveNumber: UILabel!
     @IBOutlet weak var labelUNBNumberLeft: UILabel!
@@ -24,6 +31,11 @@ class CustomFavoriteFooterTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    @IBAction func buttonFavoritePress(_ sender: Any) {
+        delegate?.removeThisStationAtFavoriteCell3(cell: self)
+        
     }
 
 //    override func layoutSubviews() {

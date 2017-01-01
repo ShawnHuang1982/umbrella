@@ -7,20 +7,33 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class FavoriteStationViewController: UIViewController,editMyFavoriteStationDelegate {
     @IBOutlet weak var favoriteStationTableView: UITableView!
+    //給cell1用的
     var routeName = ["中和新蘆線","淡水信義線","松山新店線","文湖線","板南線"]
-    var routeOrangeStationName = ["OR01","OR02","OR03","OR04"]
-    var routeRedStationName = ["R01","R02"]
-    var routeGreenStationName = ["G01","G02"]
-    var routeBrownStationName = ["BR01","BR02","BR03"]
-    var routeBlueStationName = ["B01","B02","B03","B04"]
+    //給cell2,cell3用的
+    var arrayStationFavoriteOrange = [String]() //橘線的favorite站
+    var arrayStationFavoriteRed = [String]() //紅線的favorite站
+    var arrayStationFavoriteBrown = [String]() //棕線的favorite站
+    var arrayStationFavoriteGreen = [String]() //綠線的favorite站
+    var arrayStationFavoriteBlue = [String]() //藍線的favorite站
+    //    var routeOrangeStationName = ["OR01","OR02","OR03","OR04"]    //測試用
+    //    var routeRedStationName = ["R01","R02"]   //測試用
+    //    var routeGreenStationName = ["G01","G02"] //測試用
+    //    var routeBrownStationName = ["BR01","BR02","BR03"]    //測試用
+    //    var routeBlueStationName = ["B01","B02","B03","B04"]  //測試用
     var mrtOrangeColor = UIColor(red: 0.973, green: 0.714, blue: 0.110, alpha: 1)
     var mrtRedColor = UIColor(red: 0.890, green: 0.0, blue: 0.176, alpha: 1)
     var mrtGreenColor = UIColor(red: 0.004, green: 0.525, blue: 0.349, alpha: 1)
     var mrtBrownColor = UIColor(red: 0.765, green: 0.549, blue: 0.188, alpha: 1)
     var mrtBlueColor = UIColor(red: 0, green: 0.435, blue: 0.737, alpha: 1)
+    
+    var deCodeJsonStationResult = [StructStation]()
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate //都是同一個
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +50,11 @@ class FavoriteStationViewController: UIViewController,editMyFavoriteStationDeleg
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        requestData()
+        self.favoriteStationTableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -45,15 +63,47 @@ class FavoriteStationViewController: UIViewController,editMyFavoriteStationDeleg
     //    func editFavoriteStationFunc(){
     //        print("editFavoriteStationFunc")
     //    }
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    
+    func requestData(){
+        deCodeJsonStationResult = []
+        
+        let urlString = "http://139.162.76.87/api/v1/stations"
+        let parameter:Parameters = [
+            "auth_token" : appDelegate.jsonBackToken,
+            "user_id":appDelegate.jsonBackUserID
+        ]
+        Alamofire.request(urlString, parameters: parameter).responseJSON {
+            (response) in
+            switch response.result{
+            case .success:
+                let jsonPackage = JSON(response.result.value)
+                //print("站點傘數量json資料包",jsonPackage)
+                let jsonArrayAllLocation = jsonPackage["all_locations"].arrayValue
+                //print("所有站點json資料包",jsonArrayAllLocation)
+                for i in 0...jsonArrayAllLocation.count-1{
+                    let jsonArrayLocationName = jsonArrayAllLocation[i]["location_name"].stringValue ?? ""
+                    let jsonArrayLocationLat = (jsonArrayAllLocation[i]["location_coordinate"]["latitude"]).doubleValue
+                    let jsonArrayLocationLon = (jsonArrayAllLocation[i]["location_coordinate"]["longitude"]).doubleValue
+                    let jsonArrayLocationPlaceID = jsonArrayAllLocation[i]["location_id"].stringValue ?? ""
+                    let jsonArrayLocationRoute1a = jsonArrayAllLocation[i]["mrt_line"].arrayValue
+                    let jsonArrayLocationRoute1b = jsonArrayLocationRoute1a.first?["line_name"].stringValue ?? ""
+                    let jsonArrayLocationUMBNumber = jsonArrayAllLocation[i]["rentable_umbrella_number"].stringValue ?? ""
+                    
+                    self.deCodeJsonStationResult.append(StructStation(stationPlaceID: jsonArrayLocationPlaceID , stationName: jsonArrayLocationName, stationLat: jsonArrayLocationLat, stationLon: jsonArrayLocationLon, stationUmbrellaLeftNumber: jsonArrayLocationUMBNumber, stationRoute1ID: jsonArrayLocationRoute1b, stationRoute2ID: "" , distanceFromUserToStation: 0))
+                }
+                
+                DispatchQueue.main.async {
+                    self.favoriteStationTableView.reloadData()
+                }
+                
+                
+            case .failure(let error):
+                print(error)
+                
+            }
+        }
+    }
+
     
 }
 
@@ -65,30 +115,93 @@ extension FavoriteStationViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return routeOrangeStationName.count+1
-        case 1:
-            return routeRedStationName.count+1
-        case 2:
-            return routeGreenStationName.count+1
-        case 3:
-            return routeBrownStationName.count+1
-        case 4:
-            return routeBlueStationName.count+1
-        default:
-            print("check error")
-            return 0
+        //讀檔
+        if let loadedArrayOrange = UserDefaults.standard.stringArray(forKey: "myFavoriteOrange"){
+            arrayStationFavoriteOrange = loadedArrayOrange
+            print("1.Orange arrayStationFavorite的數量",arrayStationFavoriteOrange)
         }
+        if (arrayStationFavoriteOrange.count == 0) || (arrayStationFavoriteOrange == nil) {
+            arrayStationFavoriteOrange = []
+            print("2.Orange arrayStationFavorite的數量",arrayStationFavoriteOrange)
+            return 0
+        }else{
+            return arrayStationFavoriteOrange.count+1
+        }
+        case 1:
+        //讀檔
+        if let loadedArrayRed = UserDefaults.standard.stringArray(forKey: "myFavoriteRed"){
+            arrayStationFavoriteRed = loadedArrayRed
+            print("1.Red arrayStationFavorite的數量",arrayStationFavoriteRed)
+        }
+        
+        if (arrayStationFavoriteRed.count == 0) || (arrayStationFavoriteRed == nil) {
+            arrayStationFavoriteRed = []
+            print("2.Red arrayStationFavorite的數量",arrayStationFavoriteRed)
+            return 0
+        }else{
+            return arrayStationFavoriteRed.count+1
+        }
+        case 2:
+        //讀檔
+        if let loadedArrayGreen = UserDefaults.standard.stringArray(forKey: "myFavoriteGreen"){
+            arrayStationFavoriteGreen = loadedArrayGreen
+            print("1.Green arrayStationFavorite的數量",arrayStationFavoriteGreen)
+        }
+        if (arrayStationFavoriteGreen.count == 0) || (arrayStationFavoriteGreen == nil) {
+            arrayStationFavoriteGreen = []
+            print("2.Green arrayStationFavorite的數量",arrayStationFavoriteGreen)
+            return 0
+        }else{
+            return arrayStationFavoriteGreen.count+1
+        }
+        case 3:
+        //讀檔
+        if let loadedArrayBrown = UserDefaults.standard.stringArray(forKey: "myFavoriteBrown"){
+            arrayStationFavoriteBrown = loadedArrayBrown
+            print("1.Brwon arrayStationFavorite的數量",arrayStationFavoriteBrown)
+        }
+        if (arrayStationFavoriteBrown.count == 0) || (arrayStationFavoriteBrown == nil){
+            arrayStationFavoriteBrown = []
+            print("2.Brwon arrayStationFavorite的數量",arrayStationFavoriteBrown)
+            return 0
+        }else{
+            return arrayStationFavoriteBrown.count+1
+        }
+        case 4:
+        //讀檔
+        if let loadedArrayBlue = UserDefaults.standard.stringArray(forKey: "myFavoriteBlue"){
+            arrayStationFavoriteBlue = loadedArrayBlue
+            print("1.Blue arrayStationFavorite的數量",arrayStationFavoriteBlue)
+        }
+        if (arrayStationFavoriteBlue.count == 0) || (arrayStationFavoriteBlue == nil){
+            arrayStationFavoriteBlue = []
+            print("2.Blue arrayStationFavorite的數量",arrayStationFavoriteBlue)
+            return 0
+        }else{
+            return arrayStationFavoriteBlue.count+1
+        }
+        default:
+        print("check error")
+        return 0
     }
-    
-    //實作Delegate的方法
-    func editMyFavoriteStation() {
-        print("zzzz")
-    }
-    func didFinishMyFavortieStation() {
-        print("2222")
-    }
-    func cancelActionMyFavortieStation() {
-        print("3333")
+    return 0
+
+        // 測試用
+        //        switch section {
+        //        case 0:
+        //            return routeOrangeStationName.count+1
+        //        case 1:
+        //            return routeRedStationName.count+1
+        //        case 2:
+        //            return routeGreenStationName.count+1
+        //        case 3:
+        //            return routeBrownStationName.count+1
+        //        case 4:
+        //            return routeBlueStationName.count+1
+        //        default:
+        //            print("check error")
+        //            return 0
+        //        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -121,7 +234,6 @@ extension FavoriteStationViewController:UITableViewDataSource{
         //        cell3.layer.shadowColor = UIColor.black.cgColor
         //        cell3.layer.shadowRadius = 40
         //        cell3.layer.shadowOpacity = 3.23
-        
         
         cell2.selectionStyle = .none
         cell3.selectionStyle = .none
@@ -157,96 +269,125 @@ extension FavoriteStationViewController:UITableViewDataSource{
             return cell1
         }
         //---------------------------------------------cell2
-        if (indexPath.section == 0) && (indexPath.row >= 1) && ( routeOrangeStationName.count > indexPath.row ){
+        if (indexPath.section == 0) && (indexPath.row >= 1) && ( arrayStationFavoriteOrange.count > indexPath.row ){
             print("1a")
             cell2.leftViewline.backgroundColor = mrtOrangeColor
             cell2.rightViewline.backgroundColor = mrtOrangeColor
             cell2.bottomViewline.backgroundColor = mrtOrangeColor
-            cell2.labelFavoriteContentStationName.text = routeOrangeStationName[indexPath.row-1]
+            cell2.labelFavoriteContentStationName.text = arrayStationFavoriteOrange[indexPath.row-1]
+            cell2.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteOrange[indexPath.row-1])
             return cell2
         }
-        if (indexPath.section == 1) && (indexPath.row >= 1) && ( routeRedStationName.count > indexPath.row ){
+        if (indexPath.section == 1) && (indexPath.row >= 1) && ( arrayStationFavoriteRed.count > indexPath.row ){
             print("2a")
             cell2.leftViewline.backgroundColor = mrtRedColor
             cell2.rightViewline.backgroundColor = mrtRedColor
             cell2.bottomViewline.backgroundColor = mrtRedColor
-            cell2.labelFavoriteContentStationName.text = routeRedStationName[indexPath.row-1]
+            cell2.labelFavoriteContentStationName.text = arrayStationFavoriteRed[indexPath.row-1]
+            cell2.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteRed[indexPath.row-1])
             return cell2
         }
-        if (indexPath.section == 2) && (indexPath.row >= 1) && ( routeGreenStationName.count > indexPath.row ){
+        if (indexPath.section == 2) && (indexPath.row >= 1) && ( arrayStationFavoriteGreen.count > indexPath.row ){
             print("3a")
             cell2.leftViewline.backgroundColor = mrtGreenColor
             cell2.rightViewline.backgroundColor = mrtGreenColor
             cell2.bottomViewline.backgroundColor = mrtGreenColor
-            cell2.labelFavoriteContentStationName.text = routeGreenStationName[indexPath.row-1]
+            cell2.labelFavoriteContentStationName.text = arrayStationFavoriteGreen[indexPath.row-1]
+             cell2.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteGreen[indexPath.row-1])
             return cell2
         }
-        if (indexPath.section == 3) && (indexPath.row >= 1) && ( routeBrownStationName.count > indexPath.row ){
+        if (indexPath.section == 3) && (indexPath.row >= 1) && ( arrayStationFavoriteBrown.count > indexPath.row ){
             print("4a")
             cell2.leftViewline.backgroundColor = mrtBrownColor
             cell2.rightViewline.backgroundColor = mrtBrownColor
             cell2.bottomViewline.backgroundColor = mrtBrownColor
-            cell2.labelFavoriteContentStationName.text = routeBrownStationName[indexPath.row-1]
+            cell2.labelFavoriteContentStationName.text = arrayStationFavoriteBrown[indexPath.row-1]
+            cell2.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteBrown[indexPath.row-1])
             return cell2
         }
-        if (indexPath.section == 4) && (indexPath.row >= 1) && ( routeBlueStationName.count > indexPath.row ){
+        if (indexPath.section == 4) && (indexPath.row >= 1) && ( arrayStationFavoriteBlue.count > indexPath.row ){
             print("5a")
             cell2.leftViewline.backgroundColor = mrtBlueColor
             cell2.rightViewline.backgroundColor = mrtBlueColor
             cell2.bottomViewline.backgroundColor = mrtBlueColor
-            cell2.labelFavoriteContentStationName.text = routeBlueStationName[indexPath.row-1]
+            cell2.labelFavoriteContentStationName.text = arrayStationFavoriteBlue[indexPath.row-1]
+            cell2.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteBlue[indexPath.row-1])
+
             return cell2
         }
         //----------------------------------------------cell3
         print("aa",indexPath.row)
-        print("bb",routeOrangeStationName.count)
-        print("cc",routeBlueStationName.count)
-        if (indexPath.section == 0) && (indexPath.row == routeOrangeStationName.count){
+        print("bb",arrayStationFavoriteOrange.count)
+        print("cc",arrayStationFavoriteBlue.count)
+        if (indexPath.section == 0) && (indexPath.row == arrayStationFavoriteOrange.count){
             print("1")
             cell3.leftViewline.backgroundColor = mrtOrangeColor
             cell3.rightViewline.backgroundColor = mrtOrangeColor
             cell3.bottomViewline.backgroundColor = mrtOrangeColor
-            cell3.labelFavoriteContentStationName.text = routeOrangeStationName[indexPath.row-1]
+            cell3.labelFavoriteContentStationName.text = arrayStationFavoriteOrange[indexPath.row-1]
+             cell3.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteOrange[indexPath.row-1])
             return cell3
         }
-        if (indexPath.section == 1) && (indexPath.row == routeRedStationName.count){
+        if (indexPath.section == 1) && (indexPath.row == arrayStationFavoriteRed.count){
             print("2")
             cell3.leftViewline.backgroundColor = mrtRedColor
             cell3.rightViewline.backgroundColor = mrtRedColor
             cell3.bottomViewline.backgroundColor = mrtRedColor
-            cell3.labelFavoriteContentStationName.text = routeRedStationName[indexPath.row-1]
+            cell3.labelFavoriteContentStationName.text = arrayStationFavoriteRed[indexPath.row-1]
+             cell3.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteRed[indexPath.row-1])
             return cell3
         }
-        if (indexPath.section == 2) && (indexPath.row == routeGreenStationName.count){
+        if (indexPath.section == 2) && (indexPath.row == arrayStationFavoriteGreen.count){
             print("3")
             cell3.leftViewline.backgroundColor = mrtGreenColor
             cell3.rightViewline.backgroundColor = mrtGreenColor
             cell3.bottomViewline.backgroundColor = mrtGreenColor
-            cell3.labelFavoriteContentStationName.text = routeGreenStationName[indexPath.row-1]
+            cell3.labelFavoriteContentStationName.text = arrayStationFavoriteGreen[indexPath.row-1]
+            cell3.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteGreen[indexPath.row-1])
             return cell3
         }
-        if (indexPath.section == 3) && (indexPath.row == routeBrownStationName.count){
+        if (indexPath.section == 3) && (indexPath.row == arrayStationFavoriteBrown.count){
             print("4")
             cell3.leftViewline.backgroundColor = mrtBrownColor
             cell3.rightViewline.backgroundColor = mrtBrownColor
             cell3.bottomViewline.backgroundColor = mrtBrownColor
-            cell3.labelFavoriteContentStationName.text = routeBrownStationName[indexPath.row-1]
+            cell3.labelFavoriteContentStationName.text = arrayStationFavoriteBrown[indexPath.row-1]
+            cell3.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteBrown[indexPath.row-1])
             return cell3
         }
-        if (indexPath.section == 4) && (indexPath.row == routeBlueStationName.count){
+        if (indexPath.section == 4) && (indexPath.row == arrayStationFavoriteBlue.count){
             print("5")
             cell3.leftViewline.backgroundColor = mrtBlueColor
             cell3.rightViewline.backgroundColor = mrtBlueColor
             cell3.bottomViewline.backgroundColor = mrtBlueColor
-            cell3.labelFavoriteContentStationName.text = routeBlueStationName[indexPath.row-1]
+            cell3.labelFavoriteContentStationName.text = arrayStationFavoriteBlue[indexPath.row-1]
+            cell3.labelUNBNumberLeft.text = filterUMBNumber(stationName: arrayStationFavoriteBlue[indexPath.row-1])
             return cell3
         }
-        
-        
-        
         return UITableViewCell()
     }
-    
+    //比較我的最愛的資料去取得傘的剩餘數量,並且回傳傘的數量
+    func filterUMBNumber(stationName:String) -> String {
+        for (index,number) in deCodeJsonStationResult.enumerated(){
+            if stationName == deCodeJsonStationResult[index].stationName{
+                print("是我的最愛站",deCodeJsonStationResult[index].stationUmbrellaLeftNumber)
+                return deCodeJsonStationResult[index].stationUmbrellaLeftNumber
+            }
+        }
+        print("不是我的最愛站")
+            return ""
+        }
+
+    //實作Delegate的方法
+    func editMyFavoriteStation() {
+        print("第一版我的最愛站點增加的function,已取消")
+    }
+    func didFinishMyFavortieStation() {
+        print("2222")
+    }
+    func cancelActionMyFavortieStation() {
+        print("3333")
+    }
     
 }
 

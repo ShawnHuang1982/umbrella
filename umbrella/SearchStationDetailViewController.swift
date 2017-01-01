@@ -12,6 +12,7 @@ import GoogleMaps
 class SearchStationDetailViewController: UIViewController {
 
 
+    @IBOutlet weak var imageForRouterColor: UIImageView!
     @IBOutlet weak var labelRouteName: UILabel!
     @IBOutlet weak var btnFavorite: UIButton!
     @IBOutlet weak var labelLocationNearDistance: UILabel!
@@ -70,6 +71,26 @@ class SearchStationDetailViewController: UIViewController {
             labelRouteName.text = getView1RouteName1
         //設定button
             btnRoute.layer.cornerRadius =  10
+        //設定路線的圖片顏色
+        switch getView1RouteName1 {
+        case "淡水信義線":
+            print("淡水信義線")
+            imageForRouterColor.image = UIImage(named: "rRed")
+        case "板南線":
+            print("板南線")
+            imageForRouterColor.image = UIImage(named: "rBlue")
+        case "中和新蘆線":
+            print("中和新蘆線")
+            imageForRouterColor.image = UIImage(named: "rYellow")
+        case "文湖線":
+            print("文湖線")
+            imageForRouterColor.image = UIImage(named: "rBrown")
+        case "松山新店線":
+            print("松山新店線")
+            imageForRouterColor.image = UIImage(named: "rGreen")
+        default:
+            print("??線")
+        }
     }
     
     override func didReceiveMemoryWarning() {

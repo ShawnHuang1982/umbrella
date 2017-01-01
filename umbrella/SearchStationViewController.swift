@@ -143,7 +143,6 @@ class SearchStationViewController: UIViewController{
     }
     
     func requestData(){
-        
        // tmpArray = []
         deCodeJsonStationResultSorted = []
         
@@ -157,7 +156,7 @@ class SearchStationViewController: UIViewController{
             switch response.result{
             case .success:
                 let jsonPackage = JSON(response.result.value)
-                //print("站點傘數量json資料包",json)
+                //print("站點傘數量json資料包",jsonPackage)
                 let jsonArrayAllLocation = jsonPackage["all_locations"].arrayValue
                 //print("所有站點json資料包",jsonArrayAllLocation)
                 //  let jsonArrayLocationName = jsonArrayAllLocation.first?["location_name"].stringValue
