@@ -29,7 +29,7 @@ class FavoriteAddNewViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         //設定ScrollView 大小
-        scrollViewMRTMap.contentSize = CGSize(width: viewContainerForMRTImageAndButton.frame.width  , height: viewContainerForMRTImageAndButton.frame.height)
+        scrollViewMRTMap.contentSize = CGSize(width: viewContainerForMRTImageAndButton.frame.width, height: viewContainerForMRTImageAndButton.frame.height)
         //設定ScrollView縮放
         scrollViewMRTMap.setZoomScale(0.5, animated: false)
         scrollViewMRTMap.minimumZoomScale = 0.5

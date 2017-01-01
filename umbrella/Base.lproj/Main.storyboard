@@ -150,19 +150,23 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8nZ-mT-AVD">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bB1-R1-ryc" customClass="MapView" customModule="umbrella" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bB1-R1-ryc" userLabel="Map View(By Round)" customClass="MapView" customModule="umbrella" customModuleProvider="target">
                                 <rect key="frame" x="15" y="79" width="290" height="430"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" minimumZoomScale="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DYA-gg-h3x">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" canCancelContentTouches="NO" minimumZoomScale="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="DYA-gg-h3x">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PX9-PD-xeb">
                                                 <rect key="frame" x="0.0" y="0.0" width="1592" height="2128"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MRT_MAP" translatesAutoresizingMaskIntoConstraints="NO" id="vuf-Xc-qRv">
-                                                        <rect key="frame" x="0.0" y="0.0" width="1592" height="2128"/>
+                                                        <rect key="frame" x="30" y="150" width="1592" height="2128"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76h-rt-yUt">
+                                                        <rect key="frame" x="149" y="85" width="86" height="54"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
@@ -175,10 +179,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="DYA-gg-h3x" secondAttribute="bottom" id="1dX-14-9JA"/>
-                                    <constraint firstAttribute="trailing" secondItem="DYA-gg-h3x" secondAttribute="trailing" id="EwC-yS-OPK"/>
-                                    <constraint firstItem="DYA-gg-h3x" firstAttribute="top" secondItem="bB1-R1-ryc" secondAttribute="top" id="Lau-NQ-WhR"/>
-                                    <constraint firstItem="DYA-gg-h3x" firstAttribute="leading" secondItem="bB1-R1-ryc" secondAttribute="leading" id="Nl3-5w-Zxp"/>
+                                    <constraint firstItem="DYA-gg-h3x" firstAttribute="leading" secondItem="bB1-R1-ryc" secondAttribute="leading" id="0af-rX-0tI"/>
+                                    <constraint firstItem="DYA-gg-h3x" firstAttribute="top" secondItem="bB1-R1-ryc" secondAttribute="top" id="UHg-30-89L"/>
+                                    <constraint firstAttribute="trailing" secondItem="DYA-gg-h3x" secondAttribute="trailing" id="fIV-am-1fW"/>
+                                    <constraint firstAttribute="bottom" secondItem="DYA-gg-h3x" secondAttribute="bottom" id="toh-WK-Twy"/>
                                 </constraints>
                             </view>
                         </subviews>
