@@ -28,30 +28,33 @@ class FavoriteStationViewController: UIViewController,editMyFavoriteStationDeleg
         favoriteStationTableView.dataSource = self
         favoriteStationTableView.delegate = self
         
-   //     let nib1 = UINib(nibName: "CustomFavortieHeaderTableViewCell", bundle: nil)
-    //    let nib2 = UINib(nibName: "CustomFavoriteContentTableViewCell", bundle: nil)
-    //    let nib3 = UINib(nibName: "CustomFavoriteFooterTableViewCell", bundle: nil)
-//        favoriteStationTableView.register(nib1, forCellReuseIdentifier: "Cell1")
-//        favoriteStationTableView.register(nib2, forCellReuseIdentifier: "Cell2")
-//        favoriteStationTableView.register(nib3, forCellReuseIdentifier: "Cell3")
-        }
-
+        //     let nib1 = UINib(nibName: "CustomFavortieHeaderTableViewCell", bundle: nil)
+        //    let nib2 = UINib(nibName: "CustomFavoriteContentTableViewCell", bundle: nil)
+        //    let nib3 = UINib(nibName: "CustomFavoriteFooterTableViewCell", bundle: nil)
+        //        favoriteStationTableView.register(nib1, forCellReuseIdentifier: "Cell1")
+        //        favoriteStationTableView.register(nib2, forCellReuseIdentifier: "Cell2")
+        //        favoriteStationTableView.register(nib3, forCellReuseIdentifier: "Cell3")
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    //    func editFavoriteStationFunc(){
+    //        print("editFavoriteStationFunc")
+    //    }
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension FavoriteStationViewController:UITableViewDataSource{
@@ -77,14 +80,13 @@ extension FavoriteStationViewController:UITableViewDataSource{
         }
     }
     
+    //實作Delegate的方法
     func editMyFavoriteStation() {
         print("zzzz")
     }
-    
     func didFinishMyFavortieStation() {
         print("2222")
     }
-    
     func cancelActionMyFavortieStation() {
         print("3333")
     }
@@ -96,38 +98,42 @@ extension FavoriteStationViewController:UITableViewDataSource{
         //客制Cell要用這種方法生出來,方法1
         let cell1 = Bundle.main.loadNibNamed("CustomFavortieHeaderTableViewCell", owner: self, options: nil)?.first as! CustomFavortieHeaderTableViewCell
         let cell2 = Bundle.main.loadNibNamed("CustomFavoriteContentTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteContentTableViewCell
-         let cell3 = Bundle.main.loadNibNamed("CustomFavoriteFooterTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteFooterTableViewCell
+        let cell3 = Bundle.main.loadNibNamed("CustomFavoriteFooterTableViewCell", owner: self, options: nil)?.first as! CustomFavoriteFooterTableViewCell
         
         //客制Cell要用這種方法生出來,方法2
-//            let cell1 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! CustomFavortieHeaderTableViewCell
-//        let cell2 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! CustomFavoriteContentTableViewCell
-//        let cell3 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! CustomFavoriteFooterTableViewCell
-
+        //            let cell1 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell1", for: indexPath) as! CustomFavortieHeaderTableViewCell
+        //        let cell2 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell2", for: indexPath) as! CustomFavoriteContentTableViewCell
+        //        let cell3 = favoriteStationTableView.dequeueReusableCell(withIdentifier: "Cell3", for: indexPath) as! CustomFavoriteFooterTableViewCell
+        
         //------------------------------------------------
         cell1.delegate = self
         cell1.selectionStyle = .none
         
-//        cell1.layer.masksToBounds = false
-//   //     cell1.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        cell1.layer.shadowColor = UIColor.black.cgColor
-//        cell1.layer.shadowRadius = 40
-//        cell1.layer.shadowOpacity = 3.23
-//   
-//        
-//        cell3.layer.masksToBounds = false
-//    //    cell3.layer.shadowOffset = CGSize(width: 0, height: 0)
-//        cell3.layer.shadowColor = UIColor.black.cgColor
-//        cell3.layer.shadowRadius = 40
-//        cell3.layer.shadowOpacity = 3.23
+        //        cell1.layer.masksToBounds = false
+        //   //     cell1.layer.shadowOffset = CGSize(width: 0, height: 0)
+        //        cell1.layer.shadowColor = UIColor.black.cgColor
+        //        cell1.layer.shadowRadius = 40
+        //        cell1.layer.shadowOpacity = 3.23
+        //
+        //
+        //        cell3.layer.masksToBounds = false
+        //    //    cell3.layer.shadowOffset = CGSize(width: 0, height: 0)
+        //        cell3.layer.shadowColor = UIColor.black.cgColor
+        //        cell3.layer.shadowRadius = 40
+        //        cell3.layer.shadowOpacity = 3.23
         
         
         cell2.selectionStyle = .none
         cell3.selectionStyle = .none
+        
+        cell2.btnFavoriteStatus.isHidden = true
+        cell3.btnFavoriteStatus.isHidden = true
+        
         //----------------------------------------------cell1
         if (indexPath.section == 0) && (indexPath.row == 0){
             cell1.viewInCell.backgroundColor = mrtOrangeColor
-        print(routeName[0])
-        cell1.labelFavoriteStation.text = routeName[0]
+            print(routeName[0])
+            cell1.labelFavoriteStation.text = routeName[0]
             return cell1
         }
         if (indexPath.section == 1) && (indexPath.row == 0){
@@ -159,7 +165,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             cell2.labelFavoriteContentStationName.text = routeOrangeStationName[indexPath.row-1]
             return cell2
         }
-          if (indexPath.section == 1) && (indexPath.row >= 1) && ( routeRedStationName.count > indexPath.row ){
+        if (indexPath.section == 1) && (indexPath.row >= 1) && ( routeRedStationName.count > indexPath.row ){
             print("2a")
             cell2.leftViewline.backgroundColor = mrtRedColor
             cell2.rightViewline.backgroundColor = mrtRedColor
@@ -167,7 +173,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             cell2.labelFavoriteContentStationName.text = routeRedStationName[indexPath.row-1]
             return cell2
         }
-         if (indexPath.section == 2) && (indexPath.row >= 1) && ( routeGreenStationName.count > indexPath.row ){
+        if (indexPath.section == 2) && (indexPath.row >= 1) && ( routeGreenStationName.count > indexPath.row ){
             print("3a")
             cell2.leftViewline.backgroundColor = mrtGreenColor
             cell2.rightViewline.backgroundColor = mrtGreenColor
@@ -175,7 +181,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             cell2.labelFavoriteContentStationName.text = routeGreenStationName[indexPath.row-1]
             return cell2
         }
-          if (indexPath.section == 3) && (indexPath.row >= 1) && ( routeBrownStationName.count > indexPath.row ){
+        if (indexPath.section == 3) && (indexPath.row >= 1) && ( routeBrownStationName.count > indexPath.row ){
             print("4a")
             cell2.leftViewline.backgroundColor = mrtBrownColor
             cell2.rightViewline.backgroundColor = mrtBrownColor
@@ -183,7 +189,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             cell2.labelFavoriteContentStationName.text = routeBrownStationName[indexPath.row-1]
             return cell2
         }
-         if (indexPath.section == 4) && (indexPath.row >= 1) && ( routeBlueStationName.count > indexPath.row ){
+        if (indexPath.section == 4) && (indexPath.row >= 1) && ( routeBlueStationName.count > indexPath.row ){
             print("5a")
             cell2.leftViewline.backgroundColor = mrtBlueColor
             cell2.rightViewline.backgroundColor = mrtBlueColor
@@ -204,15 +210,15 @@ extension FavoriteStationViewController:UITableViewDataSource{
             return cell3
         }
         if (indexPath.section == 1) && (indexPath.row == routeRedStationName.count){
-             print("2")
+            print("2")
             cell3.leftViewline.backgroundColor = mrtRedColor
             cell3.rightViewline.backgroundColor = mrtRedColor
             cell3.bottomViewline.backgroundColor = mrtRedColor
             cell3.labelFavoriteContentStationName.text = routeRedStationName[indexPath.row-1]
-           return cell3
+            return cell3
         }
         if (indexPath.section == 2) && (indexPath.row == routeGreenStationName.count){
-             print("3")
+            print("3")
             cell3.leftViewline.backgroundColor = mrtGreenColor
             cell3.rightViewline.backgroundColor = mrtGreenColor
             cell3.bottomViewline.backgroundColor = mrtGreenColor
@@ -220,7 +226,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             return cell3
         }
         if (indexPath.section == 3) && (indexPath.row == routeBrownStationName.count){
-             print("4")
+            print("4")
             cell3.leftViewline.backgroundColor = mrtBrownColor
             cell3.rightViewline.backgroundColor = mrtBrownColor
             cell3.bottomViewline.backgroundColor = mrtBrownColor
@@ -228,7 +234,7 @@ extension FavoriteStationViewController:UITableViewDataSource{
             return cell3
         }
         if (indexPath.section == 4) && (indexPath.row == routeBlueStationName.count){
-             print("5")
+            print("5")
             cell3.leftViewline.backgroundColor = mrtBlueColor
             cell3.rightViewline.backgroundColor = mrtBlueColor
             cell3.bottomViewline.backgroundColor = mrtBlueColor
@@ -241,17 +247,17 @@ extension FavoriteStationViewController:UITableViewDataSource{
         return UITableViewCell()
     }
     
-
+    
 }
 
 extension FavoriteStationViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      print("did")
+        print("did")
     }
     
     //改Section顏色
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-            view.tintColor = UIColor.clear
+        view.tintColor = UIColor.clear
         
         //tableView.tableFooterView?.backgroundColor = UIColor.clear
     }
@@ -266,12 +272,12 @@ extension FavoriteStationViewController:UITableViewDelegate{
     }
     
     //改cell的高度
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        if indexPath.row == 0{
-//          return 45
-//        }
-//        return 45
-//   }
+    //    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    //        if indexPath.row == 0{
+    //          return 45
+    //        }
+    //        return 45
+    //   }
     
 }
 

@@ -76,14 +76,27 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-uE-bqf">
+                                <rect key="frame" x="285" y="15" width="17" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="6jn-o1-gTe"/>
+                                    <constraint firstAttribute="width" constant="17" id="Ekr-dF-dVk"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="icon_star"/>
+                                <connections>
+                                    <action selector="buttonFavoritePress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="dE9-ao-kbg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="lis-G5-yqm" secondAttribute="trailing" id="5dj-rK-qNf"/>
                             <constraint firstAttribute="bottom" secondItem="vgK-LO-JAV" secondAttribute="bottom" id="8E0-uK-xjP"/>
                             <constraint firstAttribute="trailing" secondItem="vgK-LO-JAV" secondAttribute="trailing" id="CP5-nj-8fq"/>
+                            <constraint firstItem="RFg-uE-bqf" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="15" id="G1E-cQ-bO7"/>
                             <constraint firstItem="3MH-bs-NDb" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" id="J6t-E8-97P"/>
                             <constraint firstItem="xqy-qa-8if" firstAttribute="leading" secondItem="3MH-bs-NDb" secondAttribute="trailing" constant="50" id="KpY-PZ-YvW"/>
+                            <constraint firstItem="lis-G5-yqm" firstAttribute="leading" secondItem="RFg-uE-bqf" secondAttribute="trailing" constant="15" id="PYi-JT-MUv"/>
                             <constraint firstItem="fRW-BZ-JZg" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="8" id="RcG-ch-OYO"/>
                             <constraint firstItem="6CC-ke-43T" firstAttribute="leading" secondItem="fRW-BZ-JZg" secondAttribute="trailing" constant="4" id="Sh0-I1-RXk"/>
                             <constraint firstItem="3MH-bs-NDb" firstAttribute="leading" secondItem="DkN-yb-bj4" secondAttribute="leading" id="Tzu-2J-Tf1"/>
@@ -110,15 +123,17 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomViewline" destination="vgK-LO-JAV" id="vSR-8Q-neF"/>
+                <outlet property="btnFavoriteStatus" destination="RFg-uE-bqf" id="jzV-VZ-3Ho"/>
                 <outlet property="labelFavoriteContentStationName" destination="xqy-qa-8if" id="EG4-5e-vny"/>
                 <outlet property="labelUNBNumberLeft" destination="6CC-ke-43T" id="jHI-Qu-uq7"/>
                 <outlet property="leftViewline" destination="3MH-bs-NDb" id="Mli-jP-0Rj"/>
                 <outlet property="rightViewline" destination="lis-G5-yqm" id="W4D-WN-lXd"/>
             </connections>
-            <point key="canvasLocation" x="34" y="105"/>
+            <point key="canvasLocation" x="34" y="104.5"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_star" width="84" height="84"/>
         <image name="icon_umbrella" width="141" height="134"/>
     </resources>
 </document>

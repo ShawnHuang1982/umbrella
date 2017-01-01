@@ -16,10 +16,11 @@
 		29044D691E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */; };
 		29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */; };
 		29044D6D1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */; };
-		29044D6F1E0817B5002A82B0 /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */; };
 		29044D721E08C179002A82B0 /* CustomStaionListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */; };
 		29044D731E08C179002A82B0 /* CustomStaionListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */; };
 		2907FFCE1E167D3C001BEFBD /* SearchStationViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2907FFCD1E167D3C001BEFBD /* SearchStationViewControllerTest.swift */; };
+		291777EF1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291777EE1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift */; };
+		291777F31E180F9600DA0DA1 /* FavoriteStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 291777F21E180F9600DA0DA1 /* FavoriteStationViewController.swift */; };
 		2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */; };
 		2936B2621E093D5C007DD810 /* QRCodeScanSuccessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */; };
 		2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */; };
@@ -38,6 +39,8 @@
 		29F259AD1E156BD900526C54 /* FavoriteCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */; };
 		29F259AF1E15770B00526C54 /* FavoriteCellShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */; };
 		29F504641E14DAC6003AB4F8 /* SearchStationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */; };
+		29FD47381E18C52C00D73A73 /* FavoriteAddNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD47371E18C52C00D73A73 /* FavoriteAddNewViewController.swift */; };
+		29FD473C1E18DA5900D73A73 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29FD473B1E18DA5900D73A73 /* MapView.swift */; };
 		C3C35E3FD0F8F379396A4E69 /* Pods_umbrella.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FCFCC15ACCFB762FCC862A2 /* Pods_umbrella.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,10 +54,11 @@
 		29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFavoriteContentTableViewCell.xib; sourceTree = "<group>"; };
 		29044D6A1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFavoriteFooterTableViewCell.swift; sourceTree = "<group>"; };
 		29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomFavoriteFooterTableViewCell.xib; sourceTree = "<group>"; };
-		29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
 		29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStaionListTableViewCell.swift; sourceTree = "<group>"; };
 		29044D711E08C179002A82B0 /* CustomStaionListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomStaionListTableViewCell.xib; sourceTree = "<group>"; };
 		2907FFCD1E167D3C001BEFBD /* SearchStationViewControllerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewControllerTest.swift; sourceTree = "<group>"; };
+		291777EE1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavortieStationDetailViewController.swift; sourceTree = "<group>"; };
+		291777F21E180F9600DA0DA1 /* FavoriteStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteStationViewController.swift; sourceTree = "<group>"; };
 		2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReturnHistoryViewController.swift; sourceTree = "<group>"; };
 		2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanSuccessViewController.swift; sourceTree = "<group>"; };
 		2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanFailureViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +81,8 @@
 		29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellFooter.swift; sourceTree = "<group>"; };
 		29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCellShadow.swift; sourceTree = "<group>"; };
 		29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationDetailViewController.swift; sourceTree = "<group>"; };
+		29FD47371E18C52C00D73A73 /* FavoriteAddNewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteAddNewViewController.swift; sourceTree = "<group>"; };
+		29FD473B1E18DA5900D73A73 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		61F3CDED81AB6D0875456795 /* Pods-umbrella.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umbrella.debug.xcconfig"; path = "Pods/Target Support Files/Pods-umbrella/Pods-umbrella.debug.xcconfig"; sourceTree = "<group>"; };
 		77D6F9D14611C3277A32C1A5 /* Pods-umbrella.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-umbrella.release.xcconfig"; path = "Pods/Target Support Files/Pods-umbrella/Pods-umbrella.release.xcconfig"; sourceTree = "<group>"; };
 		8FCFCC15ACCFB762FCC862A2 /* Pods_umbrella.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_umbrella.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,7 +143,9 @@
 		29044D5A1E07F8E1002A82B0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				29044D6E1E0817B5002A82B0 /* FavoriteStationViewController.swift */,
+				291777F21E180F9600DA0DA1 /* FavoriteStationViewController.swift */,
+				291777EE1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift */,
+				29FD47371E18C52C00D73A73 /* FavoriteAddNewViewController.swift */,
 				29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */,
 				29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */,
 				29F1817C1E02754200A3E409 /* ViewController.swift */,
@@ -173,6 +181,7 @@
 				29F259AA1E156BC600526C54 /* FavoriteCellHeader.swift */,
 				29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */,
 				29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */,
+				29FD473B1E18DA5900D73A73 /* MapView.swift */,
 			);
 			name = View_func;
 			sourceTree = "<group>";
@@ -345,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
+				29FD47381E18C52C00D73A73 /* FavoriteAddNewViewController.swift in Sources */,
 				29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */,
 				29F259AD1E156BD900526C54 /* FavoriteCellFooter.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
@@ -362,12 +372,14 @@
 				2907FFCE1E167D3C001BEFBD /* SearchStationViewControllerTest.swift in Sources */,
 				29044D6C1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.swift in Sources */,
 				29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */,
+				291777F31E180F9600DA0DA1 /* FavoriteStationViewController.swift in Sources */,
+				29FD473C1E18DA5900D73A73 /* MapView.swift in Sources */,
 				29044D681E08000D002A82B0 /* CustomFavoriteContentTableViewCell.swift in Sources */,
 				049D8BFA1E0280AD00AD4BEA /* QRCodeScannerViewController.swift in Sources */,
 				2936B2621E093D5C007DD810 /* QRCodeScanSuccessViewController.swift in Sources */,
 				29044D641E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.swift in Sources */,
 				29044D571E07F684002A82B0 /* ViewExtension.swift in Sources */,
-				29044D6F1E0817B5002A82B0 /* FavoriteStationViewController.swift in Sources */,
+				291777EF1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

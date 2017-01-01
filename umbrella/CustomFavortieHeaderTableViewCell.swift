@@ -19,40 +19,40 @@ class CustomFavortieHeaderTableViewCell: UITableViewCell {
     var delegate:editMyFavoriteStationDelegate?
     
     var isFirstDisplay = false
-    @IBOutlet weak var btnEdit: UIButton!
-    @IBOutlet weak var btnCancel: UIButton!
-    @IBOutlet weak var btnDidFinish: UIButton!
+//    @IBOutlet weak var btnEdit: UIButton!
+//    @IBOutlet weak var btnCancel: UIButton!
+//    @IBOutlet weak var btnDidFinish: UIButton!
     @IBOutlet weak var viewInCell: UIView!
     @IBOutlet weak var labelFavoriteStation: UILabel!
     var viewInCellCopy = CALayer()
     
     
-    @IBAction func buttonCancel(_ sender: Any) {
-        print("upup")
-        delegate?.cancelActionMyFavortieStation()
-        btnEdit.isHidden = false
-        btnCancel.isHidden = true
-        btnDidFinish.isHidden = true
+//    @IBAction func buttonCancel(_ sender: Any) {
+//        print("upup")
+//        delegate?.cancelActionMyFavortieStation()
+//        btnEdit.isHidden = false
+//        btnCancel.isHidden = true
+//        btnDidFinish.isHidden = true
+//    }
+    
+//    @IBAction func buttonDidFinish(_ sender: Any) {
+//         print("gogogo")
+//        delegate?.didFinishMyFavortieStation()
+//        btnEdit.isHidden = false
+//        btnCancel.isHidden = true
+//        btnDidFinish.isHidden = true
+//    }
 
-    }
-    @IBAction func buttonDidFinish(_ sender: Any) {
-         print("gogogo")
-        delegate?.didFinishMyFavortieStation()
-        btnEdit.isHidden = false
-        btnCancel.isHidden = true
-        btnDidFinish.isHidden = true
-    }
-
     
     
     
-    @IBAction func buttonEditFavoriteStation(_ sender: UIButton) {
-        print("yaya")
-        delegate?.editMyFavoriteStation()
-        btnEdit.isHidden = true
-        btnCancel.isHidden = false
-        btnDidFinish.isHidden = false
-    }
+//    @IBAction func buttonEditFavoriteStation(_ sender: UIButton) {
+//        print("yaya")
+//        delegate?.editMyFavoriteStation()
+//        btnEdit.isHidden = true
+//        btnCancel.isHidden = false
+//        btnDidFinish.isHidden = false
+//    }
     
     
     override func awakeFromNib() {

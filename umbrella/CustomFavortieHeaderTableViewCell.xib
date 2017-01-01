@@ -31,51 +31,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qMG-to-2Ts">
-                                <rect key="frame" x="270" y="0.0" width="50" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="eLJ-2e-K1f"/>
-                                    <constraint firstAttribute="width" constant="50" id="rjt-Zh-SSO"/>
-                                </constraints>
-                                <state key="normal" image="icon_edit"/>
-                                <connections>
-                                    <action selector="buttonEditFavoriteStation:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="F0d-AD-U2L"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vdn-Oq-64L">
-                                <rect key="frame" x="220" y="0.0" width="50" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="Sfc-lL-Xuf"/>
-                                    <constraint firstAttribute="width" constant="50" id="z5k-AJ-rSL"/>
-                                </constraints>
-                                <state key="normal" image="icon_ok"/>
-                                <connections>
-                                    <action selector="buttonDidFinish:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="V08-u6-D7R"/>
-                                </connections>
-                            </button>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEd-Pr-hAx">
-                                <rect key="frame" x="170" y="0.0" width="50" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="k5y-7c-oXK"/>
-                                    <constraint firstAttribute="width" constant="50" id="m0J-fX-T7N"/>
-                                </constraints>
-                                <state key="normal" image="icon_cancel"/>
-                                <connections>
-                                    <action selector="buttonCancel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Bi9-fh-xKw"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.88851559160000004" green="0.0016139459330000001" blue="0.17870166900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="qMG-to-2Ts" firstAttribute="top" secondItem="UHb-hv-8lV" secondAttribute="top" id="0Ep-5B-dwg"/>
-                            <constraint firstItem="NEd-Pr-hAx" firstAttribute="top" secondItem="UHb-hv-8lV" secondAttribute="top" id="A66-aF-a3Q"/>
                             <constraint firstItem="n01-yk-s0f" firstAttribute="leading" secondItem="UHb-hv-8lV" secondAttribute="leading" constant="10" id="C95-gl-TAL"/>
-                            <constraint firstAttribute="trailing" secondItem="qMG-to-2Ts" secondAttribute="trailing" id="ILp-hQ-qtV"/>
-                            <constraint firstAttribute="bottom" secondItem="qMG-to-2Ts" secondAttribute="bottom" id="Src-Ug-4Rf"/>
-                            <constraint firstItem="Vdn-Oq-64L" firstAttribute="leading" secondItem="NEd-Pr-hAx" secondAttribute="trailing" id="XQV-jE-o4A"/>
-                            <constraint firstItem="qMG-to-2Ts" firstAttribute="leading" secondItem="Vdn-Oq-64L" secondAttribute="trailing" id="cRg-QO-mra"/>
                             <constraint firstItem="n01-yk-s0f" firstAttribute="centerY" secondItem="UHb-hv-8lV" secondAttribute="centerY" id="pep-bF-zem"/>
-                            <constraint firstItem="Vdn-Oq-64L" firstAttribute="top" secondItem="UHb-hv-8lV" secondAttribute="top" id="y1h-Gs-7gt"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -88,17 +48,9 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="btnCancel" destination="NEd-Pr-hAx" id="2OX-04-Iup"/>
-                <outlet property="btnDidFinish" destination="Vdn-Oq-64L" id="dVs-Ut-nJY"/>
-                <outlet property="btnEdit" destination="qMG-to-2Ts" id="c9q-AM-HSI"/>
                 <outlet property="labelFavoriteStation" destination="n01-yk-s0f" id="AWv-aG-zNH"/>
                 <outlet property="viewInCell" destination="UHb-hv-8lV" id="Z0h-Ce-J8Z"/>
             </connections>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="icon_cancel" width="14" height="14"/>
-        <image name="icon_edit" width="15" height="15"/>
-        <image name="icon_ok" width="17" height="13"/>
-    </resources>
 </document>

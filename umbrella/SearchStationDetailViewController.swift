@@ -34,9 +34,9 @@ class SearchStationDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.tintColor = UIColor.white //有效
-       self.navigationController?.navigationItem.leftBarButtonItem?.title = "" //無效
-        self.navigationController?.navigationItem.backBarButtonItem?.title = ""   //無效
-        //        self.navigationItem.hidesBackButton = true //有效
+//       self.navigationController?.navigationItem.leftBarButtonItem?.title = "" //無效
+//        self.navigationController?.navigationItem.backBarButtonItem?.title = ""   //無效
+//        //        self.navigationItem.hidesBackButton = true //有效
         
         //self.navigationItem.backBarButtonItem?.title = " " //無效
         //        self.navigationItem.backBarButtonItem?.title = "" //無效
@@ -92,7 +92,6 @@ class SearchStationDetailViewController: UIViewController {
     
     @IBAction func barItemBack(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
-        
     }
     
     /*

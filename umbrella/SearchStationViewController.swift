@@ -42,16 +42,16 @@ class SearchStationViewController: UIViewController{
 //    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableViewStationList: UITableView!
 //    @IBOutlet weak var mapView: UIView!
-    var tmpArray = [""]
-    var testArray1 = ["222松江南京","223行天宮"]
+    //var tmpArray = [""]
+   // var testArray1 = ["222松江南京","223行天宮"]
     var testArray2 = ["驗票閘門處","4號出口地面出口處","1號出口方向驗票閘門處"]
-    var testArray3 = ["5","15","10","10"]
-    //var testArray4 = ["100","123"]    //假資料
-    var testArray5lat = [25.0512257,25.059717]
-    var testArray5lng = [121.5327387,121.533184]
-     var data1 = [[String:String]]()
-    var testArray6 = [String]()
-    var testArray7 = ["松江南京線","板南線"]
+  //  var testArray3 = ["5","15","10","10"] //測試用資料
+    //var testArray4 = ["100","123"]    //測試用資料
+  //  var testArray5lat = [25.0512257,25.059717]   //測試用資料
+   // var testArray5lng = [121.5327387,121.533184] //測試用資料
+   //  var data1 = [[String:String]]()
+  //  var testArray6 = [String]()   testArray6
+//    var testArray7 = ["松江南京線","板南線"] //測試用資料
     
 //    @IBOutlet weak var viewForContainer: UIView!
 //    @IBOutlet weak var scrollVewMRTMap: UIScrollView!
@@ -144,7 +144,7 @@ class SearchStationViewController: UIViewController{
     
     func requestData(){
         
-        tmpArray = []
+       // tmpArray = []
         deCodeJsonStationResultSorted = []
         
         let urlString = "http://139.162.76.87/api/v1/stations"

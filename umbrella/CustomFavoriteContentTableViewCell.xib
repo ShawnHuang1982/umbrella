@@ -66,6 +66,17 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNT-OM-GR4">
+                        <rect key="frame" x="285" y="15" width="17" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="ctS-Yf-SOL"/>
+                            <constraint firstAttribute="height" constant="17" id="fF6-fk-BoG"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="icon_star"/>
+                        <connections>
+                            <action selector="buttonFavoritePress:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Psp-4c-vlo"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="WQ5-PR-xux" secondAttribute="bottom" id="3Vf-c1-6HG"/>
@@ -82,12 +93,15 @@
                     <constraint firstItem="4hj-7a-FKQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="lbT-dM-ReN"/>
                     <constraint firstItem="MyO-Fk-r8J" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="oMs-Af-rOA"/>
                     <constraint firstItem="MyO-Fk-r8J" firstAttribute="leading" secondItem="emC-8V-IGI" secondAttribute="trailing" constant="4" id="qJO-9k-49p"/>
+                    <constraint firstItem="4hj-7a-FKQ" firstAttribute="leading" secondItem="sNT-OM-GR4" secondAttribute="trailing" constant="15" id="r0i-ig-OOa"/>
                     <constraint firstItem="ka6-0V-Dos" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sGm-BJ-wFX"/>
                     <constraint firstItem="emC-8V-IGI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uoI-CS-Yx7"/>
+                    <constraint firstItem="sNT-OM-GR4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="z7a-lC-7Mx"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomViewline" destination="ka6-0V-Dos" id="a7F-sU-cm0"/>
+                <outlet property="btnFavoriteStatus" destination="sNT-OM-GR4" id="wi9-uV-8i3"/>
                 <outlet property="labelFavoriteContentStationName" destination="FXm-ic-GEQ" id="h0i-yI-tLR"/>
                 <outlet property="labelUNBNumberLeft" destination="MyO-Fk-r8J" id="bol-9t-0uX"/>
                 <outlet property="leftViewline" destination="WQ5-PR-xux" id="I3e-kX-osv"/>
@@ -97,6 +111,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="icon_star" width="84" height="84"/>
         <image name="icon_umbrella" width="141" height="134"/>
     </resources>
 </document>

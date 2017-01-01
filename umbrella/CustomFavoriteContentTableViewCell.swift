@@ -10,7 +10,12 @@ import UIKit
 
 class CustomFavoriteContentTableViewCell: UITableViewCell {
 
+
+    @IBAction func buttonFavoritePress(_ sender: Any) {
     
+    }
+    
+    @IBOutlet weak var btnFavoriteStatus: UIButton!
     @IBOutlet weak var bottomViewline: UIView!
     @IBOutlet weak var rightViewline: UIView!
     @IBOutlet weak var leftViewline: UIView!    

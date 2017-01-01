@@ -10,6 +10,9 @@ import UIKit
 
 class CustomFavoriteFooterTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var btnFavoriteStatus: UIButton!
+    @IBAction func buttonFavoritePress(_ sender: Any) {
+    }
     var isFirstDisplay = false
 //    @IBOutlet weak var labelUNBCanMoveNumber: UILabel!
     @IBOutlet weak var labelUNBNumberLeft: UILabel!
