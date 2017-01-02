@@ -28,6 +28,15 @@
 		2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2681E09504B007DD810 /* CreditCardViewController.swift */; };
 		2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */; };
 		29A3F76C1E02935000FA22E2 /* SearchStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */; };
+		29BE48DD1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48DB1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.swift */; };
+		29BE48DE1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE48DC1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.xib */; };
+		29BE48E11E1A8CA2002993FC /* CustomHistoryContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48DF1E1A8CA2002993FC /* CustomHistoryContentTableViewCell.swift */; };
+		29BE48E21E1A8CA2002993FC /* CustomHistoryContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE48E01E1A8CA2002993FC /* CustomHistoryContentTableViewCell.xib */; };
+		29BE48E51E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48E31E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.swift */; };
+		29BE48E61E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BE48E41E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.xib */; };
+		29BE48EA1E1A98FA002993FC /* StructRentHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48E91E1A98FA002993FC /* StructRentHistory.swift */; };
+		29BE48EC1E1AA27D002993FC /* HistoryCellFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48EB1E1AA27D002993FC /* HistoryCellFooter.swift */; };
+		29BE48EE1E1AA28F002993FC /* HistoryCellHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE48ED1E1AA28F002993FC /* HistoryCellHeader.swift */; };
 		29CB66471E1288BF00D9DD85 /* QRCodeRentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29CB66461E1288BF00D9DD85 /* QRCodeRentedViewController.swift */; };
 		29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */; };
 		29F1817B1E02754200A3E409 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29F1817A1E02754200A3E409 /* AppDelegate.swift */; };
@@ -68,6 +77,15 @@
 		29A3F76B1E02935000FA22E2 /* SearchStationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchStationViewController.swift; sourceTree = "<group>"; };
 		29A9B5131E17EDB6001C09AD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		29A9B5141E17EDB7001C09AD /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
+		29BE48DB1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryHeaderTableViewCell.swift; sourceTree = "<group>"; };
+		29BE48DC1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHistoryHeaderTableViewCell.xib; sourceTree = "<group>"; };
+		29BE48DF1E1A8CA2002993FC /* CustomHistoryContentTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryContentTableViewCell.swift; sourceTree = "<group>"; };
+		29BE48E01E1A8CA2002993FC /* CustomHistoryContentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHistoryContentTableViewCell.xib; sourceTree = "<group>"; };
+		29BE48E31E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHistoryFooterTableViewCell.swift; sourceTree = "<group>"; };
+		29BE48E41E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomHistoryFooterTableViewCell.xib; sourceTree = "<group>"; };
+		29BE48E91E1A98FA002993FC /* StructRentHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StructRentHistory.swift; sourceTree = "<group>"; };
+		29BE48EB1E1AA27D002993FC /* HistoryCellFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCellFooter.swift; sourceTree = "<group>"; };
+		29BE48ED1E1AA28F002993FC /* HistoryCellHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCellHeader.swift; sourceTree = "<group>"; };
 		29CB66461E1288BF00D9DD85 /* QRCodeRentedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeRentedViewController.swift; sourceTree = "<group>"; };
 		29D3E02F1E092CCF00225217 /* LoginOutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginOutViewController.swift; sourceTree = "<group>"; };
 		29F181771E02754200A3E409 /* umbrella.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = umbrella.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +154,9 @@
 				29044D631E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.xib */,
 				29044D671E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib */,
 				29044D6B1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib */,
+				29BE48DC1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.xib */,
+				29BE48E01E1A8CA2002993FC /* CustomHistoryContentTableViewCell.xib */,
+				29BE48E41E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -143,6 +164,7 @@
 		29044D5A1E07F8E1002A82B0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */,
 				291777F21E180F9600DA0DA1 /* FavoriteStationViewController.swift */,
 				291777EE1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift */,
 				29FD47371E18C52C00D73A73 /* FavoriteAddNewViewController.swift */,
@@ -150,7 +172,6 @@
 				29F504631E14DAC6003AB4F8 /* SearchStationDetailViewController.swift */,
 				29F1817C1E02754200A3E409 /* ViewController.swift */,
 				047536A41E055647000F5E53 /* SettingTableViewController.swift */,
-				2936B25F1E093BBE007DD810 /* ReturnHistoryViewController.swift */,
 				049D8BF91E0280AD00AD4BEA /* QRCodeScannerViewController.swift */,
 				2936B2611E093D5C007DD810 /* QRCodeScanSuccessViewController.swift */,
 				2936B2631E093D74007DD810 /* QRCodeScanFailureViewController.swift */,
@@ -164,9 +185,9 @@
 		29044D5B1E07F912002A82B0 /* ViewController_func */ = {
 			isa = PBXGroup;
 			children = (
+				2907FFCD1E167D3C001BEFBD /* SearchStationViewControllerTest.swift */,
 				29044D561E07F684002A82B0 /* ViewExtension.swift */,
 				2936B2DF1E0A70EC007DD810 /* SearchStationExtensionTableView.swift */,
-				2907FFCD1E167D3C001BEFBD /* SearchStationViewControllerTest.swift */,
 			);
 			name = ViewController_func;
 			sourceTree = "<group>";
@@ -174,6 +195,9 @@
 		29044D601E07F9D7002A82B0 /* View_func */ = {
 			isa = PBXGroup;
 			children = (
+				29BE48DB1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.swift */,
+				29BE48DF1E1A8CA2002993FC /* CustomHistoryContentTableViewCell.swift */,
+				29BE48E31E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.swift */,
 				29044D701E08C179002A82B0 /* CustomStaionListTableViewCell.swift */,
 				29044D621E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.swift */,
 				29044D661E08000D002A82B0 /* CustomFavoriteContentTableViewCell.swift */,
@@ -182,6 +206,8 @@
 				29F259AC1E156BD900526C54 /* FavoriteCellFooter.swift */,
 				29F259AE1E15770B00526C54 /* FavoriteCellShadow.swift */,
 				29FD473B1E18DA5900D73A73 /* MapView.swift */,
+				29BE48ED1E1AA28F002993FC /* HistoryCellHeader.swift */,
+				29BE48EB1E1AA27D002993FC /* HistoryCellFooter.swift */,
 			);
 			name = View_func;
 			sourceTree = "<group>";
@@ -190,6 +216,7 @@
 			isa = PBXGroup;
 			children = (
 				2936B2661E094AE0007DD810 /* StructStation.swift */,
+				29BE48E91E1A98FA002993FC /* StructRentHistory.swift */,
 			);
 			name = Struct;
 			sourceTree = "<group>";
@@ -288,12 +315,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29BE48E61E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.xib in Resources */,
 				29F181851E02754200A3E409 /* LaunchScreen.storyboard in Resources */,
 				29F1818D1E027C5D00A3E409 /* Assets.xcassets in Resources */,
 				29044D691E08000D002A82B0 /* CustomFavoriteContentTableViewCell.xib in Resources */,
 				29044D6D1E080037002A82B0 /* CustomFavoriteFooterTableViewCell.xib in Resources */,
 				29044D651E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.xib in Resources */,
 				29F181801E02754200A3E409 /* Main.storyboard in Resources */,
+				29BE48DE1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.xib in Resources */,
+				29BE48E21E1A8CA2002993FC /* CustomHistoryContentTableViewCell.xib in Resources */,
 				29044D731E08C179002A82B0 /* CustomStaionListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,13 +385,17 @@
 			files = (
 				047536A51E055647000F5E53 /* SettingTableViewController.swift in Sources */,
 				29FD47381E18C52C00D73A73 /* FavoriteAddNewViewController.swift in Sources */,
+				29BE48EA1E1A98FA002993FC /* StructRentHistory.swift in Sources */,
 				29D3E0301E092CCF00225217 /* LoginOutViewController.swift in Sources */,
 				29F259AD1E156BD900526C54 /* FavoriteCellFooter.swift in Sources */,
 				29F1817D1E02754200A3E409 /* ViewController.swift in Sources */,
 				2936B2691E09504B007DD810 /* CreditCardViewController.swift in Sources */,
+				29BE48EC1E1AA27D002993FC /* HistoryCellFooter.swift in Sources */,
+				29BE48DD1E1A8C70002993FC /* CustomHistoryHeaderTableViewCell.swift in Sources */,
 				29F504641E14DAC6003AB4F8 /* SearchStationDetailViewController.swift in Sources */,
 				29CB66471E1288BF00D9DD85 /* QRCodeRentedViewController.swift in Sources */,
 				2936B2601E093BBE007DD810 /* ReturnHistoryViewController.swift in Sources */,
+				29BE48E51E1A8CB8002993FC /* CustomHistoryFooterTableViewCell.swift in Sources */,
 				29F259AB1E156BC600526C54 /* FavoriteCellHeader.swift in Sources */,
 				2936B2641E093D74007DD810 /* QRCodeScanFailureViewController.swift in Sources */,
 				2936B2E01E0A70EC007DD810 /* SearchStationExtensionTableView.swift in Sources */,
@@ -378,6 +412,8 @@
 				049D8BFA1E0280AD00AD4BEA /* QRCodeScannerViewController.swift in Sources */,
 				2936B2621E093D5C007DD810 /* QRCodeScanSuccessViewController.swift in Sources */,
 				29044D641E07FF0B002A82B0 /* CustomFavortieHeaderTableViewCell.swift in Sources */,
+				29BE48E11E1A8CA2002993FC /* CustomHistoryContentTableViewCell.swift in Sources */,
+				29BE48EE1E1AA28F002993FC /* HistoryCellHeader.swift in Sources */,
 				29044D571E07F684002A82B0 /* ViewExtension.swift in Sources */,
 				291777EF1E180EDD00DA0DA1 /* FavortieStationDetailViewController.swift in Sources */,
 			);

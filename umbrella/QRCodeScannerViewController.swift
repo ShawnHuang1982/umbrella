@@ -276,7 +276,7 @@ class QRCodeScannerViewController: UIViewController,AVCaptureMetadataOutputObjec
                     //print(view.layer.bounds)
                     //            videoPreviewLayer?.frame = view.layer.bounds
                     //設定掃瞄QRCode的視窗
-                    videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: (imageForQRCodeScan.frame.width+20), height: (imageForQRCodeScan.frame.height+20) )
+                    videoPreviewLayer?.frame = CGRect(x: imageForQRCodeScan.frame.origin.x, y: imageForQRCodeScan.frame.origin.y, width: (imageForQRCodeScan.frame.width), height: (imageForQRCodeScan.frame.height) )
                     print("1.------>",imageForQRCodeScan)
                 //if (videoPreviewLayer == nil){
                     view.layer.addSublayer(videoPreviewLayer!)

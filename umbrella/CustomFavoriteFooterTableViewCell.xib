@@ -77,10 +77,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFg-uE-bqf">
-                                <rect key="frame" x="285" y="15" width="17" height="17"/>
+                                <rect key="frame" x="272" y="10" width="30" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="17" id="6jn-o1-gTe"/>
-                                    <constraint firstAttribute="width" constant="17" id="Ekr-dF-dVk"/>
+                                    <constraint firstAttribute="height" constant="30" id="6jn-o1-gTe"/>
+                                    <constraint firstAttribute="width" constant="30" id="Ekr-dF-dVk"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="icon_star"/>
                                 <connections>
@@ -93,7 +93,7 @@
                             <constraint firstAttribute="trailing" secondItem="lis-G5-yqm" secondAttribute="trailing" id="5dj-rK-qNf"/>
                             <constraint firstAttribute="bottom" secondItem="vgK-LO-JAV" secondAttribute="bottom" id="8E0-uK-xjP"/>
                             <constraint firstAttribute="trailing" secondItem="vgK-LO-JAV" secondAttribute="trailing" id="CP5-nj-8fq"/>
-                            <constraint firstItem="RFg-uE-bqf" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="15" id="G1E-cQ-bO7"/>
+                            <constraint firstItem="RFg-uE-bqf" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" constant="10" id="G1E-cQ-bO7"/>
                             <constraint firstItem="3MH-bs-NDb" firstAttribute="top" secondItem="DkN-yb-bj4" secondAttribute="top" id="J6t-E8-97P"/>
                             <constraint firstItem="xqy-qa-8if" firstAttribute="leading" secondItem="3MH-bs-NDb" secondAttribute="trailing" constant="50" id="KpY-PZ-YvW"/>
                             <constraint firstItem="lis-G5-yqm" firstAttribute="leading" secondItem="RFg-uE-bqf" secondAttribute="trailing" constant="15" id="PYi-JT-MUv"/>

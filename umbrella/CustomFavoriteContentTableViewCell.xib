@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-PR-xux" userLabel="LeftViewline">
@@ -67,10 +67,10 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNT-OM-GR4">
-                        <rect key="frame" x="285" y="15" width="17" height="17"/>
+                        <rect key="frame" x="272" y="10" width="30" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="17" id="ctS-Yf-SOL"/>
-                            <constraint firstAttribute="height" constant="17" id="fF6-fk-BoG"/>
+                            <constraint firstAttribute="width" constant="30" id="ctS-Yf-SOL"/>
+                            <constraint firstAttribute="height" constant="30" id="fF6-fk-BoG"/>
                         </constraints>
                         <state key="normal" backgroundImage="icon_star"/>
                         <connections>
@@ -96,7 +96,7 @@
                     <constraint firstItem="4hj-7a-FKQ" firstAttribute="leading" secondItem="sNT-OM-GR4" secondAttribute="trailing" constant="15" id="r0i-ig-OOa"/>
                     <constraint firstItem="ka6-0V-Dos" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="sGm-BJ-wFX"/>
                     <constraint firstItem="emC-8V-IGI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="uoI-CS-Yx7"/>
-                    <constraint firstItem="sNT-OM-GR4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="z7a-lC-7Mx"/>
+                    <constraint firstItem="sNT-OM-GR4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="z7a-lC-7Mx"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
