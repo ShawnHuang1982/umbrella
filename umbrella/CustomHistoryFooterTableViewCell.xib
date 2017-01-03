@@ -33,7 +33,7 @@
                         </constraints>
                     </view>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E9s-sK-tdA">
-                        <rect key="frame" x="74" y="11" width="20" height="20"/>
+                        <rect key="frame" x="94" y="11" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="7BU-mY-3x9"/>
                             <constraint firstAttribute="width" constant="20" id="boV-re-CYP"/>
@@ -50,9 +50,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q7x-hS-BPx">
-                        <rect key="frame" x="5" y="11" width="50" height="21"/>
+                        <rect key="frame" x="5" y="11" width="70" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Kbo-cO-mWP"/>
+                            <constraint firstAttribute="width" constant="70" id="Kbo-cO-mWP"/>
                             <constraint firstAttribute="height" constant="21" id="ot0-gY-O0z"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="PingFangTC-Regular" family="PingFang TC" pointSize="11"/>
@@ -69,7 +69,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-Wg-7JK">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-Wg-7JK">
                         <rect key="frame" x="243" y="11" width="30" height="21"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="J1Z-Lo-InR"/>
@@ -79,7 +79,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSn-cM-fGH">
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="天" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SSn-cM-fGH">
                         <rect key="frame" x="274" y="11" width="15" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="2TO-Sx-qXY"/>
@@ -90,14 +90,14 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wIM-TT-eYz">
-                        <rect key="frame" x="97" y="11" width="20" height="20"/>
+                        <rect key="frame" x="117" y="11" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="20" id="ZbY-Tg-r17"/>
                             <constraint firstAttribute="width" constant="20" id="aRa-3N-KGS"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="路線" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgI-KH-tiV">
-                        <rect key="frame" x="60" y="11" width="160" height="21"/>
+                        <rect key="frame" x="80" y="11" width="160" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="h5O-k0-ZKV"/>
                             <constraint firstAttribute="width" constant="160" id="lEn-dO-SAC"/>

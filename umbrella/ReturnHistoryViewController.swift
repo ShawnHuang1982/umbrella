@@ -72,7 +72,7 @@ class ReturnHistoryViewController: UIViewController {
                     var dateFormatter = DateFormatter()
                     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
                     let date = dateFormatter.date(from: f)
-                    dateFormatter.dateFormat = "yy/MM/dd"
+                    dateFormatter.dateFormat = "yyyy/MM/dd"
                     let dateShort = dateFormatter.string(from: date!)
                     //資料儲存
                 self.deJsonArrayRentHistory.append( StructRentHistory(day: a, money: b, date: dateShort, route: e))
