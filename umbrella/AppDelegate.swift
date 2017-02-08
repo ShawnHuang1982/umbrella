@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var jsonCanRent = false
     var jsonCanRentReady = "NotReady"
     var userNameDidLogin = ""
-     var googleAPIKeyForIOS = "AIzaSyCFfFy-nbW_as_0rf0P1Y8LGg6v89_TguI"
+     var googleAPIKeyForIOS = "" //sercurity
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
